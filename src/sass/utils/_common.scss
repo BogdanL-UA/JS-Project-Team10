@@ -1,6 +1,5 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
-
 h1,
 h2,
 h3,
@@ -8,67 +7,57 @@ h4,
 h5,
 h6,
 p {
-    margin-top: 0;
-    margin-bottom: 0;
-
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 ul,
 ol {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
-
-
 
 /*скидаємо стилі від браузера*/
 .list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* скидаємо підкреслення посилань */
 .link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 button {
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-    border: none;
+  display: block;
+  // margin: 0 auto;
+  cursor: pointer;
+  border: none;
 }
-
-
-
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-
-    background-color: $header-white-color;
-    font-family: $primary-font;
-    font-weight: 500;
-    font-size: $primary-font-size;
-    color: $card-text-color;
-    line-height: 1.33;
-
+  background-color: $header-white-color;
+  font-family: $primary-font;
+  font-weight: 500;
+  font-size: $primary-font-size;
+  color: $card-text-color;
+  line-height: 1.33;
 }
