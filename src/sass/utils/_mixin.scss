@@ -1,0 +1,16 @@
+@mixin font($fs: 14px, $fw: 400, $lh: 16px) {
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh / $fs;
+}
+
+
+// для використання пишемо:  @include important-text;
+
+// Наприклад
+// .some_style {
+//     @include font;
+//     ..............
+//     background-color: green;
+// }
+
