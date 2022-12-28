@@ -1,0 +1,111 @@
+.button--header {
+
+    border: 1px solid $header-white-color;
+    background-color: none;
+    color: $header-white-color;
+    font-family: $primary-font;
+    text-transform: uppercase;
+
+    @include font($fs: 12px, $fw: 500, $lh: 16px);
+
+    border-radius: 5px;
+    padding: 14px 36px;
+    width: 129px;
+
+
+    cursor: pointer;
+
+    transition: background-color 250ms $primary-cubic;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    &:hover,
+    &:focus {
+        background-color: $card-text-accent;
+        box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+        border-color: $card-text-accent;
+    }
+
+        @include for-tablet {
+            // @media screen and (min-width: 768px) {
+
+
+            width: 152px;
+
+            padding: 13px 46px;
+
+    
+        }
+
+
+         @include for-desktop {
+            // @media screen and (min-width: 1280px) {
+        
+            width: 148px;
+            
+            padding: 12px 41px;
+        
+        }
+
+
+}
+
+.button--modal {
+
+    border: 1px solid $card-text-color;
+    background-color: none;
+    color: $card-text-color;
+    font-family: $primary-font;
+    text-transform: uppercase;
+    
+    @include font($fs: 12px, $fw: 500, $lh: 16px);
+    
+    border-radius: 5px;
+    padding: 13px 14px;
+    width: 110px;
+    
+    
+    cursor: pointer;
+    
+    transition: background-color 250ms $primary-cubic;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+        &:hover,
+        &:focus {
+            background-color: $card-text-accent;
+            border-color: $card-text-accent;
+            color: $header-white-color;
+            // padding: 6px 27px;
+        }
+    
+        @include for-tablet {
+            // @media screen and (min-width: 768px) {
+    
+    
+            width: 125px;
+    
+            padding: 14px 7px;
+    
+    
+        }
+    
+    
+        @include for-desktop {
+            // @media screen and (min-width: 1280px) {
+    
+            width: 136px;
+    
+            padding: 14px 8px;
+    
+        }
+
+}
+
+
