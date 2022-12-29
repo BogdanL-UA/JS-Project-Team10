@@ -1,4 +1,4 @@
-import { fetchTrendingMovies } from './fetch-movies';
+import { fetchTrendingMovies } from './js/fetch-movies';
 
 fetchTrendingMovies().then(data => {
   console.log(data.results);
