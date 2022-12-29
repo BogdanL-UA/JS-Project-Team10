@@ -15,13 +15,6 @@
   }
 }
 
-.header__nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 0 0 66px 0;
-}
-
 .header__menu {
   list-style: none;
   display: flex;
@@ -40,33 +33,6 @@
   align-items: center;
   margin-right: auto;
 }
-
-.menu__link {
-  position: relative;
-  color: inherit;
-  text-decoration: none;
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
-
-  color: #ffffff;
-}
-
-.menu__item:not(:last-child) {
-  margin-right: 39px;
-}
-
-.active::after {
-  position: absolute;
-  content: '';
-  background-color: #ff001b;
-  width: 100%;
-  height: 3px;
-  bottom: -2px;
-  left: 0;
-}
-
 .library-header__btn-list {
   display: flex;
   justify-content: center;
