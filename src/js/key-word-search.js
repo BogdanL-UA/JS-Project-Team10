@@ -28,7 +28,7 @@ async function onFormSubmit(e) {
   filmsApiService.query = searchValue;
 
   const data = await filmsApiService.getFilmsByQuery(filmsApiService.page);
-  console.log(data);
+  console.log(data.results);
 
   Loading.remove();
   refs.searchForm.reset();
