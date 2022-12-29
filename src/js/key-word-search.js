@@ -15,12 +15,12 @@ async function onFormSubmit(e) {
   Loading.pulse('Loading...', {
     svgColor: '#FF6B08',
   });
-  Loading.pulse();
 
   const searchValue = searchQuery.value.trim();
 
   if (!searchValue) {
     Notify.failure('What would you like to see?');
+    Loading.remove();
     return;
   }
 
