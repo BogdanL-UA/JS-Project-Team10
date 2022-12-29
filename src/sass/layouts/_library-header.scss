@@ -15,10 +15,6 @@
   }
 }
 
-.home {
-  display: none;
-}
-
 .header__nav {
   display: flex;
   justify-content: flex-end;
@@ -126,17 +122,6 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
-  }
-
-  .home {
-    display: block;
-    text-decoration: none;
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 35px;
-
-    color: #ffffff;
   }
 
   .library-header__btn {
