@@ -28,6 +28,17 @@ async function onFormSubmit(e) {
   filmsApiService.query = searchValue;
 
   const data = await filmsApiService.getFilmsByQuery(filmsApiService.page);
+
+  if (data.results.length === 0) {
+    Notify.failure(
+      'Sorry, there are no images matching your search query. Please try again.'
+    );
+    Loading.remove();
+    return;
+  }
+
+  Notify.success(`We found ${data.results.length} films.`);
+
   console.log(data.results);
 
   Loading.remove();
