@@ -31,7 +31,7 @@ async function onFormSubmit(e) {
 
   if (data.results.length === 0) {
     Notify.failure(
-      'Sorry, there are no images matching your search query. Please try again.'
+      'Sorry, there are no films matching your search query. Please try again.'
     );
     Loading.remove();
     return;
