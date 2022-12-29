@@ -16,13 +16,13 @@
         width: 440px;
     }
 
-    @media screen and (min-width: 768px) {
+    @include for-tablet {
         padding-left: 32px;
         padding-right: 32px;
         width: 768px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @include for-desktop {
         padding-left: 32px;
         padding-right: 32px;
         width: 1280px;
@@ -37,13 +37,15 @@
     margin: 0 auto;
     width: 100%;
 
-    @media screen and (min-width: 768px) {
+    @include for-tablet {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 32px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @include for-desktop {
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 16px;
         row-gap: 32px;
     }
@@ -56,11 +58,11 @@
         width: 400px;
     }
     
-    @media screen and (min-width: 768px) {
+    @include for-tablet {
         width: calc((100% - 32px) / 2);
     }
 
-    @media screen and (min-width: 1280px) {
+    @include for-desktop {
         width: calc((100% - 32px) / 3);
     }
 }
@@ -71,11 +73,11 @@
     margin-bottom: 10px;
     cursor: pointer;
 
-    @media screen and (min-width: 768px) {
+    @include for-tablet {
         height: 455px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @include for-desktop {
         height: 574px;
     }
 }
@@ -94,7 +96,7 @@
     line-height: 14px;
     text-transform: uppercase;
 
-    @media screen and (min-width: 1280px) {
+    @include for-desktop {
         font-size: 20px;
         line-height: 24px;
     }
@@ -108,7 +110,7 @@
     line-height: 16px;
     color: #FF6B08;
 
-    @media screen and (min-width: 1280px) {
+    @include for-desktop {
         font-size: 20px;
         line-height: 24px;
     }
