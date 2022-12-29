@@ -1,3 +1,4 @@
+import './js/key-word-search';
 import { fetchTrendingMovies } from './js/fetch-movies';
 
 fetchTrendingMovies().then(data => {
