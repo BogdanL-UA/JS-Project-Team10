@@ -9,12 +9,12 @@
   }
 }
 
-.home__icon {
-  width: 24px;
-  height: 24px;
-}
 .home {
   text-decoration: none;
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
 }
 .filmoteka {
   display: none;
@@ -51,6 +51,7 @@
   text-align: center;
 }
 .search {
+  color: $header-white-color;
   padding: 0;
   background-color: transparent;
   border: none;
@@ -62,9 +63,13 @@
   &__icon {
     width: 12px;
     height: 12px;
+  }
+  &__submit {
     position: absolute;
+    background-color: transparent;
     right: 0;
-    bottom: 3px;
+    bottom: 0;
+    padding: 0;
   }
 }
 .search::placeholder {
@@ -104,7 +109,7 @@
     display: flex;
     align-items: center;
     &__icon {
-      margin-right: 8px;
+      margin-right: 10px;
     }
   }
 
