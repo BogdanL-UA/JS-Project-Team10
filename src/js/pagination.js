@@ -2,7 +2,7 @@
 import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
 import { refs } from './refs';
-// import refs from './Refs';
+
 import { FetchMoviesApi } from './get-trend-movies';
 import { createMovieCard } from './get-trend-movies';
 const fetchMoviesApi = new FetchMoviesApi();

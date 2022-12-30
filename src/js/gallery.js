@@ -12,9 +12,9 @@ async function uploadTrendMovies() {
   await fetchMoviesApi.fetchTrendFilms().then(films => {
       createMovieCard(films);
     
-    // showLoader();
+  
     //   pagination();
   });
   pagination();
-//   hideLoader();
+
 }
