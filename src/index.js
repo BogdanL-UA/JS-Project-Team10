@@ -1,7 +1,5 @@
 import './js/key-word-search';
-import { fetchTrendingMovies } from './js/fetch-movies';
+import { fetchTrendingMovies } from './js/fetch-trending-movies';
+import renderMovieCard from './js/render-movie-card';
 
-fetchTrendingMovies().then(data => {
-  console.log(data.results);
-  return data.results;
-});
+fetchTrendingMovies().then(renderMovieCard);

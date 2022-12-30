@@ -20,7 +20,7 @@ export class FilmsApiService {
     const response = await axios.get(
       `${BASE_URL}/search/movie?api_key=${TMD_KEY}&query=${this.searchQuery}&page=${this.page}`
     );
-
+    console.log(response.data);
     return response.data;
   }
 

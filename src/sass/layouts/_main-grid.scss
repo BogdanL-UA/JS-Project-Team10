@@ -1,12 +1,12 @@
 .header {
       //відступ до секції
   margin-bottom: 20px;
-  @media screen and (min-width: 768px) {
+  @include for-tablet {
     margin-bottom: 60px;
   }
 }
 
-.trend-movies__container {
+.movies__container {
     padding-left: 20px;
     padding-right: 20px;
     margin: 0 auto;
@@ -29,7 +29,7 @@
     }
 }
 
-.trend-movies__list {
+.movies__list {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -37,10 +37,10 @@
     margin: 0 auto;
     width: 100%;
 
+    list-style: none;
+
     @include for-tablet {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 32px;
+        @include wrap-32;
     }
 
     @include for-desktop {
@@ -51,7 +51,7 @@
     }
 } 
 
-.trend-movies__item {
+.movies__item {
     width: 100%;
 
     @media screen and (min-width: 440px) and (max-width: 767px) {
@@ -59,7 +59,7 @@
     }
     
     @include for-tablet {
-        width: calc((100% - 32px) / 2);
+        @include flex-basisX2;
     }
 
     @include for-desktop {
@@ -67,7 +67,7 @@
     }
 }
 
-.trend-movies__poster {
+.movies__poster{
     width: 100%;
     
     margin-bottom: 10px;
@@ -82,14 +82,14 @@
     }
 }
 
-.trend-movies__image {
+.movies__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 5px; 
 }
 
-.trend-movies__title {
+.movies__title {
     font-family: 'Roboto';
     font-weight: 500;
     font-size: 12px;
@@ -102,7 +102,7 @@
     }
 }
 
-.trend-movies__info {
+.movies__info {
     margin-bottom: 0px;
     font-family: 'Roboto';
     font-weight: 500;
