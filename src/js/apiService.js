@@ -24,6 +24,14 @@ export class FilmsApiService {
     return response.data;
   }
 
+  async fetchGenres() {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=b8c69e73ca2b06d4109ce06d6df842ad`
+    );
+
+    return response.json();
+  }
+
   incrementPage() {
     this.page += 1;
   }
