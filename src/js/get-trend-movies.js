@@ -1,10 +1,9 @@
-import { refs } from './refs';
-import axios from 'axios';
-import { trendMovieCardTmpl } from './trend-movie-card-template';
+// import { refs } from './refs';
+// import axios from 'axios';
+// import { trendMovieCardTmpl } from './trend-movie-card-template';
 
-
-const BASE_URL = 'https://api.themoviedb.org/3';
-const API_KEY = '78817c69ceeb2b190f57a1a13eaf9936';
+// const BASE_URL = 'https://api.themoviedb.org/3';
+// const API_KEY = '78817c69ceeb2b190f57a1a13eaf9936';
 
 // const fetchTrendFilms = () => {
 //   return fetch(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}`).then(
@@ -17,9 +16,6 @@ const API_KEY = '78817c69ceeb2b190f57a1a13eaf9936';
 //     }
 //   );
 // };
-
-
-
 
 // let movies = [];
 // const renderTrendFilms = () => {
@@ -34,70 +30,64 @@ const API_KEY = '78817c69ceeb2b190f57a1a13eaf9936';
 //   renderPagination();
 // });
 
-
-
-
 // const refs = {
 //   gallery: document.querySelector('.trend-movies__list'),
 // }
 
-export class FetchMoviesApi {
-  constructor() {
-    this.page = 1;
-    this.searchQuery = '';
-    this.totalPages = 0;
-  }
+// export class FetchMoviesApi {
+//   constructor() {
+//     this.page = 1;
+//     this.searchQuery = '';
+//     this.totalPages = 0;
+//   }
 
-  fetchTrendFilms() {
-    
+//   fetchTrendFilms() {
 
-    return axios.get(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${this.page}`).then(r => {
-      this.totalPages = r.data.total_results;
-    return  r.data})} ;
-    
-  
-  get query() {
-    return this.searchQuery;
-  }
+//     return axios.get(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${this.page}`).then(r => {
+//       this.totalPages = r.data.total_results;
+//     return  r.data})} ;
 
-  set query(newQuery) {
-    this.searchQuery = newQuery;
+//   get query() {
+//     return this.searchQuery;
+//   }
 
-  }
-  //  incrementPage() {
-  //   this.page += 1;
-  // }
+//   set query(newQuery) {
+//     this.searchQuery = newQuery;
 
-  // resetPage() {
-  //   this.page = 1;
-  // }
-  get pageNumber() { this.page = 1; }
-  
-  set pageNumber(newPage) { this.page = newPage; }
-  
-  get totalPages() { FetchMoviesApi.totalPages; }
-  
-  set totalPages(page) { FetchMoviesApi.totalPages = page; }
-  
-}
+// }
+//  incrementPage() {
+//   this.page += 1;
+// }
+
+// resetPage() {
+//   this.page = 1;
+// }
+//   get pageNumber() { this.page = 1; }
+
+//   set pageNumber(newPage) { this.page = newPage; }
+
+//   get totalPages() { FetchMoviesApi.totalPages; }
+
+//   set totalPages(page) { FetchMoviesApi.totalPages = page; }
+
+// }
 
 // console.log(FetchMoviesApi);
 
-function createMovieCard(films) {
-  return films.results.map(
-    ({ title, release_date, poster_path, id }) => {
-      
-     release_date = changeYear(release_date);
-      refs.filmsGallery.insertAdjacentHTML(
-        'afterbegin',
-        trendMovieCardTmpl({ title, release_date, poster_path, id }),
-      );
-    },
-  );
-}
+// function createMovieCard(films) {
+//   return films.results.map(
+//     ({ title, release_date, poster_path, id }) => {
+
+//      release_date = changeYear(release_date);
+//       refs.filmsGallery.insertAdjacentHTML(
+//         'afterbegin',
+//         trendMovieCardTmpl({ title, release_date, poster_path, id }),
+//       );
+//     },
+//   );
+// }
 // ========= function correct Year================
 
+// function changeYear(release_date) { return release_date.slice(0, 4); }
 
-function changeYear(release_date) { return release_date.slice(0, 4); }
-
-export { createMovieCard };
+// export { createMovieCard };

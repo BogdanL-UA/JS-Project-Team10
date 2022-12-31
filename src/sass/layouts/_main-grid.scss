@@ -1,7 +1,7 @@
 .header {
   //відступ до секції
   margin-bottom: 20px;
-  @include for-tablet {
+  @media screen and (min-width: 768px) {
     margin-bottom: 60px;
   }
 }
@@ -12,8 +12,8 @@
     padding-right: 20px;
     margin: 0 auto;
     width: 100%;
-}
 
+    
 
   @include for-tablet {
     padding-left: 32px;
@@ -26,7 +26,7 @@
     padding-right: 32px;
     width: 1280px;
   }
-
+}
 
 
 .movies__list {
@@ -47,10 +47,9 @@
 
 
   @include for-desktop {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
-    row-gap: 32px;
+    flex-flow: wrap;
+    gap: 32px 16px;
+    
   }
 }
 

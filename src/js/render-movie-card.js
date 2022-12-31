@@ -11,7 +11,6 @@ export default function renderMovieCard(movies) {
       const posterUrl = 'https://image.tmdb.org/t/p/w500/' + poster_path;
 
       const genresMarkup = createGenresMarkup(genre_ids);
-      console.log(genresMarkup);
 
       return `<li class="movies__item" data-id="${id}">
 
