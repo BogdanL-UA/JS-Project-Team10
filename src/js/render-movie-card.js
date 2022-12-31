@@ -13,7 +13,6 @@ export default function renderMovieCard(movies) {
       const genresMarkup = createGenresMarkup(genre_ids);
 
       return `<li class="movies__item" data-id="${id}">
-
             <div class="movies__poster">
                 <img src="${posterUrl}" alt="${original_title}" class="movies__image" />
             </div>
