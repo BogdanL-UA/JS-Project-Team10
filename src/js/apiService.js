@@ -20,17 +20,17 @@ export class FilmsApiService {
     const response = await axios.get(
       `${BASE_URL}/search/movie?api_key=${TMD_KEY}&query=${this.searchQuery}&page=${this.page}`
     );
-    console.log(response.data);
+
     return response.data;
   }
 
-  async fetchGenres() {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=b8c69e73ca2b06d4109ce06d6df842ad`
-    );
+  // async fetchGenres() {
+  //   const response = await fetch(
+  //     `https://api.themoviedb.org/3/genre/movie/list?api_key=78817c69ceeb2b190f57a1a13eaf9936`
+  //   );
 
-    return response.json();
-  }
+  //   return response.json();
+  // }
 
   incrementPage() {
     this.page += 1;

@@ -1,12 +1,12 @@
-import { FilmsApiService } from './apiService';
+// import { FilmsApiService } from './apiService';
 
-const filmsApiService = new FilmsApiService();
+// const filmsApiService = new FilmsApiService();
 
-let movieId = [];
+// let movieId = [];
 
-async function searchGenres() {
-  const filmGenres = await filmsApiService.fetchGenres();
-  return (movieId = filmGenres);
-}
+// async function searchGenres() {
+//   const filmGenres = await filmsApiService.fetchGenres();
+//   return (movieId = filmGenres);
+// }
 
-export { searchGenres, movieId };
+// export { searchGenres, movieId };
