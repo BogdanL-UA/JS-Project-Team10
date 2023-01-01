@@ -122,6 +122,21 @@
   }
 }
 
+
+.trend-movies__info {
+    margin-bottom: 0px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: $card-text-accent;
+
+    @include for-desktop {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+
 .trend-movies__meta {
   padding-left: 4px;
   padding-bottom: 5px;
