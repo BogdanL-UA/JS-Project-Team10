@@ -1,3 +1,12 @@
+.header-library {
+    //відступ до секції
+    margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 60px;
+    }
+}
+
 .library__container {
     padding-left: 20px;
     padding-right: 20px;
