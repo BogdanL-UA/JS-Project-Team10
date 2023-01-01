@@ -6,14 +6,15 @@
   }
 }
 
-
 .movies__container {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 0 auto;
-    width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  width: 100%;
 
-    
+  @media screen and (min-width: 440px) and (max-width: 767px) {
+      width: 440px;
+    }
 
   @include for-tablet {
     padding-left: 32px;
@@ -28,16 +29,20 @@
   }
 }
 
-
 .movies__list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
   margin: 0 auto;
   width: 100%;
   list-style: none;
 
+  margin-bottom: 40px;
+  
+    @media screen and (min-width: 768px) {
+      margin-bottom: 60px;
+    }
 
   @include for-tablet {
     flex-direction: row;
@@ -45,25 +50,14 @@
     gap: 32px;
   }
 
-
   @include for-desktop {
     flex-flow: wrap;
     gap: 32px 16px;
-    
   }
 }
 
 .movies__item {
   width: 100%;
-  border-radius: 5px;
-
-  &:hover,
-  &:focus {
-    box-shadow: 0 1px 7px 2px rgb(110 98 140 / 76%);
-    transform: scale(1.03);
-  }
-
-
 
   @media screen and (min-width: 440px) and (max-width: 767px) {
     width: 400px;
@@ -77,21 +71,28 @@
     width: calc((100% - 32px) / 3);
   }
 
-  transition: transform 0.3s;
+  &:hover,
+  &:focus {
+    // box-shadow: 0 1px 7px 2px rgb(110 98 140 / 76%);
+    transform: scale(1.02);
+  }
+
+  &:hover .movies__poster,
+  &:focus .movies__poster {
+    box-shadow: 0 1px 5px 2px rgb(110 98 140 / 76%);
+  }
+
+  transition: transform 0.3s $primary-cubic;
   transform: scale(1);
 }
 
-
-.movies__poster{
-    width: 100%;
-    
-    margin-bottom: 10px;
-    cursor: pointer;
-
-
+.movies__poster {
+  width: 100%;
   margin-bottom: 10px;
-  cursor: pointer;
 
+  border-radius: 5px;
+  cursor: pointer;
+  
   @include for-tablet {
     height: 455px;
   }
@@ -99,13 +100,17 @@
   @include for-desktop {
     height: 574px;
   }
+
+  transition: box-shadow 0.3s $primary-cubic;
+  box-shadow: 0 1px 5px 2px rgb(110 98 140 / 0%);
 }
 
 .movies__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 5px; 
+    border-radius: 5px;
+
 }
 
 .movies__title {
@@ -115,13 +120,11 @@
     line-height: 14px;
     text-transform: uppercase;
 
-
   @include for-desktop {
     font-size: 20px;
     line-height: 24px;
   }
 }
-
 
 .trend-movies__info {
     margin-bottom: 0px;
@@ -142,15 +145,13 @@
   padding-bottom: 5px;
 }
 
-
 .movies__info {
   margin-bottom: 0px;
   font-family: 'Roboto';
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  color: #ff6b08;
-
+  color: $card-text-accent;
 
   @include for-desktop {
     font-size: 20px;
