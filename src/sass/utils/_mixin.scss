@@ -1,9 +1,8 @@
 @mixin font($fs: 14px, $fw: 400, $lh: 16px) {
     font-size: $fs;
     font-weight: $fw;
-    line-height: $lh / $fs;
+    line-height: calc($lh / $fs);
 }
-
 
 // для використання пишемо:  @include important-text;
 
