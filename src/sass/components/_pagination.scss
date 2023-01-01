@@ -1,0 +1,158 @@
+
+
+.tui-pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+    .tui-pagination-container {
+        margin-top: 60px;
+    }
+}
+
+.tui-page-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    color: $card-text-color;
+    font-weight: 500;
+    line-height: 16px;
+    text-decoration: none;
+    margin-right: 5px;
+    transition: background-color 0.30s ease-in;
+
+    &:hover {
+            background-color: #FF6B08;
+            color: #FFFFFF;
+            border-radius: 5px;
+        }
+}
+
+.tui-page-btn:first-child,
+.tui-page-btn:last-child {
+    display: none;
+}
+
+.tui-prev {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    background-color: #F7F7F7;
+    width: 40px;
+            height: 40px;
+            // margin: 5px;
+            background-position: center;
+    //         border: none;
+    //         background-color: #fff;
+            transition: background-color 0.25s ease-in;
+            border-radius: 5px;
+    
+            &:hover {
+                background-color: #FF6B08;
+                color: #FFFFFF;
+                border-radius: 5px;
+            }
+}
+
+.tui-ico-prev {
+
+    position: relative;
+    font-size: 0;
+    top: 20px;
+    width: 10px;
+    height: 1.33px;
+    // background-color: $card-text-color;
+    // background-image: url('../../src/images/pagination/arrow-right.svg');
+            // background-repeat: no-repeat;
+    left: 15px;
+    display: block;
+    
+}
+
+.tui-ico-prev::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 1.33px;
+    top: 2px;
+    right: 5px;
+    background-color: $card-text-color;
+    
+    transform: rotate(45deg);
+}
+
+.tui-ico-prev::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 1.33px;
+    top: -2px;
+    right: 5px;
+    background-color: $card-text-color;
+    transform: rotate(-45deg);
+}
+
+.tui-is-selected {
+    background: $card-text-accent;
+    color: $header-white-color;
+}
+
+.tui-next {
+    cursor: pointer;
+        position: relative;
+        display: block;
+        background-color: #F7F7F7;
+        width: 40px;
+        height: 40px;
+        // margin: 5px;
+        background-position: center;
+        transition: background-color 0.25s ease-in;
+        border-radius: 5px;
+    
+        &:hover {
+            background-color: #FF6B08;
+            color: #FFFFFF;
+            border-radius: 5px;
+        }
+}
+
+.tui-ico-next {
+    position: relative;
+    font-size: 0;
+    top: 20px;
+    width: 10px;
+    height: 1.33px;
+    // background-color: $card-text-color;
+    left: 15px;
+    display: block;
+}
+
+.tui-ico-next::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 1.33px;
+    top: -2px;
+    right: 0;
+    background-color: $card-text-color;
+    transform: rotate(45deg);
+}
+
+.tui-ico-next::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 1.33px;
+    top: 2px;
+    right: 0;
+    background-color: $card-text-color;
+    transform: rotate(-45deg);
+}
+
+

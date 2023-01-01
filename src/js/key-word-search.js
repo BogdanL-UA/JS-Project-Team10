@@ -1,7 +1,9 @@
 import { Notify } from 'notiflix';
 import { refs } from './refs';
 import { FilmsApiService } from './apiService';
+import { createGallery } from './createSearchGallery';
 import Loading from './spinner';
+import renderMovieCard from './render-movie-card';
 
 const filmsApiService = new FilmsApiService();
 
@@ -24,10 +26,12 @@ async function onFormSubmit(e) {
     return;
   }
 
-  filmsApiService.resetPage();
   filmsApiService.query = searchValue;
 
-  const data = await filmsApiService.getFilmsByQuery(filmsApiService.page);
+  const data = await filmsApiService.getFilmsByQuery();
+
+  // const genresFilm = await filmsApiService.fetchGenres();
+  // console.log(genresFilm);
 
   if (data.results.length === 0) {
     Notify.failure(
@@ -39,7 +43,8 @@ async function onFormSubmit(e) {
 
   Notify.success(`We found ${data.results.length} films.`);
 
-  console.log(data.results);
+  const markup = createGallery(data.results);
+  refs.gallery.innerHTML = markup;
 
   Loading.remove();
   refs.searchForm.reset();
