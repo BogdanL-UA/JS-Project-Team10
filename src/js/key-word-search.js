@@ -3,6 +3,7 @@ import { refs } from './refs';
 import { FilmsApiService } from './apiService';
 import { createGallery } from './createSearchGallery';
 import Loading from './spinner';
+import renderMovieCard from './render-movie-card';
 
 const filmsApiService = new FilmsApiService();
 
@@ -29,8 +30,8 @@ async function onFormSubmit(e) {
 
   const data = await filmsApiService.getFilmsByQuery();
 
-  const genresFilm = await filmsApiService.fetchGenres();
-  console.log(genresFilm);
+  // const genresFilm = await filmsApiService.fetchGenres();
+  // console.log(genresFilm);
 
   if (data.results.length === 0) {
     Notify.failure(
@@ -43,9 +44,7 @@ async function onFormSubmit(e) {
   Notify.success(`We found ${data.results.length} films.`);
 
   const markup = createGallery(data.results);
-  refs.filmsGallery.innerHTML = markup;
-
-  console.log(data.results);
+  refs.gallery.innerHTML = markup;
 
   Loading.remove();
   refs.searchForm.reset();
