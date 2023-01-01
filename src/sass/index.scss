@@ -7,10 +7,10 @@
 @import './utils/is-hiden';
 
 @import './components/button';
-
+@import './components/modal-movie';
+@import './components/pagination';
 
 @import './layouts/library-header';
 @import './layouts/main-header';
-@import './components/modal-movie';
-@import './src/sass/layouts/library-header';
-@import './src/sass/layouts/spinner';
+@import './layouts/main-grid';
+@import './layouts/spinner';
