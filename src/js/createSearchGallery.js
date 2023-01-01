@@ -1,13 +1,20 @@
 import { searchGenres, movieId } from './genres';
 
-searchGenres();
+
+// searchGenres();
+
+// let getNewId = movieId
+//   .filter(genre => genre_ids.includes(genre.id))
+//   .map(genre => genre.name)
+//   .join(', ');
+
+export function createGallery(film) {
+  searchGenres();
 
 let getNewId = movieId
   .filter(genre => genre_ids.includes(genre.id))
   .map(genre => genre.name)
   .join(', ');
-
-export function createGallery(film) {
   return film
     .map(
       ({
@@ -30,4 +37,7 @@ export function createGallery(film) {
         </li>`
     )
     .join('');
+  
+ 
 }
+// console.log(createGallery(film));

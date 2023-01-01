@@ -32,6 +32,12 @@ export class FilmsApiService {
     return response.json();
   }
 
+  async fetchTrendFilms() {
+
+    return axios.get(`${BASE_URL}/trending/movie/week?api_key=${TMD_KEY}&page=${this.page}`).then(r => {
+      this.totalPages = r.data.total_results;
+    return  r.data})} ;
+
   incrementPage() {
     this.page += 1;
   }
