@@ -16,25 +16,26 @@ import createGenresMarkup from './create-genres-markup';
 export function createGallery(film) {
   searchGenres();
 
-let getNewId = movieId
-  .filter(genre => genre_ids.includes(genre.id))
-  .map(genre => genre.name)
-  .join(', ');
+  let getNewId = movieId
+    .filter(genre => genre_ids.includes(genre.id))
+    .map(genre => genre.name)
+    .join(', ');
 
 
-const noPosterImg =
-  'https://freedesignfile.com/upload/2014/07/Movie-time-design-elements-vector-backgrounds-01.jpg';
-const fileSize = `w500`;
-const basePosterUrl = 'https://image.tmdb.org/t/p/';
+  const noPosterImg =
+    'https://freedesignfile.com/upload/2014/07/Movie-time-design-elements-vector-backgrounds-01.jpg';
+  const fileSize = `w500`;
+  const basePosterUrl = 'https://image.tmdb.org/t/p/';
 
-function generatePosterImgLink(poster_path) {
-  if (poster_path === null) {
-    return noPosterImg;
+  function generatePosterImgLink(poster_path) {
+    if (poster_path === null) {
+      return noPosterImg;
+    }
+    return `${basePosterUrl}${fileSize}${poster_path}`;
   }
-  return `${basePosterUrl}${fileSize}${poster_path}`;
 }
 
-export function createGallery(film) {
+export function createGallery2(film) {
 
   return film
     .map(({ id, genre_ids, original_title, poster_path, release_date }) => {
