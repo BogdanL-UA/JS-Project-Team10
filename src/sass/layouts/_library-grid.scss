@@ -1,12 +1,4 @@
-.header {
-      //відступ до секції
-  margin-bottom: 20px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 60px;
-  }
-}
-
-.trend-movies__container {
+.library__container {
     padding-left: 20px;
     padding-right: 20px;
     margin: 0 auto;
@@ -29,7 +21,7 @@
     }
 }
 
-.trend-movies__list {
+.library__list {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -49,15 +41,15 @@
         gap: 16px;
         row-gap: 32px;
     }
-} 
+}
 
-.trend-movies__item {
+.library__item {
     width: 100%;
 
     @media screen and (min-width: 440px) and (max-width: 767px) {
         width: 400px;
     }
-    
+
     @include for-tablet {
         width: calc((100% - 32px) / 2);
     }
@@ -67,9 +59,9 @@
     }
 }
 
-.trend-movies__poster {
+.library__poster {
     width: 100%;
-    
+
     margin-bottom: 10px;
     cursor: pointer;
 
@@ -82,14 +74,14 @@
     }
 }
 
-.trend-movies__image {
+.library__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 5px; 
+    border-radius: 5px;
 }
 
-.trend-movies__title {
+.library__title {
     font-family: 'Roboto';
     font-weight: 500;
     font-size: 12px;
@@ -102,7 +94,9 @@
     }
 }
 
-.trend-movies__info {
+.library__info {
+    display: inline-flex;
+    align-items: center;
     margin-bottom: 0px;
     font-family: 'Roboto';
     font-weight: 500;
@@ -114,4 +108,35 @@
         font-size: 20px;
         line-height: 24px;
     }
+}
+
+.library__genre {
+    margin-right: 5px;
+}
+
+.library__year {
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.library__rate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16px;
+    min-width: 36px;
+    padding: 1px 9px;
+
+    @include for-desktop {
+        height: 20px;
+        padding: 3px 8px;
+    }    
+
+    background-color: $card-text-accent;
+    color: white;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 5px;
 }
