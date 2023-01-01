@@ -1,6 +1,6 @@
 
 
-.tui-pagination-container {
+.tui-pagination {
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .tui-pagination-container {
+    .tui-pagination {
         margin-top: 60px;
     }
 }
