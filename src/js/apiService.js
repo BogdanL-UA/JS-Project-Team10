@@ -6,6 +6,7 @@ export class FilmsApiService {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
+    this.totalPages = 0;
   }
 
   get query() {
@@ -20,7 +21,7 @@ export class FilmsApiService {
     const response = await axios.get(
       `${BASE_URL}/search/movie?api_key=${TMD_KEY}&query=${this.searchQuery}&page=${this.page}`
     );
-
+    this.totalPages = response.data.total_results;
     return response.data;
   }
 
@@ -33,10 +34,15 @@ export class FilmsApiService {
   // }
 
   async fetchTrendFilms() {
-
-    return axios.get(`${BASE_URL}/trending/movie/week?api_key=${TMD_KEY}&page=${this.page}`).then(r => {
-      this.totalPages = r.data.total_results;
-    return  r.data})} ;
+    return axios
+      .get(
+        `${BASE_URL}/trending/movie/week?api_key=${TMD_KEY}&page=${this.page}`
+      )
+      .then(r => {
+        this.totalPages = r.data.total_results;
+        return r.data;
+      });
+  }
 
   incrementPage() {
     this.page += 1;
