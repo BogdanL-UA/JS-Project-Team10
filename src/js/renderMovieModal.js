@@ -2,6 +2,7 @@ import { refs } from './refs';
 import createGenresMarkup from './create-genres-markup';
 
 export default function renderMovieModal({
+  id,
   poster_path,
   title,
   vote_count,
@@ -11,10 +12,11 @@ export default function renderMovieModal({
   genres,
   overview,
 }) {
+  const voteNumeric = String(vote_average).slice(0, 3);
   const movieGenresMarkup = getMovieGenresArr(genres);
 
-  console.log(movieGenresMarkup);
-  const movieModalMarkup = `<form class="movie">
+  const movieModalMarkup = `<form class="movie" data-id=${id}>
+  <div class="movie__template">
       <span class="movie__wrapper"
         ><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie"
       /></span>
@@ -25,7 +27,7 @@ export default function renderMovieModal({
         <tr class="movie__row">
           <td class="movie__descr">Vote / Votes</td>
           <td class="movie__descr-value">
-            <span class="movie__rating">${vote_average}</span> / ${vote_count}
+            <span class="movie__rating">${voteNumeric}</span> / ${vote_count}
           </td>
         </tr>
         <tr class="movie__row">
@@ -47,9 +49,9 @@ export default function renderMovieModal({
           ><button class="movie__watched button--modal">add to Watched</button>
           <button class="movie__queue button--modal">add to queue</button></span
         ></span
-      >
+      ></div>
       <svg class="close-modal" width="30" height="30">
-        <use href="/src/images/sprite.svg#icon-close"></use>
+        <use href="./src/images/sprite.svg#icon-close"></use>
       </svg>
     </form>`;
   refs.movieModal.insertAdjacentHTML('afterbegin', movieModalMarkup);
