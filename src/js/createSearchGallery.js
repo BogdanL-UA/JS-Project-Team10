@@ -1,4 +1,3 @@
-import { searchGenres, movieId } from './genres';
 import createGenresMarkup from './create-genres-markup';
 // searchGenres();
 

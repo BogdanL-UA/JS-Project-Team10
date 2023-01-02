@@ -1,5 +1,4 @@
 import { refs } from './refs';
-import axios from 'axios';
 import trendMovieCardTmpl from './cardTmpl';
 import openMovieModal from './openMovieModal';
 

@@ -3,7 +3,6 @@ import { refs } from './refs';
 import { FilmsApiService } from './apiService';
 import { createGallery } from './createSearchGallery';
 import Loading from './spinner';
-import renderMovieCard from './render-movie-card';
 import { createMovieCard } from './get-trend-movies';
 // import { paginationOnQuery } from './pagination';
 import Pagination from 'tui-pagination';
@@ -30,7 +29,7 @@ async function onFormSubmit(e) {
   }
 
   filmsApiService.query = searchValue;
-Loading.remove();
+  Loading.remove();
   const data = await filmsApiService.getFilmsByQuery();
 
   // const genresFilm = await filmsApiService.fetchGenres();
