@@ -21,6 +21,9 @@ const genresList = [
 ];
 
 export default function createGenresMarkup(genre_ids) {
+  if (genre_ids.length === 0) {
+    return 'Genre is unknown';
+  }
   const convertedGenres = [];
   const genresMarkup = [];
   for (const genre_id of genre_ids) {

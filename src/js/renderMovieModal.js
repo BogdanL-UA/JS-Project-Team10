@@ -1,7 +1,9 @@
 import { refs } from './refs';
+import closeModalWindow from './closeModalWindow';
 import createGenresMarkup from './create-genres-markup';
 
 export default function renderMovieModal({
+  id,
   poster_path,
   title,
   vote_count,
@@ -11,10 +13,11 @@ export default function renderMovieModal({
   genres,
   overview,
 }) {
+  const voteNumeric = String(vote_average).slice(0, 3);
+  const popularityNumeric = popularity.toFixed(1);
   const movieGenresMarkup = getMovieGenresArr(genres);
 
-  console.log(movieGenresMarkup);
-  const movieModalMarkup = `<form class="movie">
+  const movieModalMarkup = `<div class="movie__template" data-id=${id}>
       <span class="movie__wrapper"
         ><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie"
       /></span>
@@ -25,12 +28,12 @@ export default function renderMovieModal({
         <tr class="movie__row">
           <td class="movie__descr">Vote / Votes</td>
           <td class="movie__descr-value">
-            <span class="movie__rating">${vote_average}</span> / ${vote_count}
+            <span class="movie__rating">${voteNumeric}</span> / ${vote_count}
           </td>
         </tr>
         <tr class="movie__row">
           <td class="movie__descr">Popularity</td>
-          <td class="movie__descr-value">${popularity}</td>
+          <td class="movie__descr-value">${popularityNumeric}</td>
         </tr>
         <tr class="movie__row">
           <td class="movie__descr">Original Title</td>
@@ -46,14 +49,10 @@ export default function renderMovieModal({
         <span class="movie__buttons-wrapper"
           ><button class="movie__watched button--modal">add to Watched</button>
           <button class="movie__queue button--modal">add to queue</button></span
-        ></span
-      >
-      <svg class="close-modal" width="30" height="30">
-        <use href="/src/images/sprite.svg#icon-close"></use>
-      </svg>
-    </form>`;
+        ></span></div>`;
   refs.movieModal.insertAdjacentHTML('afterbegin', movieModalMarkup);
-  refs.movieModal.classList.remove('visually-hidden');
+  refs.backdrop.classList.remove('visually-hidden');
+  refs.closeModalIcon.addEventListener('click', closeModalWindow);
 }
 
 function getMovieGenresArr(genres) {

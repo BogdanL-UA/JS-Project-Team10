@@ -4,5 +4,7 @@ export const refs = {
   gallery: document.querySelector('.movies__list'),
   pagination: document.getElementById('tui-pagination-container'),
   movieCard: document.querySelector('.movies__item'),
-  movieModal: document.querySelector('.backdrop'),
+  backdrop: document.querySelector('.backdrop'),
+  movieModal: document.querySelector('.movie__content-container'),
+  closeModalIcon: document.querySelector('.close-modal'),
 };

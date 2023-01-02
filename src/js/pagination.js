@@ -3,7 +3,6 @@ import Pagination from 'tui-pagination';
 import { refs } from './refs';
 import { FilmsApiService } from './apiService';
 import { createMovieCard } from './get-trend-movies';
-import { createGallery2 } from './createSearchGallery';
 
  
 

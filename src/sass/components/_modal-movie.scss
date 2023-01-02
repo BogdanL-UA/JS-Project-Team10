@@ -1,7 +1,8 @@
 .backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 1001;
   background-color: #0000005d;
   width: 100%;
   height: 100%;
@@ -14,6 +15,11 @@
   background-color: $header-white-color;
   width: 280px;
   padding: 48px 20px 40px 20px;
+
+  &__template {
+    display: flex;
+  }
+
   &__img {
     width: 240px;
     height: 357px;
@@ -66,6 +72,19 @@
   position: absolute;
   top: 8px;
   right: 8px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1px 0 0 2px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color $primary-cubic 250ms;
+  &:hover,
+  &:focus {
+    background-color: $card-text-accent;
+  }
 }
 @media screen and (min-width: 768px) {
   .movie {
