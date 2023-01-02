@@ -48,9 +48,9 @@ export default function renderMovieModal({
           <button class="movie__queue button--modal">add to queue</button></span
         ></span
       >
-      <svg class="close-modal" width="30" height="30">
+      <button class="close-modal"><svg width="30" height="30">
         <use href="/src/images/sprite.svg#icon-close"></use>
-      </svg>
+      </svg></button>
     </form>`;
   refs.movieModal.insertAdjacentHTML('afterbegin', movieModalMarkup);
   refs.movieModal.classList.remove('visually-hidden');
