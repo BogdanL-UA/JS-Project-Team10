@@ -43,6 +43,13 @@ export class FilmsApiService {
         return r.data;
       });
   }
+  async getFilmsById(movieId) {
+    const response = await axios.get(
+      `${BASE_URL}/movie/${movieId}/videos?api_key=${TMD_KEY}&language=en-US`
+    );
+
+    return response.data;
+  }
 
   incrementPage() {
     this.page += 1;
@@ -52,8 +59,11 @@ export class FilmsApiService {
     this.page = 1;
   }
 
-  get totalPages() { return FilmsApiService.totalPages; }
-  
-  set totalPages(page) { FilmsApiService.totalPages = page; }
-  
+  get totalPages() {
+    return FilmsApiService.totalPages;
+  }
+
+  set totalPages(page) {
+    FilmsApiService.totalPages = page;
+  }
 }
