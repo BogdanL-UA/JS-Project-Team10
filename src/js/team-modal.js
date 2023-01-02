@@ -1,9 +1,9 @@
-import teamList from "./teamList";
-
-const list = document.querySelector(".team__list");
-const modal = document.querySelector(".footer__goIt a");
-const backdrop = document.querySelector(".backdrop");
-const closeModal = document.querySelector(".close-modal");
+import teamList from './teamList';
+const body = document.body;
+const list = document.querySelector('.team__list');
+const modal = document.querySelector('.goit-students');
+const backdrop = document.querySelector('.team-backdrop');
+const closeModal = document.querySelector('.close-modal');
 const teamBuild = ({ teamate, photo, role, git, ln }) => {
   return `<li class="team__item">
     <img src=${photo} alt="" class="team__item-img" />
@@ -29,46 +29,31 @@ const teamBuild = ({ teamate, photo, role, git, ln }) => {
     </div>
   </li>`;
 };
-teamList.map(person => list.insertAdjacentHTML("beforeend", teamBuild(person)));
+teamList.map(person => list.insertAdjacentHTML('beforeend', teamBuild(person)));
 const onCloseModal = () => {
-  backdrop.classList.add("visually-hidden")
-  return closeModal.removeEventListener("click", onCloseModal);
+  body.classList.remove('modal-open');
+  backdrop.classList.add('visually-hidden');
+  backdrop.classList.add('is-hidden');
+  return closeModal.removeEventListener('click', onCloseModal);
 };
 const onClick = e => {
   e.preventDefault();
-  backdrop.classList.remove("visually-hidden");
-  closeModal.addEventListener("click", onCloseModal);
+  body.classList.add('modal-open');
+  backdrop.classList.remove('visually-hidden');
+  backdrop.classList.remove('is-hidden');
+  closeModal.addEventListener('click', onCloseModal);
 };
-modal.addEventListener("click", onClick);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+modal.addEventListener('click', onClick);
 
 // import teamList from "./teamList";
 // import teamTpl from "../../templates/team.hbs";
 // import markup from "./teamModalMarkup";
-
 
 // import * as basicLightbox from "basiclightbox";
 
 // const modalTeamRef = document.querySelector(".footer__btn");
 
 // modalTeamRef.addEventListener("click", onOpenModalTeam);
-
 
 // function onOpenModalTeam() {
 //   console.log("Hello");
