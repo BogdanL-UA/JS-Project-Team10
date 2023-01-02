@@ -30,7 +30,7 @@ async function onFormSubmit(e) {
   }
 
   filmsApiService.query = searchValue;
-Loading.remove();
+  Loading.remove();
   const data = await filmsApiService.getFilmsByQuery();
 
   // const genresFilm = await filmsApiService.fetchGenres();
@@ -44,7 +44,7 @@ Loading.remove();
     return;
   }
 
-  Notify.success(`We found ${data.results.length} films.`);
+  Notify.success(`We found ${data.total_results} films.`);
 
   const markup = createGallery(data.results);
   refs.gallery.innerHTML = markup;
@@ -54,8 +54,8 @@ Loading.remove();
   refs.searchForm.reset();
 }
 
-function paginationOnQuery() {
-  filmsApiService.page = 1;
+async function paginationOnQuery() {
+  // filmsApiService.page = 1;
   const options = {
     totalItems: FilmsApiService.totalPages,
     itemsPerPage: 20,
@@ -66,16 +66,17 @@ function paginationOnQuery() {
   };
 
   const pagination = new Pagination(refs.pagination, options);
-  pagination.reset();
-  pagination.on('beforeMove', function (eventData) {
+  // pagination.reset();
+  await pagination.on('beforeMove', function (eventData) {
     filmsApiService.page = eventData.page;
     filmsApiService.getFilmsByQuery().then(films => {
       refs.filmsGallery.innerHTML = '';
-      createMovieCard(films);
+      const markup = createGallery(films.results);
+      refs.gallery.innerHTML = markup;
       // createGallery(data.results);
     });
   });
 }
-export { paginationOnQuery };
+// export { paginationOnQuery };
 
 refs.searchForm.addEventListener('submit', onFormSubmit);
