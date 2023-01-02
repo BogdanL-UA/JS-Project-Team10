@@ -60,4 +60,7 @@ body {
   font-size: $primary-font-size;
   color: $card-text-color;
   line-height: 1.33;
+  &.modal-open {
+    overflow: hidden;
+  }
 }

@@ -48,8 +48,7 @@ export default function renderMovieModal({
         <span class="movie__buttons-wrapper"
           ><button class="movie__watched button--modal">add to Watched</button>
           <button class="movie__queue button--modal">add to queue</button></span
-        ></span
-      ></div>
+        ></span></div>
       <svg class="close-modal" width="30" height="30">
         <use href="./src/images/sprite.svg#icon-close"></use>
       </svg>
