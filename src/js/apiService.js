@@ -24,19 +24,24 @@ export class FilmsApiService {
     return response.data;
   }
 
-  // async fetchGenres() {
-  //   const response = await fetch(
-  //     `https://api.themoviedb.org/3/genre/movie/list?api_key=78817c69ceeb2b190f57a1a13eaf9936`
-  //   );
+  async getFilmsById(movieId) {
+    const response = await axios.get(
+      `${BASE_URL}/movie/${movieId}?api_key=${TMD_KEY}`
+    );
 
-  //   return response.json();
-  // }
+    return response.data;
+  }
 
   async fetchTrendFilms() {
-
-    return axios.get(`${BASE_URL}/trending/movie/week?api_key=${TMD_KEY}&page=${this.page}`).then(r => {
-      this.totalPages = r.data.total_results;
-    return  r.data})} ;
+    return axios
+      .get(
+        `${BASE_URL}/trending/movie/week?api_key=${TMD_KEY}&page=${this.page}`
+      )
+      .then(r => {
+        this.totalPages = r.data.total_results;
+        return r.data;
+      });
+  }
 
   incrementPage() {
     this.page += 1;

@@ -28,6 +28,7 @@ function pagination() {
       refs.filmsGallery.innerHTML = '';
       createMovieCard(films);
     });
+    
   });
 }
 export { pagination };
