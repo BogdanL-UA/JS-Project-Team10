@@ -1,87 +1,85 @@
-
-
-
+import photo from '../images/team/developer.jpg';
 
 
 
 
 export default [
   {
-    name: "",
+    teamate: "Bohdan Lytvynyuk",
     photo: photo,
     role: "Team Lead",
-    git: "https://github.com/",
+    git: "https://github.com/BogdanL-UA",
     ln: "https://www.linkedin.com/",
   },
   {
-    name: "",
+    teamate: "Anatoliya Ryabchenko",
     photo: photo,
     role: "Scrum master",
-    git: "https://github.com/",
+    git: "https://github.com/AnatoliiaR",
     ln: "https://www.linkedin.com/",
   },
   {
-    name: "",
+    teamate: "Oleksii Konovalchuk",
     photo: photo,
     role: "Developer",
-    git: "http://github.com/",
+    git: "https://github.com/OleksiiKonovalchuk",
     ln: "https://www.linkedin.com/",
   },
   {
-    name: "",
+    teamate: "Matvey Procenko",
     photo: photo,
     role: "Developer",
-    git: "http://github.com/",
+    git: "https://github.com/rasengun",
     ln: "https://www.linkedin.com/",
   },
   {
-    name: "",
+    teamate: "Svetlana Lenyuk",
     photo: photo,
     role: "Developer",
-    git: "https://github.com/",
+    git: "https://github.com/Svetlana210",
     ln: "https://www.linkedin.com/",
   },
   {
-    name: "",
+    teamate: "Olena Voina",
     photo: photo,
     role: "Developer",
-    git: "http://github.com/",
+    git: "https://github.com/olli20",
     ln: "https://www.linkedin.com//",
   },
   {
-    name: "",
+    teamate: "Yana Vozniuk",
     photo: photo,
     role: "Developer",
-    git: "https://github.com/",
+    git: "https://github.com/Yana16",
     ln:
       "https://www.linkedin.com/",
   },
   {
-    name: "",
+    teamate: "Daria Rosliakova",
     photo: photo,
     role: "Developer",
     git: "https://github.com/",
     ln: "https://www.linkedin.com/",
     },
   {
-    name: "",
+    teamate: "Denys Kinzerskyi",
     photo: photo,
     role: "Developer",
     git: "https://github.com/",
     ln: "https://www.linkedin.com/",
     },
   {
-    name: "",
+    teamate: "Sergey",
     photo: photo,
     role: "Developer",
     git: "https://github.com/",
     ln: "https://www.linkedin.com/",
     },
   {
-    name: "",
+    teamate: "Ruslan Mykytchenko",
     photo: photo,
     role: "Developer",
-    git: "https://github.com/",
+    git: "https://github.com/RuslanMiki",
     ln: "https://www.linkedin.com/",
   },
 ];

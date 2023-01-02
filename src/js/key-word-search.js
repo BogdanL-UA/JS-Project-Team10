@@ -4,6 +4,9 @@ import { FilmsApiService } from './apiService';
 import { createGallery } from './createSearchGallery';
 import Loading from './spinner';
 import renderMovieCard from './render-movie-card';
+import { createMovieCard } from './get-trend-movies';
+// import { paginationOnQuery } from './pagination';
+import Pagination from 'tui-pagination';
 
 const filmsApiService = new FilmsApiService();
 
@@ -68,7 +71,8 @@ function paginationOnQuery() {
     filmsApiService.page = eventData.page;
     filmsApiService.getFilmsByQuery().then(films => {
       refs.filmsGallery.innerHTML = '';
-      createGallery(film);
+      createMovieCard(films);
+      // createGallery(data.results);
     });
   });
 }

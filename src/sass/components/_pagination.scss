@@ -1,16 +1,8 @@
-
-
 .tui-pagination-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     margin-bottom: 40px;
-}
-
-@media screen and (min-width: 768px) {
-    .tui-pagination-container {
-        margin-top: 60px;
-    }
 }
 
 .tui-page-btn {

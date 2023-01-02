@@ -29,6 +29,7 @@ function pagination() {
       refs.filmsGallery.innerHTML = '';
       createMovieCard(films);
     });
+    
   });
 }
 export { pagination };
@@ -50,7 +51,7 @@ export { pagination };
     filmsApiService.page = eventData.page;
     filmsApiService.getFilmsByQuery().then(films => {
       refs.filmsGallery.innerHTML = '';
-      createGallery2(film);
+      createGallery(film);
     });
   });
 }
