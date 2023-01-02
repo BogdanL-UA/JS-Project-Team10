@@ -51,4 +51,9 @@ export class FilmsApiService {
   resetPage() {
     this.page = 1;
   }
+
+  get totalPages() { return FilmsApiService.totalPages; }
+  
+  set totalPages(page) { FilmsApiService.totalPages = page; }
+  
 }
