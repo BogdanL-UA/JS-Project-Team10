@@ -43,7 +43,7 @@ export class FilmsApiService {
         return r.data;
       });
   }
-  async getFilmsById(movieId) {
+  async getTrailerById(movieId) {
     const response = await axios.get(
       `${BASE_URL}/movie/${movieId}/videos?api_key=${TMD_KEY}&language=en-US`
     );
