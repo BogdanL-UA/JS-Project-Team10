@@ -18,13 +18,13 @@ export default function renderMovieModal({
   const popularityNumeric = popularity.toFixed(1);
   const movieGenresMarkup = getMovieGenresArr(genres);
 
+
   const movieModalMarkup = `<div class="movie__template" data-id=${id}>
       <div class="movie__img-wrapper"
         ><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie"
       /></div>
-      <div class="movie__wrapper"
-        ><h2 class="movie__header">${title}</h2>
-
+      <div class="movie__wrapper">
+      <h2 class="movie__header">${title}</h2>
       <div class="movie__grid">
         <div class="movie__row">
           <p class="movie__info">Vote / Votes</p>
