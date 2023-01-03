@@ -3,8 +3,6 @@ import { refs } from './refs';
 import { FilmsApiService } from './apiService';
 import { createGallery } from './createSearchGallery';
 import Loading from './spinner';
-import { createMovieCard } from './get-trend-movies';
-// import { paginationOnQuery } from './pagination';
 import Pagination from 'tui-pagination';
 
 const filmsApiService = new FilmsApiService();
@@ -54,7 +52,6 @@ async function onFormSubmit(e) {
 }
 
 async function paginationOnQuery() {
-  // filmsApiService.page = 1;
   const options = {
     totalItems: FilmsApiService.totalPages,
     itemsPerPage: 20,
@@ -69,6 +66,7 @@ async function paginationOnQuery() {
   await pagination.on('beforeMove', function (eventData) {
     filmsApiService.page = eventData.page;
     filmsApiService.getFilmsByQuery().then(films => {
+      filmsApiService.page = 1;
       refs.filmsGallery.innerHTML = '';
       const markup = createGallery(films.results);
       refs.gallery.innerHTML = markup;
@@ -76,6 +74,5 @@ async function paginationOnQuery() {
     });
   });
 }
-// export { paginationOnQuery };
 
 refs.searchForm.addEventListener('submit', onFormSubmit);
