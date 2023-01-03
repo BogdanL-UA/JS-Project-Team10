@@ -16,6 +16,7 @@
   width: 280px;
   padding: 48px 20px 40px 20px;
 
+
   @include for-tablet {
       display: flex;
       width: 704px;
@@ -144,5 +145,6 @@
   &:hover,
   &:focus {
     background-color: $card-text-accent;
+
   }
 }

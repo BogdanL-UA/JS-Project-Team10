@@ -3,6 +3,7 @@ import closeModalWindow from './closeModalWindow';
 import createGenresMarkup from './create-genres-markup';
 import { disableBodyScroll } from './scrollBlocker';
 
+
 export default function renderMovieModal({
   id,
   poster_path,
@@ -56,6 +57,7 @@ export default function renderMovieModal({
   refs.movieModal.insertAdjacentHTML('afterbegin', movieModalMarkup);
   refs.backdrop.classList.remove('visually-hidden');
   disableBodyScroll(refs.backdrop);
+
   refs.closeModalIcon.addEventListener('click', closeModalWindow);
 }
 

@@ -1,6 +1,8 @@
 import renderMovieModal from './renderMovieModal';
 import { FilmsApiService } from './apiService';
+
 const BASE_YT_URL = 'https://www.youtube.com/embed/';
+
 const filmsApiService = new FilmsApiService();
 
 export default function openMovieModal(e) {
@@ -8,6 +10,9 @@ export default function openMovieModal(e) {
   const movieId = movieCardEl.dataset.id;
 
   document.removeEventListener('click', openMovieModal);
+
+
+  filmsApiService.getFilmsById(movieId).then(renderMovieModal);
 
   filmsApiService
     .getFilmsById(movieId)
