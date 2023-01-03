@@ -1,6 +1,9 @@
 .footer__section {
-    margin-bottom: 30px;
+    padding-bottom: 30px;
+    padding-top: 28px;
     display: block;
+    background-color: #F7F7F7;
+    margin: 0;
 
 
   // Tablet
@@ -11,7 +14,7 @@
 
   // PC
   @media screen and (min-width: 1200px) {
-    margin-bottom: 29px;
+    // margin-bottom: 29px;
     display: flex;
     justify-content: center;
   }

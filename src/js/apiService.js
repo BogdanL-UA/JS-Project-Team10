@@ -6,6 +6,7 @@ export class FilmsApiService {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
+    this.totalPages = 0;
   }
 
   get query() {
@@ -20,6 +21,32 @@ export class FilmsApiService {
     const response = await axios.get(
       `${BASE_URL}/search/movie?api_key=${TMD_KEY}&query=${this.searchQuery}&page=${this.page}`
     );
+    this.totalPages = response.data.total_results;
+    return response.data;
+  }
+
+  async getFilmsById(movieId) {
+    const response = await axios.get(
+      `${BASE_URL}/movie/${movieId}?api_key=${TMD_KEY}`
+    );
+
+    return response.data;
+  }
+
+  async fetchTrendFilms() {
+    return axios
+      .get(
+        `${BASE_URL}/trending/movie/week?api_key=${TMD_KEY}&page=${this.page}`
+      )
+      .then(r => {
+        this.totalPages = r.data.total_results;
+        return r.data;
+      });
+  }
+  async getTrailerById(movieId) {
+    const response = await axios.get(
+      `${BASE_URL}/movie/${movieId}/videos?api_key=${TMD_KEY}&language=en-US`
+    );
 
     return response.data;
   }
@@ -30,5 +57,13 @@ export class FilmsApiService {
 
   resetPage() {
     this.page = 1;
+  }
+
+  get totalPages() {
+    return FilmsApiService.totalPages;
+  }
+
+  set totalPages(page) {
+    FilmsApiService.totalPages = page;
   }
 }

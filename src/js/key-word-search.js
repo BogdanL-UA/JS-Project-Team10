@@ -1,7 +1,9 @@
 import { Notify } from 'notiflix';
 import { refs } from './refs';
 import { FilmsApiService } from './apiService';
+import { createGallery } from './createSearchGallery';
 import Loading from './spinner';
+import Pagination from 'tui-pagination';
 
 const filmsApiService = new FilmsApiService();
 
@@ -24,10 +26,12 @@ async function onFormSubmit(e) {
     return;
   }
 
-  filmsApiService.resetPage();
   filmsApiService.query = searchValue;
+  Loading.remove();
+  const data = await filmsApiService.getFilmsByQuery();
 
-  const data = await filmsApiService.getFilmsByQuery(filmsApiService.page);
+  // const genresFilm = await filmsApiService.fetchGenres();
+  // console.log(genresFilm);
 
   if (data.results.length === 0) {
     Notify.failure(
@@ -37,12 +41,38 @@ async function onFormSubmit(e) {
     return;
   }
 
-  Notify.success(`We found ${data.results.length} films.`);
+  Notify.success(`We found ${data.total_results} films.`);
 
-  console.log(data.results);
+  const markup = createGallery(data.results);
+  refs.gallery.innerHTML = markup;
+  paginationOnQuery();
 
   Loading.remove();
   refs.searchForm.reset();
+}
+
+async function paginationOnQuery() {
+  const options = {
+    totalItems: FilmsApiService.totalPages,
+    itemsPerPage: 20,
+    visiblePages: 5,
+    centerAlign: true,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+  };
+
+  const pagination = new Pagination(refs.pagination, options);
+  // pagination.reset();
+  await pagination.on('beforeMove', function (eventData) {
+    filmsApiService.page = eventData.page;
+    filmsApiService.getFilmsByQuery().then(films => {
+      filmsApiService.page = 1;
+      refs.filmsGallery.innerHTML = '';
+      const markup = createGallery(films.results);
+      refs.gallery.innerHTML = markup;
+      // createGallery(data.results);
+    });
+  });
 }
 
 refs.searchForm.addEventListener('submit', onFormSubmit);

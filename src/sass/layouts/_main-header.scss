@@ -9,12 +9,12 @@
   }
 }
 
-.home__icon {
-  width: 24px;
-  height: 24px;
-}
 .home {
   text-decoration: none;
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
 }
 .filmoteka {
   display: none;
@@ -25,22 +25,13 @@
   align-items: center;
   margin: 0 0 60px 0;
 }
-.header__menu {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-  justify-content: end;
-}
 
 .menu__link {
   position: relative;
   color: inherit;
   text-decoration: none;
   font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
+  @include font(12px, 500, 14px);
 
   color: #ffffff;
 }
@@ -51,6 +42,7 @@
   text-align: center;
 }
 .search {
+  color: $header-white-color;
   padding: 0;
   background-color: transparent;
   border: none;
@@ -62,9 +54,13 @@
   &__icon {
     width: 12px;
     height: 12px;
+  }
+  &__submit {
     position: absolute;
+    background-color: transparent;
     right: 0;
-    bottom: 3px;
+    bottom: 0;
+    padding: 0;
   }
 }
 .search::placeholder {
@@ -104,7 +100,7 @@
     display: flex;
     align-items: center;
     &__icon {
-      margin-right: 8px;
+      margin-right: 10px;
     }
   }
 
