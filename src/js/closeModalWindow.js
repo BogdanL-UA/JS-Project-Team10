@@ -2,7 +2,7 @@ import { refs } from './refs';
 import openMovieModal from './openMovieModal';
 import { enableBodyScroll } from './scrollBlocker';
 
-function closeModalWindow() {
+export default function closeModalWindow() {
   refs.backdrop.classList.add('visually-hidden');
   refs.movieModal.innerHTML = '';
   document.addEventListener('click', openMovieModal);
@@ -13,10 +13,9 @@ function closeModalWindow() {
   });
 
 
-function closeModalWindow() {
+ export default function closeModalWindow() {
   refs.backdrop.classList.add('visually-hidden');
   enableBodyScroll(refs.backdrop);
   refs.movieModal.innerHTML = '';
   document.addEventListener('click', openMovieModal);
 }
-export { closeModalWindow, closeModalWindow };
