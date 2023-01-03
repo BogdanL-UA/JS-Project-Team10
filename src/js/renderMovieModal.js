@@ -1,6 +1,8 @@
 import { refs } from './refs';
 import closeModalWindow from './closeModalWindow';
 import createGenresMarkup from './create-genres-markup';
+import { disableBodyScroll } from './scrollBlocker';
+
 
 export default function renderMovieModal({
   id,
@@ -17,41 +19,45 @@ export default function renderMovieModal({
   const popularityNumeric = popularity.toFixed(1);
   const movieGenresMarkup = getMovieGenresArr(genres);
 
-  const movieModalMarkup = `<div class="movie__template" data-id=${id}>
-      <span class="movie__wrapper"
-        ><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie"
-      /></span>
-      <span class="movie__wrapper"
-        ><h2 class="movie__header">${title}</h2>
 
-      <table class="movie__grid">
-        <tr class="movie__row">
-          <td class="movie__descr">Vote / Votes</td>
-          <td class="movie__descr-value">
+  const movieModalMarkup = `<div class="movie__template" data-id=${id}>
+      <div class="movie__img-wrapper"
+        ><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie"
+      /></div>
+      <div class="movie__wrapper">
+      <h2 class="movie__header">${title}</h2>
+      <div class="movie__grid">
+        <div class="movie__row">
+          <p class="movie__info">Vote / Votes</p>
+          <p class="movie__info-value">
             <span class="movie__rating">${voteNumeric}</span> / ${vote_count}
-          </td>
-        </tr>
-        <tr class="movie__row">
-          <td class="movie__descr">Popularity</td>
-          <td class="movie__descr-value">${popularityNumeric}</td>
-        </tr>
-        <tr class="movie__row">
-          <td class="movie__descr">Original Title</td>
-          <td class="movie__descr-value">${original_title}</td>
-        </tr>
-          <tr class="movie__row">
-            <td class="movie__descr">Genre</td>
-            <td class="movie__descr-value">${movieGenresMarkup}</td>
-          </tr>
-        </table>
+          </p>
+        </div>
+        <div class="movie__row">
+          <p class="movie__info">Popularity</p>
+          <p class="movie__info-value">${popularityNumeric}</p>
+        </div>
+        <div class="movie__row">
+          <p class="movie__info">Original Title</p>
+          <p class="movie__info-value">${original_title}</p>
+        </div>
+          <div class="movie__row">
+            <p class="movie__info">Genre</p>
+            <p class="movie__info-value">${movieGenresMarkup}</p>
+          </div>
+        </div>
+        <div class="movie__about-container">
         <h3 class="movie__header-about">ABOUT</h3>
-        <p class="movie__about">${overview}</p>
+        <p class="movie__about">${overview}</p></div>
         <span class="movie__buttons-wrapper"
           ><button class="movie__watched button--modal">add to Watched</button>
           <button class="movie__queue button--modal">add to queue</button></span
-        ></span></div>`;
+        ></div>
+        </div>`;
   refs.movieModal.insertAdjacentHTML('afterbegin', movieModalMarkup);
   refs.backdrop.classList.remove('visually-hidden');
+  disableBodyScroll(refs.backdrop);
+
   refs.closeModalIcon.addEventListener('click', closeModalWindow);
 }
 

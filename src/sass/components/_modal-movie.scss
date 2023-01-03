@@ -16,31 +16,86 @@
   width: 280px;
   padding: 48px 20px 40px 20px;
 
+
+  @include for-tablet {
+      display: flex;
+      width: 704px;
+      padding: 40px 36px;
+      gap: 68px;
+  }
+
+  @include for-desktop {
+      width: 806px;
+      gap: 16px;
+      padding: 40px 12px;   
+  }
+
+  &__wrapper {
+    @include for-tablet{
+        width: 264px;}
+
+        @include for-desktop{width: 50%;}
+      }
+
+  &__img-wrapper {
+        @include for-tablet{
+            margin-right: 68px;}
+    
+            @include for-desktop{width: 50%;}
+          }
+
   &__template {
-    display: flex;
+    @include for-tablet{
+    display: flex;}
+
+    @include for-desktop {
+      display: flex;}
   }
 
   &__img {
     width: 240px;
     height: 357px;
-    margin-bottom: 20px;
+    @include for-phone{
+    margin-bottom: 20px;}
+
+    @include for-tablet{
+      width: 264px;
+      height: 373px;
+    }
+    @include for-desktop{
+      width: 375px;
+      height: 478px;
+    }
   }
+
   &__header {
     @include font(20px, 500 23px);
     margin-bottom: 20px;
+
+    @include for-desktop{
+      @include font(30px, 500, 35px);
+    }
   }
+
   &__grid {
     margin-bottom: 20px;
     @include font(12px, 500, 16px);
   }
 
-  &__row:not(:last-child) {
+  &__row {
+    display: flex;
     margin-bottom: 8px;
   }
-  &__descr {
+
+  &__info {
     width: 50%;
     color: #8c8c8c;
   }
+
+  &__info-value {
+    width: 50%;
+  }
+
   &__rating {
     display: inline-block;
     text-align: center;
@@ -51,9 +106,8 @@
     width: 36px;
     height: 16px;
   }
-  &__value {
-    width: 50%;
-  }
+  
+
   &__header-about {
     @include font(12px, 500, 16px);
     text-transform: uppercase;
@@ -66,8 +120,15 @@
   &__buttons-wrapper {
     display: flex;
     justify-content: space-between;
+
+    @include for-desktop{
+      justify-content: start;
+      padding-left: 8px;
+      gap: 15px;
+    }
   }
 }
+
 .close-modal {
   position: absolute;
   top: 8px;
@@ -84,45 +145,6 @@
   &:hover,
   &:focus {
     background-color: $card-text-accent;
-  }
-}
-@media screen and (min-width: 768px) {
-  .movie {
-    display: flex;
-    width: 704px;
-    padding: 40px 36px;
-    gap: 68px;
-    &__wrapper {
-      width: 264px;
-    }
-    &__img {
-      width: 264px;
-      height: 373px;
-    }
-    &__header {
-      @include font(20px, 500, 23px);
-    }
-  }
-}
-@media screen and (min-width: 1280px) {
-  .movie {
-    width: 806px;
-    gap: 16px;
-    padding: 40px 12px;
-    &__wrapper {
-      width: 50%;
-    }
-    &__img {
-      width: 375px;
-      height: 478px;
-    }
-    &__header {
-      @include font(30px, 500, 35px);
-    }
-    &__buttons-wrapper {
-      justify-content: start;
-      padding-left: 8px;
-      gap: 15px;
-    }
+
   }
 }
