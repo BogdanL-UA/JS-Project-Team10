@@ -10,7 +10,7 @@ export default function closeModalWindow() {
     if (e.key === 'Escape') {
       closeModalWindow()
     }
-  });
+  })}
 
 
  export default function closeModalWindow() {
