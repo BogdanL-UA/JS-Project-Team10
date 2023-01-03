@@ -139,3 +139,16 @@
     width: 394px;
   }
 }
+
+.home__icon {
+  animation: spin 2s linear infinite alternate-reverse;
+  -webkit-animation: spin 2s linear infinite alternate-reverse;
+}
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+@-webkit-keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
