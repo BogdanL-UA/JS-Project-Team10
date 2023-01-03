@@ -1,0 +1,1 @@
+{"mappings":"gfAAAA,EAAA,S","sources":["src/indexLibrary.js"],"sourcesContent":["import './js/createPageHome';\nimport './js/createSearchGallery';\nimport './js/pagination';\n\nimport './js/get-trend-movies';\nimport './js/team-modal';\nimport './js/scroll';\n"],"names":["parcelRequire"],"version":3,"file":"library.e1aba3a6.js.map"}
