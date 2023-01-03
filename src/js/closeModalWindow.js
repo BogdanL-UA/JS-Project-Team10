@@ -9,11 +9,12 @@ export default function closeMovieModalWindow() {
   window.addEventListener('keydown', function(e){
     if (e.key === 'Escape') {
       closeModalWindow()
-    }
-  });}
+    }});
+  }
 
 
- export default function closeModalWindow() {
+
+export default function closeModalWindow() {
   refs.backdrop.classList.add('visually-hidden');
   enableBodyScroll(refs.backdrop);
   refs.movieModal.innerHTML = '';
