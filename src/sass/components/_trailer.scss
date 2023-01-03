@@ -12,7 +12,7 @@
   &__play {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 24%;
     padding: 10px 20px;
     opacity: 0.5;
     transform: translate(-50%, -50%);
@@ -23,6 +23,11 @@
     &:hover,
     &:focus {
       opacity: 0.8;
+    }
+
+    @include for-phone{
+      top: 30%;
+    left: 50%;
     }
   }
   &__close {

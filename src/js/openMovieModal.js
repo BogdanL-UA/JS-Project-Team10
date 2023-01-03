@@ -11,15 +11,13 @@ export default function openMovieModal(e) {
 
   document.removeEventListener('click', openMovieModal);
 
-
-  filmsApiService.getFilmsById(movieId).then(renderMovieModal);
-
   filmsApiService
     .getFilmsById(movieId)
     .then(renderMovieModal)
     .then(data => {
       const iframeTarget = document.querySelector('.trailer__target');
       const playTrailer = document.querySelector('.trailer__play');
+
       filmsApiService.getTrailerById(movieId).then(data => {
         let theOne = '';
         data.results.find(result => {

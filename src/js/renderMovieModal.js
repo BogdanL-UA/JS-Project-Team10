@@ -1,8 +1,7 @@
 import { refs } from './refs';
-import closeModalWindow from './closeModalWindow';
+import closeMovieModalWindow from './closeModalWindow';
 import createGenresMarkup from './create-genres-markup';
 import { disableBodyScroll } from './scrollBlocker';
-
 
 export default function renderMovieModal({
   id,
@@ -19,10 +18,10 @@ export default function renderMovieModal({
   const popularityNumeric = popularity.toFixed(1);
   const movieGenresMarkup = getMovieGenresArr(genres);
 
-
-  const movieModalMarkup = `<div class="movie__template" data-id=${id}>
+  const movieModalMarkup = `<div class="movie__template" data-id=${id}><div class="trailer__target visually-hidden"></div>
       <div class="movie__img-wrapper"
-        ><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie"
+        ><button class="trailer__play">Play
+        </button><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie"
       /></div>
       <div class="movie__wrapper">
       <h2 class="movie__header">${title}</h2>
@@ -58,7 +57,7 @@ export default function renderMovieModal({
   refs.backdrop.classList.remove('visually-hidden');
   disableBodyScroll(refs.backdrop);
 
-  refs.closeModalIcon.addEventListener('click', closeModalWindow);
+  refs.closeModalIcon.addEventListener('click', closeMovieModalWindow);
 }
 
 function getMovieGenresArr(genres) {

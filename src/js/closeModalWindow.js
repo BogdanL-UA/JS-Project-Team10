@@ -2,7 +2,7 @@ import { refs } from './refs';
 import openMovieModal from './openMovieModal';
 import { enableBodyScroll } from './scrollBlocker';
 
-export default function closeModalWindow() {
+export default function closeMovieModalWindow() {
   refs.backdrop.classList.add('visually-hidden');
   refs.movieModal.innerHTML = '';
   document.addEventListener('click', openMovieModal);
@@ -10,7 +10,7 @@ export default function closeModalWindow() {
     if (e.key === 'Escape') {
       closeModalWindow()
     }
-  });
+  });}
 
 
  export default function closeModalWindow() {
