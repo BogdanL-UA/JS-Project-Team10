@@ -34,8 +34,6 @@ export function createGallery(film) {
             <div class="film__meta">
                 <p class="movies__title">${original_title}</p>
                 <p class="movies__info"><span class="film__genre">${genresMarkup}</span> | <span class="film__year">${releaseYear}</span></p>
-
-                )}" alt="${original_title}" class="movies__image"  data-target="card"/>
             </div>
         </li>`;
     })
