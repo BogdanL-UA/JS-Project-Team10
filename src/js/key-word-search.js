@@ -1,13 +1,13 @@
 import { Notify } from 'notiflix';
 import { refs } from './refs';
-import { FilmsApiService } from './apiService';
-import { createGallery } from './createSearchGallery';
+import { FilmsApiService } from './api-service';
+import { createGallery } from './create-search-gallery';
 import Loading from './spinner';
 import Pagination from 'tui-pagination';
 
 const filmsApiService = new FilmsApiService();
 
-async function onFormSubmit(e) {
+export default async function onFormSubmit(e) {
   e.preventDefault();
 
   const {
@@ -49,6 +49,7 @@ async function onFormSubmit(e) {
 
   Loading.remove();
   refs.searchForm.reset();
+  refs.searchForm.addEventListener('submit', onFormSubmit);
 }
 
 async function paginationOnQuery() {
@@ -74,5 +75,3 @@ async function paginationOnQuery() {
     });
   });
 }
-
-refs.searchForm.addEventListener('submit', onFormSubmit);

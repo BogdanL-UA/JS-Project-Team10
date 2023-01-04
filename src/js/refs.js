@@ -7,4 +7,6 @@ export const refs = {
   backdrop: document.querySelector('.backdrop'),
   movieModal: document.querySelector('.movie__content-container'),
   closeModalIcon: document.querySelector('.close-modal'),
+  input: document.querySelector('.header__toggle-input'),
+  body: document.querySelector('body'),
 };
