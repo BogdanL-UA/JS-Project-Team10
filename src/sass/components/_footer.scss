@@ -1,10 +1,9 @@
 .footer__section {
-    padding-bottom: 30px;
-    padding-top: 28px;
-    display: block;
-    background-color: #F7F7F7;
-    margin: 0;
-
+  padding-bottom: 30px;
+  padding-top: 28px;
+  display: block;
+  background-color: #f7f7f7;
+  margin: 0;
 
   // Tablet
   @media screen and (min-width: 768px) {
@@ -21,23 +20,22 @@
 }
 
 .footer__copyright {
-    position: relative;
-    display: flex;
-    background-color: transparent;
-    justify-content: space-around;
-    margin-top: 29px;
-    margin-bottom: 10px;
-    
+  position: relative;
+  display: flex;
+  background-color: transparent;
+  justify-content: space-around;
+  margin-top: 29px;
+  margin-bottom: 10px;
 }
 
 .footer__dev {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    margin-left: 3px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-left: 3px;
 
-     // Tablet
+  // Tablet
   @media screen and (min-width: 768px) {
     margin-top: 30px;
   }
@@ -50,38 +48,39 @@
 }
 
 .footer__heart {
-    margin-left: 10px;
-    margin-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
-
 
 @keyframes beat {
-	from {
-		transform: scale(1);
-		transform-origin: center center;
-		animation-timing-function: ease-out;
-	}
-	10% {
-		transform: scale(1.3);
-		animation-timing-function: ease-in;
-	}
-	15% {
-		transform: scale(1.1);
-		animation-timing-function: ease-out;
-	}
-	25% {
-		transform: scale(1.08);
-		animation-timing-function: ease-in;
-	}
+  from {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    transform: scale(1.3);
+    animation-timing-function: ease-in;
+  }
+  15% {
+    transform: scale(1.1);
+    animation-timing-function: ease-out;
+  }
+  25% {
+    transform: scale(1.08);
+    animation-timing-function: ease-in;
+  }
   35% {
     transform: scale(1.2);
-		animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
 }
-
 
 .footer__icon {
   text-align: center;
   animation: beat 1s infinite;
 }
 
+.goit-students {
+  color: black;
+}

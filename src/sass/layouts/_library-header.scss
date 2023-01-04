@@ -116,7 +116,7 @@
   .header__nav {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   .library-header__btn {
@@ -163,7 +163,7 @@
   }
 
   .header__nav {
-    margin-bottom: 44px;
+    margin-bottom: 24px;
   }
 
   .library-header__btn:not(:last-child) {
@@ -176,10 +176,18 @@
   -webkit-animation: spin 2s linear infinite alternate-reverse;
 }
 @keyframes spin {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 @-webkit-keyframes spin {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
