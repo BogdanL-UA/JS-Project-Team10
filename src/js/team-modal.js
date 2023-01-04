@@ -52,3 +52,11 @@ window.addEventListener('keydown', function(e){
   backdropteam.classList.add('visually-hidden');
   }
 });
+
+backdropteam.addEventListener('click', onBackdroTeampClick)
+function onBackdroTeampClick(event) {
+if (event.currentTarget === event.target) {
+  body.classList.remove('modal-open');
+  backdropteam.classList.add('visually-hidden');
+}
+}
