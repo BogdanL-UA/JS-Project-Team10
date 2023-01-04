@@ -1,8 +1,6 @@
 import { createMovieCard } from './get-trend-movies';
 import { FilmsApiService } from './apiService';
 import { pagination } from './pagination';
-import Pagination from 'tui-pagination';
-
 
 
 const filmsApiService = new FilmsApiService();
