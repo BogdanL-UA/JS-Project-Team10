@@ -1,6 +1,6 @@
-import './js/createPageHome';
-import './js/createSearchGallery';
-import './js/pagination';
+// import './js/createPageHome';
+// import './js/createSearchGallery';
+// import './js/pagination';
 import './js/team-modal';
 import './js/dark-theme';
 // import './js/scroll';
