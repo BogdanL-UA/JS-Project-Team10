@@ -6,6 +6,7 @@ const BASE_YT_URL = 'https://www.youtube.com/embed/';
 const filmsApiService = new FilmsApiService();
 
 export default function openMovieModal(e) {
+
   if (e.target.dataset.target !== 'card') {
     return;
   } else {
@@ -33,8 +34,7 @@ export default function openMovieModal(e) {
             iframeTarget.classList.remove('visually-hidden');
             iframeTarget.insertAdjacentHTML(
               'afterbegin',
-              `  <iframe
-          class="trailer"
+              `  <iframe class="trailer"
           src="${BASE_YT_URL}${theOne.key}"
           frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-demia; gyroscope; picture-in-picture" allowfullscreen
         ></iframe><button class="trailer__close">Close</button>`

@@ -23,6 +23,7 @@ export default function trendMovieCardTmpl({
         <div class="movies__meta">
             <p class="movies__title" data-target="card">${title}</p>
             <p class="movies__info" data-target="card"><span class="movies__genre" data-target="card">${convertedGenres}</span> | <span class="movies__year">${releaseYear}</span></p>
+
         </div>
     </li>`;
 }
