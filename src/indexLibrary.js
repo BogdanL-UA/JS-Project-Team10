@@ -1,4 +1,4 @@
-// import './js/createPageHome';
+import './js/createPageHome';
 import './js/createSearchGallery';
 import './js/pagination';
 import './js/team-modal';
