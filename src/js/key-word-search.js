@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix';
 import { refs } from './refs';
-import { FilmsApiService } from './apiService';
-import { createGallery } from './createSearchGallery';
+import { FilmsApiService } from './api-service';
+import { createGallery } from './create-search-gallery';
 import Loading from './spinner';
 import Pagination from 'tui-pagination';
 
