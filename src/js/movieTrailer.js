@@ -35,15 +35,15 @@ getFilmsById(676547).then(data => {
       frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-demia; gyroscope; picture-in-picture" allowfullscreen
     ></iframe>`
   );
-});
+});}
 
-{
+// {
   /* <button class="the-trailer">
   <svg class="play-trailer" width="50" height="30">
     <use href="./images/sprite.svg#play-icon"></use>
   </svg>
 </button>; */
-}
+// }
 
 // .then(data => {
 //       const iframeTarget = document.querySelector('.trailer-target');
