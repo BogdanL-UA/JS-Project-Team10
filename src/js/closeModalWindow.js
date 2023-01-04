@@ -31,7 +31,7 @@ if (event.currentTarget === event.target) {
     if (e.key === 'Escape') {
       closeModalWindow()
     }});
-  }
+  
 
 export default function closeModalWindow() {
   refs.backdrop.classList.add('visually-hidden');
