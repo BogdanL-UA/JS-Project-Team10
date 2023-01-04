@@ -1,12 +1,12 @@
 import './js/refs';
-import { uploadTrendMovies } from './js/createPageHome';
+import { uploadTrendMovies } from './js/create-page-home';
 import { topUp } from './js/top';
 // import './js/createPageHome';
 import './js/key-word-search';
-import './js/createSearchGallery';
+import './js/create-search-gallery';
 import './js/pagination';
 
-import './js/openMovieModal';
+import './js/open-movie-modal';
 
 // import './js/get-trend-movies';
 import './js/team-modal';

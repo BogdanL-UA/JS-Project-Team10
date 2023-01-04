@@ -1,7 +1,7 @@
 import { refs } from './refs';
-import closeMovieModalWindow from './closeModalWindow';
+import closeMovieModalWindow from './close-modal-window';
 import createGenresMarkup from './create-genres-markup';
-import { disableBodyScroll } from './scrollBlocker';
+import { disableBodyScroll } from './scroll-blocker';
 
 export default function renderMovieModal({
   id,
