@@ -2,6 +2,7 @@ import { refs } from './refs';
 import closeModalWindow from './closeModalWindow';
 import createGenresMarkup from './create-genres-markup';
 
+
 export default function renderMovieModal({
   id,
   poster_path,
@@ -13,6 +14,8 @@ export default function renderMovieModal({
   genres,
   overview,
 }) {
+  
+
   const voteNumeric = String(vote_average).slice(0, 3);
   const popularityNumeric = popularity.toFixed(1);
   const movieGenresMarkup = getMovieGenresArr(genres);
@@ -53,6 +56,58 @@ export default function renderMovieModal({
   refs.movieModal.insertAdjacentHTML('afterbegin', movieModalMarkup);
   refs.backdrop.classList.remove('visually-hidden');
   refs.closeModalIcon.addEventListener('click', closeModalWindow);
+
+  const btnWatchedFilms = document.querySelector('.movie__watched');
+  let watchedFilms = JSON.parse(localStorage.getItem('watchedMovies')) || [];
+  const isWatched = watchedFilms.includes(id);
+  if (isWatched) {
+    btnWatchedFilms.innerText = 'Remove from watched';
+  }
+  else {
+    btnWatchedFilms.innerText = 'Add to watched';
+  }
+  btnWatchedFilms.addEventListener('click', onWatched);  
+  
+  function onWatched(e) {   
+    let watchedFilms = JSON.parse(localStorage.getItem('watchedMovies')) || [];
+    const isWatched = watchedFilms.includes(id);
+    if (!isWatched) {
+      watchedFilms.push(id);
+      e.target.innerText = 'Remove from watched';
+    }
+    else {
+      const movieIdIndex = watchedFilms.indexOf(id);
+      watchedFilms.splice(movieIdIndex, 1);
+      e.target.innerText = 'Add to watched';
+    }    
+    localStorage.setItem('watchedMovies', JSON.stringify(watchedFilms));    
+  }
+  
+  const btnQueueFilms = document.querySelector('.movie__queue');
+  let queueFilms = JSON.parse(localStorage.getItem('queueMovies')) || [];
+  const isQueue = queueFilms.includes(id);
+  if (isQueue) {
+    btnQueueFilms.innerText = 'Remove from watched';
+  }
+  else {
+    btnQueueFilms.innerText = 'Add to watched';
+  }
+  btnQueueFilms.addEventListener('click', onQueue);  
+  
+  function onQueue(e) {   
+    let queueFilms = JSON.parse(localStorage.getItem('queueMovies')) || [];
+    const isQueue = queueFilms.includes(id);
+    if (!isQueue) {
+      queueFilms.push(id);
+      e.target.innerText = 'Remove from watched';
+    }
+    else {
+      const movieQueueIdIndex = queueFilms.indexOf(id);
+      queueFilms.splice(movieQueueIdIndex, 1);
+      e.target.innerText = 'Add to watched';
+    }    
+    localStorage.setItem('queueMovies', JSON.stringify(queueFilms));    
+}
 }
 
 function getMovieGenresArr(genres) {
