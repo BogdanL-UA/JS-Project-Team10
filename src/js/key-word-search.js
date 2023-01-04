@@ -7,7 +7,7 @@ import Pagination from 'tui-pagination';
 
 const filmsApiService = new FilmsApiService();
 
-async function onFormSubmit(e) {
+export default async function onFormSubmit(e) {
   e.preventDefault();
 
   const {
@@ -19,6 +19,7 @@ async function onFormSubmit(e) {
   });
 
   const searchValue = searchQuery.value.trim();
+  console.log(searchValue);
 
   if (!searchValue) {
     Notify.failure('What would you like to see?');
@@ -49,6 +50,7 @@ async function onFormSubmit(e) {
 
   Loading.remove();
   refs.searchForm.reset();
+  refs.searchForm.addEventListener('submit', onFormSubmit);
 }
 
 async function paginationOnQuery() {
@@ -74,5 +76,3 @@ async function paginationOnQuery() {
     });
   });
 }
-
-refs.searchForm.addEventListener('submit', onFormSubmit);
