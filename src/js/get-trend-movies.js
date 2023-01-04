@@ -1,6 +1,6 @@
 import { refs } from './refs';
-import trendMovieCardTmpl from './cardTmpl';
-import openMovieModal from './openMovieModal';
+import trendMovieCardTmpl from './card-tmpl';
+import openMovieModal from './open-movie-modal';
 import onFormSubmit from './key-word-search';
 
 function createMovieCard(films) {

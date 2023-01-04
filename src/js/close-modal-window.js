@@ -1,6 +1,6 @@
 import { refs } from './refs';
-import openMovieModal from './openMovieModal';
-import { enableBodyScroll } from './scrollBlocker';
+import openMovieModal from './open-movie-modal';
+import { enableBodyScroll } from './scroll-blocker';
 
 export default function closeMovieModalWindow() {
   refs.backdrop.classList.add('visually-hidden');

@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
 import { refs } from './refs';
-import { FilmsApiService } from './apiService';
+import { FilmsApiService } from './api-service';
 import { createMovieCard } from './get-trend-movies';
 
 const filmsApiService = new FilmsApiService();

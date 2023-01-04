@@ -1,5 +1,5 @@
-import renderMovieModal from './renderMovieModal';
-import { FilmsApiService } from './apiService';
+import renderMovieModal from './render-movie-modal';
+import { FilmsApiService } from './api-service';
 
 const BASE_YT_URL = 'https://www.youtube.com/embed/';
 
