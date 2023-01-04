@@ -1,3 +1,4 @@
+// import './js/refs';
 import './js/createPageHome';
 import './js/key-word-search';
 import './js/createSearchGallery';
