@@ -2,7 +2,7 @@ const refs = {
   scrollUp: document.querySelector('.top'),
   scrollUpSvgPath: document.querySelector('.top__svg--path'),
 };
-function topUp() {
+export default function topUp() {
   const offset = 600;
   const pathLength = refs.scrollUpSvgPath.getTotalLength();
 
@@ -34,4 +34,3 @@ function topUp() {
     });
   });
 }
-export default { topUp };
