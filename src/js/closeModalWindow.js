@@ -16,7 +16,7 @@ export default function closeMovieModalWindow() {
 
 export default function closeModalWindow() {
   refs.backdrop.classList.add('visually-hidden');
-  enableBodyScroll(refs.backdrop);
+  enableBodyScroll(refs.movieModal);
   refs.movieModal.innerHTML = '';
   document.addEventListener('click', openMovieModal);
 }

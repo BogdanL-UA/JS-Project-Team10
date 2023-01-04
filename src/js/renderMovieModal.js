@@ -55,7 +55,7 @@ export default function renderMovieModal({
         </div>`;
   refs.movieModal.insertAdjacentHTML('afterbegin', movieModalMarkup);
   refs.backdrop.classList.remove('visually-hidden');
-  disableBodyScroll(refs.backdrop);
+  disableBodyScroll(refs.movieModal);
 
   refs.closeModalIcon.addEventListener('click', closeMovieModalWindow);
 }
