@@ -19,7 +19,6 @@ export default async function onFormSubmit(e) {
   });
 
   const searchValue = searchQuery.value.trim();
-  console.log(searchValue);
 
   if (!searchValue) {
     Notify.failure('What would you like to see?');
