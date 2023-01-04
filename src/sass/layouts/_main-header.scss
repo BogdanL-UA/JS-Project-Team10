@@ -23,7 +23,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 60px 0;
+  margin: 0 0 10px 0;
 }
 
 .menu__link {
@@ -88,7 +88,7 @@
     &__nav {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 41px;
+      margin-bottom: 21px;
     }
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
@@ -133,7 +133,7 @@
     margin-right: 10px;
   }
   .header__nav {
-    margin-bottom: 44px;
+    margin-bottom: 24px;
   }
   .search {
     width: 394px;
@@ -145,10 +145,18 @@
   -webkit-animation: spin 8s linear infinite alternate-reverse;
 }
 @keyframes spin {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 @-webkit-keyframes spin {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
