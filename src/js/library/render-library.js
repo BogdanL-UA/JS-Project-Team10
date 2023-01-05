@@ -4,7 +4,7 @@ import openMovieModal from '../open-movie-modal';
 import closeMovieModalWindow from '../close-modal-window';
 
 const generateGenresString = genres => {
-  if (genres.length < 2) {
+  if (genres.length <= 2) {
     return genres.map(genre => genre.name).join(', ');
   } else if (genres.length === 0) {
     return 'no genres';
