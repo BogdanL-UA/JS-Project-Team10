@@ -1,5 +1,7 @@
 import { renderLibrary } from './render-library';
 import { refs } from './library-refs';
+import { activateWatchedBtn, activateQueueBtn, deactivateWatchedBtn, deactivateQueueBtn } from './library-buttons-functions';
+import { clearLibraryContainer } from './clear-containers';
 
 const getFromLocalStorage = key =>
   JSON.parse(localStorage.getItem(`${key}Movies`));
@@ -7,24 +9,6 @@ const getFromLocalStorage = key =>
 let watchedMovies = getFromLocalStorage('watched');
 let queueMovies = getFromLocalStorage('queue');
 
-const clearLibraryContainer = () => {
-  refs.library.innerHTML = '';
-};
-
-const activateWatchedBtn = () => {
-  refs.headerWatchedBtn.classList.add('library-header__btn--active');
-};
-const activateQueueBtn = () => {
-  refs.headerQueueBtn.classList.add('library-header__btn--active');
-};
-
-const deactivateWatchedBtn = () => {
-  refs.headerWatchedBtn.classList.remove('library-header__btn--active');
-};
-
-const deactivateQueueBtn = () => {
-  refs.headerQueueBtn.classList.remove('library-header__btn--active');
-};
 
 //перевірка localstorage при завантаженні сторінки
 if (
@@ -40,19 +24,17 @@ if (
   clearLibraryContainer();
   activateWatchedBtn();
   renderLibrary(watchedMovies);
-  return;
 } else if (queueMovies.length > 0) {
   //в localstorage є фільми в черзі
   // console.log(queueMovies);
   clearLibraryContainer();
   activateQueueBtn();
   renderLibrary(queueMovies);
-  return;
 }
 
-//колбеки для кнопок
-const onWatchedBtnClick = event => {
-  event.preventDefault();
+const onWatchedClick = (event) => {
+
+  console.log('Привіт від кнопки watched');
 
   deactivateQueueBtn();
   activateWatchedBtn();
@@ -68,5 +50,23 @@ const onWatchedBtnClick = event => {
   }
 };
 
-//додаємо прослуховувачі подій на кнопки
-// refs.headerWatchedBtn.addEventListener('click', onWatchedBtnClick);
+const onQueueClick = (event) => {
+    console.log('Привіт від кнопки queue');
+
+  activateQueueBtn();
+  deactivateWatchedBtn();
+
+  clearLibraryContainer();
+
+  if (queueMovies == null || queueMovies.length === 0) {
+    refs.message.innerHTML =
+      '<p>Ви ще не додали фільми до черги</p>';
+  } else if (queueMovies.length > 0) {
+    refs.message.innerHTML = '';
+    renderLibrary(queueMovies);
+  }
+}
+
+// додаємо прослуховувачі подій на кнопки
+refs.headerWatchedBtn.addEventListener('click', onWatchedClick);
+refs.headerQueueBtn.addEventListener('click', onQueueClick);
