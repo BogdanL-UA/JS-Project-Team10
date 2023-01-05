@@ -17,10 +17,14 @@
 @import './layouts/main-header';
 
 @import './components/modal-movie';
+@import './components/trailer';
 @import './src/sass/layouts/library-header';
 @import './src/sass/layouts/spinner';
+
 @import './components/modal-team';
 
 @import './layouts/main-grid';
 @import './layouts/spinner';
-
+// @import './layouts/scroll';
+@import './layouts/top';
+@import './layouts/dark-theme';

@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1001;
+  z-index: 100;
   background-color: #0000005d;
   width: 100%;
   height: 100%;
@@ -10,32 +10,91 @@
   justify-content: center;
   align-items: center;
 }
+
 .movie {
   position: relative;
-  background-color: $header-white-color;
-  width: 280px;
-  padding: 48px 20px 40px 20px;
+  z-index: 200;
+
+
+  @include for-tablet {
+      display: flex;
+      width: 704px;
+      padding: 40px 36px;
+      gap: 68px;
+      background-color: $header-white-color;
+  }
+
+  @include for-desktop {
+      width: 806px;
+      gap: 16px;
+      padding: 40px 12px;   
+      background-color: $header-white-color;
+  }
+
+  &__wrapper {
+    @include for-tablet{
+        width: 264px;}
+
+        @include for-desktop{width: 50%;}
+      }
+
+  &__img-wrapper {
+        @include for-tablet{
+            margin-right: 68px;}
+    
+            @include for-desktop{width: 50%;}
+          }
+
+  &__template {
+    @include for-tablet{
+    display: flex;}
+
+    @include for-desktop {
+      display: flex;}
+  }
+
   &__img {
     width: 240px;
     height: 357px;
-    margin-bottom: 20px;
+
+    @include for-tablet{
+      width: 264px;
+      height: 373px;
+    }
+    @include for-desktop{
+      width: 375px;
+      height: 478px;
+    }
   }
+
   &__header {
     @include font(20px, 500 23px);
     margin-bottom: 20px;
+
+    @include for-desktop{
+      @include font(30px, 500, 35px);
+    }
   }
+
   &__grid {
     margin-bottom: 20px;
     @include font(12px, 500, 16px);
   }
 
-  &__row:not(:last-child) {
+  &__row {
+    display: flex;
     margin-bottom: 8px;
   }
-  &__descr {
+
+  &__info {
     width: 50%;
     color: #8c8c8c;
   }
+
+  &__info-value {
+    width: 50%;
+  }
+
   &__rating {
     display: inline-block;
     text-align: center;
@@ -46,9 +105,8 @@
     width: 36px;
     height: 16px;
   }
-  &__value {
-    width: 50%;
-  }
+  
+
   &__header-about {
     @include font(12px, 500, 16px);
     text-transform: uppercase;
@@ -61,8 +119,15 @@
   &__buttons-wrapper {
     display: flex;
     justify-content: space-between;
+
+    @include for-desktop{
+      justify-content: start;
+      padding-left: 8px;
+      gap: 15px;
+    }
   }
 }
+
 .close-modal {
   position: absolute;
   top: 8px;
@@ -79,45 +144,43 @@
   &:hover,
   &:focus {
     background-color: $card-text-accent;
+
   }
 }
-@media screen and (min-width: 768px) {
-  .movie {
-    display: flex;
-    width: 704px;
-    padding: 40px 36px;
-    gap: 68px;
-    &__wrapper {
-      width: 264px;
-    }
-    &__img {
-      width: 264px;
-      height: 373px;
-    }
-    &__header {
-      @include font(20px, 500, 23px);
-    }
-  }
+
+.modal {
+  @include for-phone{position: fixed;
+  transform: translate(0,0);
+  width: auto; left: 0; right: 0;
+  height: auto; top: 0; bottom: 0;
+  z-index: 110; /* display above everything else */
+  padding: 20px; /* create padding for inner window - page under modal window will be still visible */
+  background-color: $header-white-color;
+  width: 280px;
+
+  padding: 48px 20px 40px 20px;
+  margin-right: auto;
+  margin-left: auto;}
+  
+
 }
-@media screen and (min-width: 1280px) {
-  .movie {
-    width: 806px;
-    gap: 16px;
-    padding: 40px 12px;
-    &__wrapper {
-      width: 50%;
-    }
-    &__img {
-      width: 375px;
-      height: 478px;
-    }
-    &__header {
-      @include font(30px, 500, 35px);
-    }
-    &__buttons-wrapper {
-      justify-content: start;
-      padding-left: 8px;
-      gap: 15px;
-    }
-  }
+
+.modal-outer {
+  @include for-phone{box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 120;}
+  
 }
+
+.modal-inner {
+  @include for-phone{box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;
+  width: 100%;
+  height: auto;       /* allow to fit content (if smaller)... */
+  max-height: 100%;   /* ... but make sure it does not overflow browser window */
+
+  /* allow vertical scrolling if required */
+  overflow-x: hidden;
+  overflow-y: auto;}}
+  

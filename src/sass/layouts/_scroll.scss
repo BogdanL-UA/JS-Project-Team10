@@ -1,0 +1,44 @@
+.btn-to-top {
+  width: 45px;
+  height: 45px;
+  z-index: 100;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  color: #fff;
+  background: linear-gradient(
+      to right,
+      rgba(30, 48, 30, 0.1),
+      rgba(30, 48, 30, 0.1)
+    ),
+    linear-gradient(180deg, #ffba08, #ff1b3a, #370617);
+
+  //   border: 1px solid #ff6b08;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  bottom: 3vh;
+  right: 2vw;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: linear-gradient(180deg, #ffba08, #ff1b3a, #370617);
+    box-shadow: 0 2px 3px rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  }
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.scroll-icon {
+  fill: currentColor;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-to-top:hover .scroll-icon {
+  width: 25px;
+  height: 25px;
+}

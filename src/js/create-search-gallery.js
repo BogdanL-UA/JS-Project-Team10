@@ -1,4 +1,3 @@
-import { searchGenres, movieId } from './genres';
 import createGenresMarkup from './create-genres-markup';
 // searchGenres();
 
@@ -30,11 +29,11 @@ export function createGallery(film) {
             <div class="movies__poster">
                 <img src="${generatePosterImgLink(
                   poster_path
-                )}" alt="${original_title}" class="movies__image" />
+                )}" alt="${original_title}" class="movies__image" data-target="card"/>
             </div>
             <div class="film__meta">
-                <p class="movies__title">${original_title}</p>
-                <p class="movies__info"><span class="film__genre">${genresMarkup}</span> | <span class="film__year">${releaseYear}</span></p>
+                <p class="movies__title" data-target="card">${original_title}</p>
+                <p class="movies__info" data-target="card"><span class="film__genre" data-target="card">${genresMarkup}</span> | <span class="film__year">${releaseYear}</span></p>
             </div>
         </li>`;
     })

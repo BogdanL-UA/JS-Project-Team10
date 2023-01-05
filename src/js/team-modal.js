@@ -1,9 +1,9 @@
-import teamList from './teamList';
+import teamList from './team-list';
 const body = document.body;
 const list = document.querySelector('.team__list');
 const modal = document.querySelector('.goit-students');
-const backdrop = document.querySelector('.team-backdrop');
-const closeModal = document.querySelector('.close-modal');
+const backdropteam = document.querySelector('.team-backdrop');
+const closeModal = document.querySelector('.close-modal-btn');
 const teamBuild = ({ teamate, photo, role, git, ln }) => {
   return `<li class="team__item">
     <img src=${photo} alt="" class="team__item-img" />
@@ -30,56 +30,33 @@ const teamBuild = ({ teamate, photo, role, git, ln }) => {
   </li>`;
 };
 teamList.map(person => list.insertAdjacentHTML('beforeend', teamBuild(person)));
-const onCloseModal = () => {
-  body.classList.remove('modal-open');
-  backdrop.classList.add('visually-hidden');
-  backdrop.classList.add('is-hidden');
-  return closeModal.removeEventListener('click', onCloseModal);
-};
+
 const onClick = e => {
   e.preventDefault();
   body.classList.add('modal-open');
-  backdrop.classList.remove('visually-hidden');
-  backdrop.classList.remove('is-hidden');
-  closeModal.addEventListener('click', onCloseModal);
+  backdropteam.classList.remove('visually-hidden');
 };
 modal.addEventListener('click', onClick);
 
-// import teamList from "./teamList";
-// import teamTpl from "../../templates/team.hbs";
-// import markup from "./teamModalMarkup";
 
-// import * as basicLightbox from "basiclightbox";
+const onClickClose = e => {
+  e.preventDefault();
+  body.classList.remove('modal-open');
+  backdropteam.classList.add('visually-hidden');
+};
+closeModal.addEventListener('click', onClickClose);
 
-// const modalTeamRef = document.querySelector(".footer__btn");
+window.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') {
+  body.classList.remove('modal-open');
+  backdropteam.classList.add('visually-hidden');
+  }
+});
 
-// modalTeamRef.addEventListener("click", onOpenModalTeam);
-
-// function onOpenModalTeam() {
-//   console.log("Hello");
-//   const modalTeam = basicLightbox.create(markup, {
-//     onShow: modalTeam => {
-//       window.addEventListener("keydown", escapeKeyCloseModal);
-//       window.addEventListener("click", clickForCloseModal);
-//       modalTeam.element().querySelector(".modal__close").onclick =
-//         modalTeam.close;
-//     },
-//     onClose: modalTeam => {
-//       window.removeEventListener("keydown", escapeKeyCloseModal);
-//       window.removeEventListener("click", clickForCloseModal);
-//     },
-//   });
-//   function escapeKeyCloseModal(event) {
-//     if (event.code === "Escape") {
-//       modalTeam.close();
-//     }
-//   }
-//   function clickForCloseModal(event) {
-//     console.log(event.target.classList.value);
-//     if (event.target.classList.value === "basicLightbox__placeholder") {
-//       modalTeam.close();
-//     }
-//   }
-
-//   modalTeam.show();
-// }
+backdropteam.addEventListener('click', onBackdroTeampClick)
+function onBackdroTeampClick(event) {
+if (event.currentTarget === event.target) {
+  body.classList.remove('modal-open');
+  backdropteam.classList.add('visually-hidden');
+}
+}

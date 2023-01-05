@@ -1,10 +1,11 @@
 import { refs } from './refs';
-import axios from 'axios';
-import trendMovieCardTmpl from './cardTmpl';
-import openMovieModal from './openMovieModal';
+import trendMovieCardTmpl from './card-tmpl';
+import openMovieModal from './open-movie-modal';
+import onFormSubmit from './key-word-search';
 
 function createMovieCard(films) {
-  window.addEventListener('click', openMovieModal);
+  document.addEventListener('click', openMovieModal);
+  refs.searchForm.addEventListener('submit', onFormSubmit);
 
   return films.results.map(
     ({ title, release_date, poster_path, id, genre_ids }) => {

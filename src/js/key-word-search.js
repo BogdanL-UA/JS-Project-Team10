@@ -1,16 +1,13 @@
 import { Notify } from 'notiflix';
 import { refs } from './refs';
-import { FilmsApiService } from './apiService';
-import { createGallery } from './createSearchGallery';
+import { FilmsApiService } from './api-service';
+import { createGallery } from './create-search-gallery';
 import Loading from './spinner';
-import renderMovieCard from './render-movie-card';
-import { createMovieCard } from './get-trend-movies';
-// import { paginationOnQuery } from './pagination';
 import Pagination from 'tui-pagination';
 
 const filmsApiService = new FilmsApiService();
 
-async function onFormSubmit(e) {
+export default async function onFormSubmit(e) {
   e.preventDefault();
 
   const {
@@ -30,7 +27,7 @@ async function onFormSubmit(e) {
   }
 
   filmsApiService.query = searchValue;
-Loading.remove();
+  Loading.remove();
   const data = await filmsApiService.getFilmsByQuery();
 
   // const genresFilm = await filmsApiService.fetchGenres();
@@ -44,7 +41,7 @@ Loading.remove();
     return;
   }
 
-  Notify.success(`We found ${data.results.length} films.`);
+  Notify.success(`We found ${data.total_results} films.`);
 
   const markup = createGallery(data.results);
   refs.gallery.innerHTML = markup;
@@ -52,10 +49,10 @@ Loading.remove();
 
   Loading.remove();
   refs.searchForm.reset();
+  refs.searchForm.addEventListener('submit', onFormSubmit);
 }
 
-function paginationOnQuery() {
-  filmsApiService.page = 1;
+async function paginationOnQuery() {
   const options = {
     totalItems: FilmsApiService.totalPages,
     itemsPerPage: 20,
@@ -66,16 +63,15 @@ function paginationOnQuery() {
   };
 
   const pagination = new Pagination(refs.pagination, options);
-  pagination.reset();
-  pagination.on('beforeMove', function (eventData) {
+  // pagination.reset();
+  await pagination.on('beforeMove', function (eventData) {
     filmsApiService.page = eventData.page;
     filmsApiService.getFilmsByQuery().then(films => {
+      filmsApiService.page = 1;
       refs.filmsGallery.innerHTML = '';
-      createMovieCard(films);
+      const markup = createGallery(films.results);
+      refs.gallery.innerHTML = markup;
       // createGallery(data.results);
     });
   });
 }
-export { paginationOnQuery };
-
-refs.searchForm.addEventListener('submit', onFormSubmit);
