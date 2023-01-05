@@ -1,4 +1,4 @@
-import { refs } from './library-refs';
+import { refs } from '../refs';
 
 const activateWatchedBtn = () => {
   refs.headerWatchedBtn.classList.add('library-header__btn--active');
