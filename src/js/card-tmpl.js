@@ -18,11 +18,12 @@ export default function trendMovieCardTmpl({
 
   return `<li class="movies__item" data-id="${id}">
     <div class="movies__poster">
-    <img src="${posterUrl}" alt="${title}" class="movies__image" data-id="${id}" />
+    <img src="${posterUrl}" alt="${title}" class="movies__image" data-id="${id}" data-target="card"/>
     </div>
         <div class="movies__meta">
-            <p class="movies__title">${title}</p>
-            <p class="movies__info"><span class="movies__genre">${convertedGenres}</span> | <span class="movies__year">${releaseYear}</span></p>
+            <p class="movies__title" data-target="card">${title}</p>
+            <p class="movies__info" data-target="card"><span class="movies__genre" data-target="card">${convertedGenres}</span> | <span class="movies__year">${releaseYear}</span></p>
+
         </div>
     </li>`;
 }
