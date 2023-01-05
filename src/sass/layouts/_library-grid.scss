@@ -51,7 +51,7 @@
     @include for-desktop {
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 20px;
         row-gap: 32px;
     }
 }
@@ -68,14 +68,28 @@
     }
 
     @include for-desktop {
-        width: calc((100% - 32px) / 3);
+        width: calc((100% - 40px) / 3);
     }
+
+    &:hover,
+    &:focus {
+        // box-shadow: 0 1px 7px 2px rgb(110 98 140 / 76%);
+        transform: scale(1.03);
+    }
+
+    &:hover .library__poster,
+    &:focus .library__poster {
+        box-shadow: 0 1px 5px 2px rgb(110 98 140 / 76%);
+    }
+
+    transition: transform 0.3s $primary-cubic;
 }
 
 .library__poster {
     width: 100%;
 
     margin-bottom: 10px;
+    border-radius: 5px;
     cursor: pointer;
 
     @include for-tablet {
@@ -85,6 +99,8 @@
     @include for-desktop {
         height: 574px;
     }
+
+    transition: box-shadow 0.3s $primary-cubic;
 }
 
 .library__image {
