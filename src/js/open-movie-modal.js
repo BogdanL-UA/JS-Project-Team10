@@ -6,7 +6,6 @@ const BASE_YT_URL = 'https://www.youtube.com/embed/';
 const filmsApiService = new FilmsApiService();
 
 export default function openMovieModal(e) {
-
   if (e.target.dataset.target !== 'card') {
     return;
   } else {
