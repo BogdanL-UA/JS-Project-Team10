@@ -69,8 +69,9 @@ async function paginationOnQuery() {
     filmsApiService.getFilmsByQuery().then(films => {
       filmsApiService.page = 1;
       refs.filmsGallery.innerHTML = '';
-      const markup = createGallery(films.results);
-      refs.gallery.innerHTML = markup;
+      // const markup = createGallery(films.results);
+      createGallery(films.results);
+      refs.gallery.innerHTML = createGallery(films.results);
       // createGallery(data.results);
     });
   });
