@@ -56,6 +56,7 @@ export default function renderMovieModal({
         </div>`;
   refs.movieModal.insertAdjacentHTML('afterbegin', movieModalMarkup);
   refs.backdrop.classList.remove('visually-hidden');
+  refs.closeModalIcon.addEventListener('click', closeMovieModalWindow);
   disableBodyScroll(refs.movieModal);
 
   const btnWatchedFilms = document.querySelector('.movie__watched');
