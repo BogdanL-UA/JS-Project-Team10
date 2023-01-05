@@ -1,7 +1,7 @@
 import { refs } from './refs';
-import closeModalWindow from './closeModalWindow';
+import closeMovieModalWindow from './close-modal-window';
 import createGenresMarkup from './create-genres-markup';
-
+import { disableBodyScroll } from './scroll-blocker';
 
 export default function renderMovieModal({
   id,
@@ -14,100 +14,97 @@ export default function renderMovieModal({
   genres,
   overview,
 }) {
-  
-
   const voteNumeric = String(vote_average).slice(0, 3);
   const popularityNumeric = popularity.toFixed(1);
   const movieGenresMarkup = getMovieGenresArr(genres);
 
-  const movieModalMarkup = `<div class="movie__template" data-id=${id}>
-      <span class="movie__wrapper"
-        ><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie"
-      /></span>
-      <span class="movie__wrapper"
-        ><h2 class="movie__header">${title}</h2>
-
-      <table class="movie__grid">
-        <tr class="movie__row">
-          <td class="movie__descr">Vote / Votes</td>
-          <td class="movie__descr-value">
+  const movieModalMarkup = `<div class="movie__template" data-id=${id}><div class="trailer__target visually-hidden"></div>
+      <div class="movie__img-wrapper"
+        ><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie" 
+      /><div class="trailer__button"><button class="trailer__play">Play
+          </button></div></div>
+          
+      <div class="movie__wrapper">
+      <h2 class="movie__header">${title}</h2>
+      <div class="movie__grid">
+        <div class="movie__row">
+          <p class="movie__info">Vote / Votes</p>
+          <p class="movie__info-value">
             <span class="movie__rating">${voteNumeric}</span> / ${vote_count}
-          </td>
-        </tr>
-        <tr class="movie__row">
-          <td class="movie__descr">Popularity</td>
-          <td class="movie__descr-value">${popularityNumeric}</td>
-        </tr>
-        <tr class="movie__row">
-          <td class="movie__descr">Original Title</td>
-          <td class="movie__descr-value">${original_title}</td>
-        </tr>
-          <tr class="movie__row">
-            <td class="movie__descr">Genre</td>
-            <td class="movie__descr-value">${movieGenresMarkup}</td>
-          </tr>
-        </table>
+          </p>
+        </div>
+        <div class="movie__row">
+          <p class="movie__info">Popularity</p>
+          <p class="movie__info-value">${popularityNumeric}</p>
+        </div>
+        <div class="movie__row">
+          <p class="movie__info">Original Title</p>
+          <p class="movie__info-value">${original_title}</p>
+        </div>
+          <div class="movie__row">
+            <p class="movie__info">Genre</p>
+            <p class="movie__info-value">${movieGenresMarkup}</p>
+          </div>
+        </div>
+        <div class="movie__about-container">
         <h3 class="movie__header-about">ABOUT</h3>
-        <p class="movie__about">${overview}</p>
+        <p class="movie__about">${overview}</p></div>
         <span class="movie__buttons-wrapper"
           ><button class="movie__watched button--modal">add to Watched</button>
           <button class="movie__queue button--modal">add to queue</button></span
-        ></span></div>`;
+        ></div>
+        </div>`;
   refs.movieModal.insertAdjacentHTML('afterbegin', movieModalMarkup);
   refs.backdrop.classList.remove('visually-hidden');
-  refs.closeModalIcon.addEventListener('click', closeModalWindow);
+  disableBodyScroll(refs.movieModal);
 
   const btnWatchedFilms = document.querySelector('.movie__watched');
   let watchedFilms = JSON.parse(localStorage.getItem('watchedMovies')) || [];
   const isWatched = watchedFilms.includes(id);
   if (isWatched) {
     btnWatchedFilms.innerText = 'Remove from watched';
-  }
-  else {
+  } else {
     btnWatchedFilms.innerText = 'Add to watched';
   }
-  btnWatchedFilms.addEventListener('click', onWatched);  
-  
-  function onWatched(e) {   
+  btnWatchedFilms.addEventListener('click', onWatched);
+
+  function onWatched(e) {
     let watchedFilms = JSON.parse(localStorage.getItem('watchedMovies')) || [];
     const isWatched = watchedFilms.includes(id);
     if (!isWatched) {
       watchedFilms.push(id);
       e.target.innerText = 'Remove from watched';
-    }
-    else {
+    } else {
       const movieIdIndex = watchedFilms.indexOf(id);
       watchedFilms.splice(movieIdIndex, 1);
       e.target.innerText = 'Add to watched';
-    }    
-    localStorage.setItem('watchedMovies', JSON.stringify(watchedFilms));    
+    }
+    localStorage.setItem('watchedMovies', JSON.stringify(watchedFilms));
   }
-  
+
   const btnQueueFilms = document.querySelector('.movie__queue');
   let queueFilms = JSON.parse(localStorage.getItem('queueMovies')) || [];
   const isQueue = queueFilms.includes(id);
   if (isQueue) {
     btnQueueFilms.innerText = 'Remove from queue';
-  }
-  else {
+  } else {
     btnQueueFilms.innerText = 'Add to queue';
   }
-  btnQueueFilms.addEventListener('click', onQueue);  
-  
-  function onQueue(e) {   
+  btnQueueFilms.addEventListener('click', onQueue);
+
+  function onQueue(e) {
     let queueFilms = JSON.parse(localStorage.getItem('queueMovies')) || [];
     const isQueue = queueFilms.includes(id);
     if (!isQueue) {
       queueFilms.push(id);
       e.target.innerText = 'Remove from queue';
-    }
-    else {
+    } else {
       const movieQueueIdIndex = queueFilms.indexOf(id);
       queueFilms.splice(movieQueueIdIndex, 1);
       e.target.innerText = 'Add to queue';
-    }    
-    localStorage.setItem('queueMovies', JSON.stringify(queueFilms));    
-}
+    }
+    localStorage.setItem('queueMovies', JSON.stringify(queueFilms));
+  }
 }
 
 function getMovieGenresArr(genres) {

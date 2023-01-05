@@ -10,18 +10,22 @@
 @import './components/modal-movie';
 @import './components/pagination';
 @import './components/footer';
+@import './components/modal-authorisation';
 
 @import './layouts/library-header';
 @import './layouts/library-grid';
 @import './layouts/main-header';
+@import './layouts/main-grid';
 
 @import './components/modal-movie';
-@import './src/sass/layouts/library-header';
+@import './components/trailer';
+// @import './src/sass/layouts/library-header';
 @import './src/sass/layouts/spinner';
 
 @import './components/modal-team';
 
-@import './layouts/main-grid';
+
 @import './layouts/spinner';
 // @import './layouts/scroll';
 @import './layouts/top';
+@import './layouts/dark-theme';

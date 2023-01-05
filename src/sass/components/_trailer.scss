@@ -1,0 +1,70 @@
+.trailer {
+  width: 100%;
+  height: 100%;
+  &__target {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1003;
+    @include for-phone{height: 100%;}
+  }
+  &__play {
+    padding: 10px 105px;
+    opacity: 0.5;
+    border-radius: 10px;
+    background-color: $reactangle-color;
+    color: $header-white-color;
+    transition: opacity $primary-cubic 250ms;
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+
+    @include for-tablet{
+      padding: 10px 120px;
+      }
+    @include for-desktop{
+      padding: 10px 175px;
+      }
+  }
+  &__close {
+    position: absolute;
+    bottom: 12px;
+    left: 20%;
+   
+    z-index: 1002;
+    border-radius: 5px;
+    padding: 4px 10px;
+    opacity: 0.7;
+    background-color: $reactangle-color;
+    color: $header-white-color;
+    transition: opacity $primary-cubic 250ms;
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+
+    @include for-tablet{
+      bottom: 10px;
+    left: 45%;
+    }
+
+    @include for-desktop{
+      bottom: 10px;
+    left: 45%;
+    }
+  }
+  &__button{
+
+    @include for-phone{display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    }
+    }
+}
+
+.movie__wrapper {
+  position: relative;
+}
