@@ -87,10 +87,10 @@ export default function renderMovieModal({
   let queueFilms = JSON.parse(localStorage.getItem('queueMovies')) || [];
   const isQueue = queueFilms.includes(id);
   if (isQueue) {
-    btnQueueFilms.innerText = 'Remove from watched';
+    btnQueueFilms.innerText = 'Remove from queue';
   }
   else {
-    btnQueueFilms.innerText = 'Add to watched';
+    btnQueueFilms.innerText = 'Add to queue';
   }
   btnQueueFilms.addEventListener('click', onQueue);  
   
@@ -99,12 +99,12 @@ export default function renderMovieModal({
     const isQueue = queueFilms.includes(id);
     if (!isQueue) {
       queueFilms.push(id);
-      e.target.innerText = 'Remove from watched';
+      e.target.innerText = 'Remove from queue';
     }
     else {
       const movieQueueIdIndex = queueFilms.indexOf(id);
       queueFilms.splice(movieQueueIdIndex, 1);
-      e.target.innerText = 'Add to watched';
+      e.target.innerText = 'Add to queue';
     }    
     localStorage.setItem('queueMovies', JSON.stringify(queueFilms));    
 }
