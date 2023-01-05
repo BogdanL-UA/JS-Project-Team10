@@ -159,32 +159,32 @@ authCloseBtn.addEventListener("click", (e) => {
     }
 });
 
-queueBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+// queueBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
 
-    let filmId = 1212;
-    const queuedFilmsListRef = ref(database, 'users/' + user.uid + '/queuedFilms');
-    const newQueuedFilmRef = push(queuedFilmsListRef);
-    set(newQueuedFilmRef, {
-        filmId
-    }).then(() => {
-        console.log("success");
-    }).catch((error) => {
-        alert(error);
-    })
-})
+//     let filmId = 1212;
+//     const queuedFilmsListRef = ref(database, 'users/' + user.uid + '/queuedFilms');
+//     const newQueuedFilmRef = push(queuedFilmsListRef);
+//     set(newQueuedFilmRef, {
+//         filmId
+//     }).then(() => {
+//         console.log("success");
+//     }).catch((error) => {
+//         alert(error);
+//     })
+// })
 
-watchedBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+// watchedBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
 
-    let filmId = 3212;
-    const watchedFilmsListRef = ref(database, 'users/' + user.uid + '/watchedFilms');
-    const newWatchedFilmRef = push(watchedFilmsListRef);
-    set(newWatchedFilmRef, {
-        filmId
-    }).then(() => {
-        console.log("success");
-    }).catch((error) => {
-        alert(error);
-    })
-})
+//     let filmId = 3212;
+//     const watchedFilmsListRef = ref(database, 'users/' + user.uid + '/watchedFilms');
+//     const newWatchedFilmRef = push(watchedFilmsListRef);
+//     set(newWatchedFilmRef, {
+//         filmId
+//     }).then(() => {
+//         console.log("success");
+//     }).catch((error) => {
+//         alert(error);
+//     })
+// })
