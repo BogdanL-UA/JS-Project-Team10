@@ -26,6 +26,7 @@ const createLibraryMovieItem = ({
   vote_average,
 }) => {
   document.addEventListener('click', openMovieModal);
+  refs.closeModalIcon.addEventListener('click', closeMovieModalWindow);
   const genresList = generateGenresString(genres);
   return `
     <li class="library__item" data-id="${id}">
