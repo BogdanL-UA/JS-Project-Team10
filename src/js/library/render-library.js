@@ -1,7 +1,7 @@
 import { FilmsApiService } from '../api-service';
 import { refs } from './library-refs';
 import openMovieModal from '../open-movie-modal';
-import closeMovieModalWindow from './close-modal-window';
+import closeMovieModalWindow from '../close-modal-window';
 
 const generateGenresString = genres => {
   if (genres.length < 2) {
