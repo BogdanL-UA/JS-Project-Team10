@@ -1,4 +1,4 @@
-import { FilmsApiService } from '../apiService';
+import { FilmsApiService } from '../api-service';
 import { refs } from './library-refs';
 
 const generateGenresString = (genres) => {
