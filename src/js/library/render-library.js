@@ -1,5 +1,5 @@
 import { FilmsApiService } from '../api-service';
-import { refs } from './library-refs';
+import { refs } from '../refs';
 import openMovieModal from '../open-movie-modal';
 import closeMovieModalWindow from '../close-modal-window';
 
