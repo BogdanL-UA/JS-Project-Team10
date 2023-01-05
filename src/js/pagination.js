@@ -21,9 +21,12 @@ function pagination() {
   const pagination = new Pagination(refs.pagination, options);
   pagination.reset();
   pagination.on('beforeMove', function (eventData) {
+    refs.gallery.innerHTML = '';
+  });
+  pagination.on('afterMove', function (eventData) {
     filmsApiService.page = eventData.page;
     filmsApiService.fetchTrendFilms().then(films => {
-      refs.gallery.innerHTML = '';
+      
       createMovieCard(films);
     });
   });
