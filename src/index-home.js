@@ -5,6 +5,7 @@ import topUp from './js/top';
 import './js/key-word-search';
 import './js/create-search-gallery';
 import './js/pagination';
+import './js/authorisation';
 
 // import './js/openMovieModal';
 
