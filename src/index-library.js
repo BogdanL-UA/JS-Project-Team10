@@ -1,5 +1,5 @@
-// import './js/createPageHome';
-// import './js/createSearchGallery';
+// import './js/create-page-home';
+// import './js/create-search-gallery';
 
 import './js/pagination';
 
