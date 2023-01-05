@@ -21,7 +21,7 @@
       width: 704px;
       padding: 40px 36px;
       gap: 68px;
-      background-color: $header-white-color;
+      
   }
 
   @include for-desktop {
@@ -153,14 +153,28 @@
   transform: translate(0,0);
   width: auto; left: 0; right: 0;
   height: auto; top: 0; bottom: 0;
-  z-index: 110; /* display above everything else */
-  padding: 20px; /* create padding for inner window - page under modal window will be still visible */
+  z-index: 110; 
+  padding: 20px; 
   background-color: $header-white-color;
   width: 280px;
 
   padding: 48px 20px 40px 20px;
   margin-right: auto;
   margin-left: auto;}
+
+  @include for-tablet{
+    position: fixed;
+    
+    height: auto; top: 219px; bottom: 150px;
+    z-index: 110; 
+    padding: 20px; 
+    background-color: $header-white-color;
+    width: 704px; left: 0; right: 0;
+    height: auto; 
+  
+    padding: 48px 20px 40px 20px;
+    margin: auto;
+    }
   
 
 }
@@ -171,16 +185,27 @@
   height: 100%;
   position: relative;
   z-index: 120;}
+
+  @include for-tablet{box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 120;}
   
 }
 
 .modal-inner {
   @include for-phone{box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;
   width: 100%;
-  height: auto;       /* allow to fit content (if smaller)... */
-  max-height: 100%;   /* ... but make sure it does not overflow browser window */
+  max-height: 100%; 
 
-  /* allow vertical scrolling if required */
   overflow-x: hidden;
-  overflow-y: auto;}}
+  overflow-y: auto;}
+
+  @include for-tablet{box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;
+    width: 100%;
+    max-height: 100%;  
   
+    overflow-x: hidden;
+    overflow-y: auto;}
+}  
