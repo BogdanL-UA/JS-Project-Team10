@@ -22,7 +22,7 @@ function pagination() {
   pagination.on('beforeMove', function (eventData) {
     filmsApiService.page = eventData.page;
     filmsApiService.fetchTrendFilms().then(films => {
-      refs.filmsGallery.innerHTML = '';
+      refs.gallery.innerHTML = '';
       createMovieCard(films);
     });
   });
