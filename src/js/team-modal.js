@@ -1,4 +1,4 @@
-import teamList from './teamList';
+import teamList from './team-list';
 const body = document.body;
 const list = document.querySelector('.team__list');
 const modal = document.querySelector('.goit-students');
@@ -52,3 +52,11 @@ window.addEventListener('keydown', function(e){
   backdropteam.classList.add('visually-hidden');
   }
 });
+
+backdropteam.addEventListener('click', onBackdroTeampClick)
+function onBackdroTeampClick(event) {
+if (event.currentTarget === event.target) {
+  body.classList.remove('modal-open');
+  backdropteam.classList.add('visually-hidden');
+}
+}

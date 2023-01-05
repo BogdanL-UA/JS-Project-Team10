@@ -1,7 +1,7 @@
 import { refs } from './refs';
-import closeMovieModalWindow from './closeModalWindow';
+import closeMovieModalWindow from './close-modal-window';
 import createGenresMarkup from './create-genres-markup';
-import { disableBodyScroll } from './scrollBlocker';
+import { disableBodyScroll } from './scroll-blocker';
 
 export default function renderMovieModal({
   id,
@@ -20,9 +20,10 @@ export default function renderMovieModal({
 
   const movieModalMarkup = `<div class="movie__template" data-id=${id}><div class="trailer__target visually-hidden"></div>
       <div class="movie__img-wrapper"
-        ><button class="trailer__play">Play
-        </button><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie"
-      /></div>
+        ><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie" 
+      /><div class="trailer__button"><button class="trailer__play">Play
+          </button></div></div>
+          
       <div class="movie__wrapper">
       <h2 class="movie__header">${title}</h2>
       <div class="movie__grid">
@@ -55,7 +56,55 @@ export default function renderMovieModal({
         </div>`;
   refs.movieModal.insertAdjacentHTML('afterbegin', movieModalMarkup);
   refs.backdrop.classList.remove('visually-hidden');
-  disableBodyScroll(refs.backdrop);
+  disableBodyScroll(refs.movieModal);
+
+  const btnWatchedFilms = document.querySelector('.movie__watched');
+  let watchedFilms = JSON.parse(localStorage.getItem('watchedMovies')) || [];
+  const isWatched = watchedFilms.includes(id);
+  if (isWatched) {
+    btnWatchedFilms.innerText = 'Remove from watched';
+  } else {
+    btnWatchedFilms.innerText = 'Add to watched';
+  }
+  btnWatchedFilms.addEventListener('click', onWatched);
+
+  function onWatched(e) {
+    let watchedFilms = JSON.parse(localStorage.getItem('watchedMovies')) || [];
+    const isWatched = watchedFilms.includes(id);
+    if (!isWatched) {
+      watchedFilms.push(id);
+      e.target.innerText = 'Remove from watched';
+    } else {
+      const movieIdIndex = watchedFilms.indexOf(id);
+      watchedFilms.splice(movieIdIndex, 1);
+      e.target.innerText = 'Add to watched';
+    }
+    localStorage.setItem('watchedMovies', JSON.stringify(watchedFilms));
+  }
+
+  const btnQueueFilms = document.querySelector('.movie__queue');
+  let queueFilms = JSON.parse(localStorage.getItem('queueMovies')) || [];
+  const isQueue = queueFilms.includes(id);
+  if (isQueue) {
+    btnQueueFilms.innerText = 'Remove from watched';
+  } else {
+    btnQueueFilms.innerText = 'Add to watched';
+  }
+  btnQueueFilms.addEventListener('click', onQueue);
+
+  function onQueue(e) {
+    let queueFilms = JSON.parse(localStorage.getItem('queueMovies')) || [];
+    const isQueue = queueFilms.includes(id);
+    if (!isQueue) {
+      queueFilms.push(id);
+      e.target.innerText = 'Remove from watched';
+    } else {
+      const movieQueueIdIndex = queueFilms.indexOf(id);
+      queueFilms.splice(movieQueueIdIndex, 1);
+      e.target.innerText = 'Add to watched';
+    }
+    localStorage.setItem('queueMovies', JSON.stringify(queueFilms));
+  }
 
   refs.closeModalIcon.addEventListener('click', closeMovieModalWindow);
 }

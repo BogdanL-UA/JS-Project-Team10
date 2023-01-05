@@ -2,9 +2,7 @@
   <div class="container-library-header header__wrapper">
     <nav class="header__nav">
       <a href="/src/index.html" class="logo-btn">
-
         <svg class="librari__icon" width="24" height="24">
-
           <use href="/src/images/sprite.svg#icon-film"></use>
         </svg>
         <span class="logo-btn__text">Filmoteka</span>
@@ -18,9 +16,25 @@
         </li>
       </ul>
     </nav>
+    <div class="header__toggle">
+      <input
+        type="checkbox"
+        name="theme"
+        id="darkmode-toggle"
+        class="header__toggle-input"
+      />
+      <label for="darkmode-toggle" class="header__toggle-label">
+        <svg class="icon-theme-sun" width="25" height="25">
+          <use href="/src/images/sprite.svg#icon-sun"></use>
+        </svg>
+        <svg class="icon-theme-moon" width="20" height="20">
+          <use href="/src/images/sprite.svg#icon-moon"></use>
+        </svg>
+      </label>
+    </div>
     <div class="library-header__btn-list">
-      <button type="button" class="library-header__btn">Watched</button>
-      <button type="button" class="library-header__btn">Queue</button>
+      <button type="button" class="library-header__btn library-header__watched-btn">Watched</button>
+      <button type="button" class="library-header__btn library-header__queue-btn">Queue</button>
     </div>
   </div>
 </header>
