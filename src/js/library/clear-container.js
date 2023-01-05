@@ -1,4 +1,4 @@
-import { refs } from './library-refs';
+import { refs } from '../refs';
 
 const clearLibraryContainer = () => {
   refs.library.innerHTML = '';

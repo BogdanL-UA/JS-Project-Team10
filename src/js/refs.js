@@ -9,4 +9,10 @@ export const refs = {
   closeModalIcon: document.querySelector('.close-modal'),
   input: document.querySelector('.header__toggle-input'),
   body: document.querySelector('body'),
+
+  //library
+  library: document.querySelector('.library__list'),
+  message: document.querySelector('.message'),
+  headerWatchedBtn: document.querySelector('.library-header__watched-btn'),
+  headerQueueBtn: document.querySelector('.library-header__queue-btn'),
 };

@@ -1,5 +1,5 @@
 import { renderLibrary } from './render-library';
-import { refs } from './library-refs';
+import { refs } from '../refs';
 import { activateWatchedBtn, activateQueueBtn, deactivateWatchedBtn, deactivateQueueBtn } from './library-buttons-functions';
 import { clearLibraryContainer } from './clear-container';
 import { getFromLocalStorage } from './get-from-local-storage' ;

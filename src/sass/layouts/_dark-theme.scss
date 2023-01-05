@@ -101,7 +101,8 @@ body.dark-theme {
 
   .modal__container,
   .genre,
-  .movie {
+  .movie,
+  .modal-authorisation {
     background-color: #2e2d31;
   }
   .team__item {
@@ -113,17 +114,44 @@ body.dark-theme {
   .movie,
   .modal__container,
   .header,
-  .header-library {
+  .header-library,
+  .modal-authorisation {
     box-shadow: 3px 3px 10px -1px rgba(0, 0, 5, 1);
   }
   .movie-card__title {
     font-weight: 400;
   }
 
-  .close-modal {
+  .close-modal,
+  .authorisation__closeBtn {
     background-color: $text-color-on-dark-theme;
   }
-  .close-modal:hover {
+  .close-modal:hover,
+  .authorisation__closeBtn:hover {
     background-color: $card-text-accent;
+  }
+  .authorisation__closeBtn {
+    width: 25px;
+    height: 25px;
+  }
+  .authorisation__input,
+  .registration__input {
+    color: #ebebeb;
+    background-color: #262526;
+    border: 1px solid black;
+  }
+  .authorisation__button,
+  .sign-up-btn,
+  .registration__button {
+    color: #ebebeb;
+    background-color: #262526;
+    box-shadow: 3px 3px 4px -1px rgba(0, 0, 5, 1);
+  }
+  .authorisation__button:hover,
+  .sign-up-btn:hover,
+  .registration__button:hover {
+    color: #1e1d1d;
+    background-color: $card-text-accent;
+    border: none;
   }
 }
