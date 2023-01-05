@@ -1,7 +1,9 @@
 import { Notify } from 'notiflix';
 import { refs } from './refs';
 import { FilmsApiService } from './api-service';
+// import { paginationOnQuery } from './pagination';
 import { createGallery } from './create-search-gallery';
+
 import Loading from './spinner';
 import Pagination from 'tui-pagination';
 
@@ -68,11 +70,8 @@ async function paginationOnQuery() {
     filmsApiService.page = eventData.page;
     filmsApiService.getFilmsByQuery().then(films => {
       filmsApiService.page = 1;
-      refs.filmsGallery.innerHTML = '';
-      // const markup = createGallery(films.results);
-      createGallery(films.results);
+      refs.gallery.innerHTML = '';
       refs.gallery.innerHTML = createGallery(films.results);
-      // createGallery(data.results);
     });
   });
 }
