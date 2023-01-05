@@ -71,14 +71,19 @@ export default function renderMovieModal({
 
   function onWatched(e) {
     let watchedFilms = JSON.parse(localStorage.getItem('watchedMovies')) || [];
+    const item = document.querySelector(`.library__item[data-id="${id}"]`); //костиль
     const isWatched = watchedFilms.includes(id);
     if (!isWatched) {
       watchedFilms.push(id);
       e.target.innerText = 'Remove from watched';
+
+      item === null ? 'continue' : item.classList.remove('disable');
     } else {
       const movieIdIndex = watchedFilms.indexOf(id);
       watchedFilms.splice(movieIdIndex, 1);
       e.target.innerText = 'Add to watched';
+
+      item === null ? 'continue' : item.classList.add('disable');
     }
     localStorage.setItem('watchedMovies', JSON.stringify(watchedFilms));
   }
@@ -95,14 +100,19 @@ export default function renderMovieModal({
 
   function onQueue(e) {
     let queueFilms = JSON.parse(localStorage.getItem('queueMovies')) || [];
+    const item = document.querySelector(`.library__item[data-id="${id}"]`); //костиль
     const isQueue = queueFilms.includes(id);
+
     if (!isQueue) {
       queueFilms.push(id);
       e.target.innerText = 'Remove from queue';
+      item === null ? 'continue' : item.classList.remove('disable');
     } else {
       const movieQueueIdIndex = queueFilms.indexOf(id);
       queueFilms.splice(movieQueueIdIndex, 1);
       e.target.innerText = 'Add to queue';
+
+      item === null ? 'continue' : item.classList.add('disable');
     }
     localStorage.setItem('queueMovies', JSON.stringify(queueFilms));
   }
