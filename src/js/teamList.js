@@ -3,12 +3,13 @@ import photoAnatoliaRyabchenko from '../images/team/AnatoliaRyabchenko.jpg';
 import photoOleksiiKonovalchuk from '../images/team/OleksiiKonovalchuk.jpg';
 import photoSvitlanaLeniuk from '../images/team/SvitlanaLeniuk.jpg';
 import photoMatvey from '../images/team/Matvey.jpg';
-import photoYanaVozniuk from '../images/team/YanaVozniuk.jpg';
+import photoOlenaVoina from '../images/team/OlenaVoina.jpg';
 import photoDenys from '../images/team/Denys.jpg';
+import photoYanaVozniuk from '../images/team/YanaVozniuk.jpg';
 import photoSergeyPetukhov from '../images/team/SergeyPetukhov.jpg';
 import photoDariaRosliakova from '../images/team/DariaRosliakova.jpg';
 import photoRuslanMykytchenko from '../images/team/RuslanMykytchenko.jpg';
-import photo from '../images/team/developer.jpg';
+// import photo from '../images/team/developer.jpg';
 
 
 
@@ -51,10 +52,10 @@ export default [
   },
   {
     teamate: "Olena Voina",
-    photo: photo,
+    photo: photoOlenaVoina,
     role: "Developer",
     git: "https://github.com/olli20",
-    ln: "https://www.linkedin.com//",
+    ln: "https://www.linkedin.com/in/olena-voina/",
   },
   {
     teamate: "Denys Kinzerskyi",
