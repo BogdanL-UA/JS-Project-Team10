@@ -17,6 +17,11 @@ function pagination() {
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
   };
+   if (window.innerWidth <= 480) {
+    options.visiblePages = 3;
+  } else {
+    options.visiblePages = 5;
+  }
 
   const pagination = new Pagination(refs.pagination, options);
   pagination.reset();
@@ -55,7 +60,8 @@ function pagination() {
       // refs.gallery.innerHTML = createGallery(films.results);
     });
   });
-   }
+    }
+   
 
    export { pagination, paginationOnQuery };
 

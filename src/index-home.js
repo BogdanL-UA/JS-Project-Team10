@@ -1,6 +1,6 @@
 import './sass/index.scss';
 import './js/pagination';
-import './js/authorisation';
+// import './js/authorisation';
 import './js/create-page-home';
 import './js/key-word-search';
 import './js/create-search-gallery';
