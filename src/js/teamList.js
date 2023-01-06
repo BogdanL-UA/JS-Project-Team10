@@ -6,6 +6,7 @@ import photoMatvey from '../images/team/Matvey.jpg';
 import photoYanaVozniuk from '../images/team/YanaVozniuk.jpg';
 import photoDenys from '../images/team/Denys.jpg';
 import photoSergeyPetukhov from '../images/team/SergeyPetukhov.jpg';
+import photoDariaRosliakova from '../images/team/DariaRosliakova.jpg';
 import photoRuslanMykytchenko from '../images/team/RuslanMykytchenko.jpg';
 import photo from '../images/team/developer.jpg';
 
@@ -78,9 +79,9 @@ export default [
   },
     {
     teamate: "Daria Rosliakova",
-    photo: photo,
+    photo: photoDariaRosliakova,
     role: "Developer",
-    git: "https://github.com/",
+    git: "https://github.com/DariaRosliakova",
     ln: "https://www.linkedin.com/",
     },
   {
