@@ -3,8 +3,8 @@ import { refs } from '../refs';
 import { activateWatchedBtn, activateQueueBtn, deactivateWatchedBtn, deactivateQueueBtn } from './library-buttons-functions';
 import { clearLibraryContainer } from './clear-container';
 import { getFromLocalStorage } from './get-from-local-storage';
-import { pagination } from '../pagination';
-import Pagination from 'tui-pagination';
+
+
 
 let watchedMovies = getFromLocalStorage('watched');
 let queueMovies = getFromLocalStorage('queue');
@@ -16,6 +16,7 @@ if (
 ) {
   //в localstorage нічого немає
   refs.message.innerHTML = '<p>Ви ще не додали фільми до бібліотеки</p>';
+   refs.library.innerHTML = '';
 } else if (watchedMovies.length > 0) {
   //в localstorage є переглянуті фільми (пріоритет)
   activateWatchedBtn();
@@ -37,8 +38,11 @@ const onWatchedClick = (event) => {
   if (watchedMovies == null || watchedMovies.length === 0) {
     refs.message.innerHTML =
       '<p>Ви ще не додали фільми до списку переглянутих</p>';
+    refs.library.innerHTML = '';
+    refs.pagination.style.display = 'none';
   } else if (watchedMovies.length > 0) {
     refs.message.innerHTML = '';
+    refs.pagination.style.display = 'flex';
     renderLibrary(watchedMovies);
   }
 };
@@ -54,9 +58,13 @@ const onQueueClick = (event) => {
   if (queueMovies == null || queueMovies.length === 0) {
     refs.message.innerHTML =
       '<p>Ви ще не додали фільми до черги</p>';
+    refs.library.innerHTML = '';
+    refs.pagination.style.display = 'none';
   } else if (queueMovies.length > 0) {
     refs.message.innerHTML = '';
+     refs.pagination.style.display = 'flex';
     renderLibrary(queueMovies);
+   
   }
 }
 

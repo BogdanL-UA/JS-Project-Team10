@@ -14,8 +14,5 @@ import './js/dark-theme';
 
 import topUp from './js/top';
 
-// uploadTrendMovies();
 topUp();
-// import './js/refs';
-// import { uploadTrendMovies } from './js/create-page-home';
-// import { topUp } from './js/top';
+

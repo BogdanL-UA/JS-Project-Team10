@@ -2,6 +2,7 @@ import { FilmsApiService } from '../api-service';
 import { refs } from '../refs';
 import openMovieModal from '../open-movie-modal';
 import closeMovieModalWindow from '../close-modal-window';
+import Pagination from 'tui-pagination';
 
 const generateGenresString = genres => {
   if (genres.length <= 2) {
@@ -60,7 +61,35 @@ function renderLibrary(movies) {
         'beforeend',
         createLibraryMovieItem(response)
       );
+      paginationOnLibrary();
     });
+        
+
 }
 
-export { renderLibrary };
+
+async function paginationOnLibrary() {
+  const options = {
+    totalItems: filmsApiService.totalPages,
+    itemsPerPage: 3,
+    visiblePages: 5,
+    centerAlign: true,
+    firstItemClassName: 'tui-first-child',
+    lastItemClassName: 'tui-last-child',
+  };
+
+  const pagination = new Pagination(refs.pagination, options);
+  // pagination.reset();
+  await pagination.on('beforeMove', function (eventData) {
+    refs.library.innerHTML = '';
+  });
+  
+  await pagination.on('afterMove', function (eventData) {
+    filmsApiService.page = eventData.page;
+    filmsApiService.getFilmsById().then(films => {
+      filmsApiService.page = 1;
+      refs.library.innerHTML = createLibraryMovieItem(films.results);
+    });
+  });
+}
+export { renderLibrary, paginationOnLibrary };
