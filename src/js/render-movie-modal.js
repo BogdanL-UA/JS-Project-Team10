@@ -19,10 +19,12 @@ export default function renderMovieModal({
   const movieGenresMarkup = getMovieGenresArr(genres);
 
   const movieModalMarkup = `<div class="movie__template" data-id=${id}><div class="trailer__target visually-hidden"></div>
-      <div class="movie__img-wrapper"
-        ><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie" 
-      /><div class="trailer__button"><button class="trailer__play">Play
-          </button></div></div>
+      <div class="movie__img-content">
+        <div class="movie__thumb"><img class="movie__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie" 
+      /></div>
+      <div class="trailer__button"><button class="trailer__play">Play
+          </button></div>
+      </div>
           
       <div class="movie__wrapper">
       <h2 class="movie__header">${title}</h2>
