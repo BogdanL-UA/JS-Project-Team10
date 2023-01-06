@@ -38,12 +38,29 @@
         @include for-desktop{width: 50%;}
       }
 
-  &__img-wrapper {
-        @include for-tablet{
+    &__img-content{
+      @include for-tablet{
             margin-right: 68px;}
-    
-            @include for-desktop{width: 50%;}
-          }
+
+    @include for-desktop{width: 50%;}
+    }
+
+  &__thumb {
+    width: 240px;
+    height: 357px;
+    margin-bottom: 5px;
+
+    @include for-tablet{
+      width: 264px;
+      height: 374px;
+    }
+
+    @include for-desktop{
+      width: 375px;
+      height: 478px;
+      
+    }
+}
 
   &__template {
     @include for-tablet{
@@ -54,17 +71,10 @@
   }
 
   &__img {
-    width: 240px;
-    height: 357px;
-
-    @include for-tablet{
-      width: 264px;
-      height: 373px;
-    }
-    @include for-desktop{
-      width: 375px;
-      height: 478px;
-    }
+    display: block;
+  height: 100%;
+  width: 100%;
+    object-fit: cover;
   }
 
   &__header {

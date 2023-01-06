@@ -9,13 +9,6 @@ export default function closeMovieModalWindow() {
   document.addEventListener('click', openMovieModal);
 }
 
-export default function closeMovieModalWindow() {
-  refs.backdrop.classList.add('visually-hidden');
-  refs.movieModal.innerHTML = '';
-  document.addEventListener('click', openMovieModal);
-  }
-
-
 refs.backdrop.addEventListener('click', onBackdropClick)
 
 function onBackdropClick(event) {

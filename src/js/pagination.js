@@ -37,8 +37,7 @@ function pagination() {
   });
 }
 
-  
-    function paginationOnQuery() {
+function paginationOnQuery() {
   const options = {
     totalItems: FilmsApiService.totalPages,
     itemsPerPage: 20,
@@ -49,19 +48,19 @@ function pagination() {
   };
 
   const pagination = new Pagination(refs.pagination, options);
-  // pagination.reset();
-   pagination.on('beforeMove', function (eventData) {
+  pagination.reset();
+  pagination.on('beforeMove', function (eventData) {
     filmsApiService.page = eventData.page;
     filmsApiService.getFilmsByQuery().then(films => {
-      // filmsApiService.page = 1;
+      filmsApiService.page = 1;
       refs.gallery.innerHTML = '';
       // const markup = createGallery(films.results);
       createGallery(films.results);
       // refs.gallery.innerHTML = createGallery(films.results);
     });
   });
+
     }
-   
 
-   export { pagination, paginationOnQuery };
 
+export { pagination, paginationOnQuery };
