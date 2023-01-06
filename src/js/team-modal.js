@@ -6,7 +6,7 @@ const backdropteam = document.querySelector('.team-backdrop');
 const closeModal = document.querySelector('.close-modal-btn');
 const teamBuild = ({ teamate, photo, role, git, ln }) => {
   return `<li class="team__item">
-    <img src=${photo} alt="" class="team__item-img" />
+    <img src=${photo} alt="${teamate}" class="team__item-img" />
     <div class="team__item-data">
       <p class="team__item-name">${teamate}</p>
       <p class="team__item-role">${role}</p>
@@ -38,7 +38,6 @@ const onClick = e => {
 };
 modal.addEventListener('click', onClick);
 
-
 const onClickClose = e => {
   e.preventDefault();
   body.classList.remove('modal-open');
@@ -46,17 +45,17 @@ const onClickClose = e => {
 };
 closeModal.addEventListener('click', onClickClose);
 
-window.addEventListener('keydown', function(e){
+window.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') {
-  body.classList.remove('modal-open');
-  backdropteam.classList.add('visually-hidden');
+    body.classList.remove('modal-open');
+    backdropteam.classList.add('visually-hidden');
   }
 });
 
-backdropteam.addEventListener('click', onBackdroTeampClick)
+backdropteam.addEventListener('click', onBackdroTeampClick);
 function onBackdroTeampClick(event) {
-if (event.currentTarget === event.target) {
-  body.classList.remove('modal-open');
-  backdropteam.classList.add('visually-hidden');
-}
+  if (event.currentTarget === event.target) {
+    body.classList.remove('modal-open');
+    backdropteam.classList.add('visually-hidden');
+  }
 }
