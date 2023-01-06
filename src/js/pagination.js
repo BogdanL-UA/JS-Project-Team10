@@ -21,16 +21,18 @@ function pagination() {
   const pagination = new Pagination(refs.pagination, options);
   pagination.reset();
   pagination.on('beforeMove', function (eventData) {
+    refs.gallery.innerHTML = '';
+  });
+  pagination.on('afterMove', function (eventData) {
     filmsApiService.page = eventData.page;
     filmsApiService.fetchTrendFilms().then(films => {
-      refs.gallery.innerHTML = '';
+      
       createMovieCard(films);
     });
   });
 }
 
-  
-    function paginationOnQuery() {
+function paginationOnQuery() {
   const options = {
     totalItems: FilmsApiService.totalPages,
     itemsPerPage: 20,
@@ -42,7 +44,7 @@ function pagination() {
 
   const pagination = new Pagination(refs.pagination, options);
   // pagination.reset();
-   pagination.on('beforeMove', function (eventData) {
+  pagination.on('beforeMove', function (eventData) {
     filmsApiService.page = eventData.page;
     filmsApiService.getFilmsByQuery().then(films => {
       // filmsApiService.page = 1;
@@ -52,7 +54,6 @@ function pagination() {
       // refs.gallery.innerHTML = createGallery(films.results);
     });
   });
-   }
+}
 
-   export { pagination, paginationOnQuery };
-
+export { pagination, paginationOnQuery };

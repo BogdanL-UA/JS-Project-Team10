@@ -1,8 +1,10 @@
 import { renderLibrary } from './render-library';
-import { refs } from './library-refs';
+import { refs } from '../refs';
 import { activateWatchedBtn, activateQueueBtn, deactivateWatchedBtn, deactivateQueueBtn } from './library-buttons-functions';
 import { clearLibraryContainer } from './clear-container';
-import { getFromLocalStorage } from './get-from-local-storage' ;
+import { getFromLocalStorage } from './get-from-local-storage';
+import { pagination } from '../pagination';
+import Pagination from 'tui-pagination';
 
 let watchedMovies = getFromLocalStorage('watched');
 let queueMovies = getFromLocalStorage('queue');
@@ -57,6 +59,7 @@ const onQueueClick = (event) => {
     renderLibrary(queueMovies);
   }
 }
+
 
 // додаємо прослуховувачі подій на кнопки
 refs.headerWatchedBtn.addEventListener('click', onWatchedClick);
