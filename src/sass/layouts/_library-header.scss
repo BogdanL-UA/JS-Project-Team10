@@ -1,11 +1,4 @@
-.container-library-header {
-  padding: 0 20px;
-  max-width: 320px;
-  margin: 0 auto;
-}
-
-.header-library {
-  padding: 40px 0 60px;
+.header--library {
   background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.56),
@@ -27,30 +20,17 @@
   }
 }
 
-.header__menu {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-  justify-content: end;
-  text-transform: uppercase;
-}
-
-.logo-btn__text {
-  display: none;
-}
-
-.logo-btn {
-  display: inline-flex;
-  align-items: center;
-  margin-right: auto;
-  text-decoration: none;
-}
-
 .library-header__btn-list {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -5px;
+  margin-bottom: -2px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: -8px;
+    margin-bottom: -9px;
+  }
 }
 
 .library-header__btn {
@@ -88,12 +68,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container-library-header {
-    padding: 0 32px;
-    max-width: 768px;
-  }
-
-  .header-library {
+  .header--library {
     padding-bottom: 81px;
     background-image: linear-gradient(
         to right,
@@ -138,11 +113,8 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .container-library-header {
-    max-width: 1280px;
-  }
 
-  .header-library {
+  .header--library {
     padding-bottom: 80px;
     background-image: linear-gradient(
         to right,
@@ -162,32 +134,15 @@
     }
   }
 
-  .header__nav {
-    margin-bottom: 24px;
-  }
 
   .library-header__btn:not(:last-child) {
     margin-right: 16px;
   }
 }
 
-.librari__icon {
-  animation: spin 2s linear infinite alternate-reverse;
-  -webkit-animation: spin 2s linear infinite alternate-reverse;
-}
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.header__toggle--library {
+  @media screen and (min-width: 768px) {
+    margin-top: -5px;
   }
 }
-@-webkit-keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
