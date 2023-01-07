@@ -2,6 +2,7 @@ import photoBohdanLytvynyuk from '../images/team/BohdanLytvynyuk.jpg';
 import photoAnatoliaRyabchenko from '../images/team/AnatoliaRyabchenko.jpg';
 import photoOleksiiKonovalchuk from '../images/team/OleksiiKonovalchuk.jpg';
 import photoSvitlanaLeniuk from '../images/team/SvitlanaLeniuk.jpg';
+import photoOlenaVoina from '../images/team/OlenaVoina.jpg';
 import photoMatvey from '../images/team/Matvey.jpg';
 import photoYanaVozniuk from '../images/team/YanaVozniuk.jpg';
 import photoDenys from '../images/team/Denys.jpg';
@@ -32,13 +33,6 @@ export default [
     ln: 'https://www.linkedin.com/in/oleksii-konovalchuk-174a53260/',
   },
   {
-    teamate: 'Matvey Procenko',
-    photo: photoMatvey,
-    role: 'Developer',
-    git: 'https://github.com/rasengun',
-    ln: 'https://www.linkedin.com/in/rasengun/',
-  },
-  {
     teamate: 'Svetlana Leniuk',
     photo: photoSvitlanaLeniuk,
     role: 'Developer',
@@ -46,11 +40,25 @@ export default [
     ln: 'https://www.linkedin.com/in/svitlanaleniuk-873491227/',
   },
   {
+    teamate: 'Matvey Procenko',
+    photo: photoMatvey,
+    role: 'Developer',
+    git: 'https://github.com/rasengun',
+    ln: 'https://www.linkedin.com/in/rasengun/',
+  },
+  {
     teamate: 'Olena Voina',
-    photo: photo,
+    photo: photoOlenaVoina,
     role: 'Developer',
     git: 'https://github.com/olli20',
-    ln: 'https://www.linkedin.com//',
+    ln: 'linkedin.com/in/olena-voina/',
+  },
+  {
+    teamate: 'Denys Kinzerskyi',
+    photo: photoDenys,
+    role: 'Developer',
+    git: 'https://github.com/qasklp/',
+    ln: 'https://www.linkedin.com/',
   },
   {
     teamate: 'Yana Vozniuk',
@@ -60,26 +68,21 @@ export default [
     ln: 'https://www.linkedin.com/in/yana-vozniuk-419678260/',
   },
   {
-    teamate: 'Daria Rosliakova',
-    photo: photoDariaRosliakova,
-    role: 'Developer',
-    git: 'https://github.com/',
-    ln: 'https://www.linkedin.com/',
-  },
-  {
-    teamate: 'Denys Kinzerskyi',
-    photo: photoDenys,
-    role: 'Developer',
-    git: 'https://github.com/',
-    ln: 'https://www.linkedin.com/',
-  },
-  {
     teamate: 'Sergey Petukhov',
     photo: photoSergeyPetukhov,
     role: 'Developer',
     git: 'https://github.com/Banny-b',
     ln: 'https://www.linkedin.com/in/sergey-petukhov-81b81325b/',
   },
+  {
+    teamate: 'Daria Rosliakova',
+    photo: photoDariaRosliakova,
+    role: 'Developer',
+    git: 'https://github.com/DariaRosliakova',
+    ln: 'https://www.linkedin.com/',
+  },
+  
+  
   {
     teamate: 'Ruslan Mykytchenko',
     photo: photoRuslanMykytchenko,
