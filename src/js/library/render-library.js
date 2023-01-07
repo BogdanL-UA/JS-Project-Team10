@@ -64,9 +64,7 @@ function renderLibrary(movies) {
       paginationOnLibrary();
     });
         
-
 }
-
 
 async function paginationOnLibrary() {
   const options = {

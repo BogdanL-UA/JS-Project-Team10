@@ -47,12 +47,14 @@
   width: 100%;
 
   @include for-tablet {
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 32px;
   }
 
   @include for-desktop {
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
@@ -131,7 +133,8 @@
 }
 
 .library__info {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 0px;
   font-family: 'Roboto';
