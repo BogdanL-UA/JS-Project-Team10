@@ -1,15 +1,18 @@
 import photoBohdanLytvynyuk from '../images/team/BohdanLytvynyuk.jpg';
 import photoAnatoliaRyabchenko from '../images/team/AnatoliaRyabchenko.jpg';
 import photoOleksiiKonovalchuk from '../images/team/OleksiiKonovalchuk.jpg';
+import photoSergeyPetukhov from '../images/team/SergeyPetukhov.jpg';
 import photoSvitlanaLeniuk from '../images/team/SvitlanaLeniuk.jpg';
 import photoOlenaVoina from '../images/team/OlenaVoina.jpg';
 import photoMatvey from '../images/team/Matvey.jpg';
-import photoYanaVozniuk from '../images/team/YanaVozniuk.jpg';
+import photoOlenaVoina from '../images/team/OlenaVoina.jpg';
 import photoDenys from '../images/team/Denys.jpg';
+import photoYanaVozniuk from '../images/team/YanaVozniuk.jpg';
 import photoSergeyPetukhov from '../images/team/SergeyPetukhov.jpg';
 import photoDariaRosliakova from '../images/team/DariaRosliakova.jpg';
 import photoRuslanMykytchenko from '../images/team/RuslanMykytchenko.jpg';
-import photo from '../images/team/developer.jpg';
+// import photo from '../images/team/developer.jpg';
+
 export default [
   {
     teamate: 'Bohdan Lytvynyuk',
