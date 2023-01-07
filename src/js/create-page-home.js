@@ -14,12 +14,15 @@ window.addEventListener('load', uploadTrendMovies);
 //  async function uploadTrendMovies() {
 function uploadTrendMovies() {
   // showPagination();
-  filmsApiService.fetchTrendFilms().then(films => {
-    Loading.pulse('Loading...', {
-      svgColor: '#FF6B08',
-    });
-    createMovieCard(films).finally(Loading.remove());
-    //  showPagination();
-  });
+  filmsApiService
+    .fetchTrendFilms()
+    .then(films => {
+      Loading.pulse('Loading...', {
+        svgColor: '#FF6B08',
+      });
+      createMovieCard(films);
+      //  showPagination();
+    })
+    .finally(() => Loading.remove());
   pagination();
 }
