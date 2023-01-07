@@ -131,7 +131,8 @@
 }
 
 .library__info {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 0px;
   font-family: 'Roboto';
