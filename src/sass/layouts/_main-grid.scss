@@ -13,19 +13,16 @@
   width: 100%;
 
   @media screen and (min-width: 440px) and (max-width: 767px) {
-      width: 440px;
-    }
+    width: 440px;
+  }
 
-
-  @include for-tablet {
+  @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
     width: 768px;
   }
 
   @include for-desktop {
-    padding-left: 32px;
-    padding-right: 32px;
     width: 1280px;
   }
 }
@@ -40,10 +37,9 @@
   list-style: none;
   margin-bottom: 40px;
   
-    @media screen and (min-width: 768px) {
-      margin-bottom: 60px;
-    }
-
+  @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
+  }
 
   @include for-tablet {
     flex-direction: row;
@@ -145,7 +141,6 @@
     line-height: 14px;
     text-transform: uppercase;
 
-
   @include for-desktop {
     font-size: 20px;
     line-height: 24px;
@@ -177,11 +172,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-
-  color: #ff6b08;
-
   color: $card-text-accent;
-
 
   @include for-desktop {
     font-size: 20px;
