@@ -1,10 +1,16 @@
-import photo from '../images/team/developer.jpg';
-import photoSergeyPetukhov from '../images/team/SergeyPetukhov.jpg';
 import photoBohdanLytvynyuk from '../images/team/BohdanLytvynyuk.jpg';
 import photoAnatoliaRyabchenko from '../images/team/AnatoliaRyabchenko.jpg';
 import photoOleksiiKonovalchuk from '../images/team/OleksiiKonovalchuk.jpg';
+import photoSergeyPetukhov from '../images/team/SergeyPetukhov.jpg';
 import photoSvitlanaLeniuk from '../images/team/SvitlanaLeniuk.jpg';
+import photoMatvey from '../images/team/Matvey.jpg';
+import photoOlenaVoina from '../images/team/OlenaVoina.jpg';
+import photoDenys from '../images/team/Denys.jpg';
+import photoYanaVozniuk from '../images/team/YanaVozniuk.jpg';
+import photoSergeyPetukhov from '../images/team/SergeyPetukhov.jpg';
+import photoDariaRosliakova from '../images/team/DariaRosliakova.jpg';
 import photoRuslanMykytchenko from '../images/team/RuslanMykytchenko.jpg';
+// import photo from '../images/team/developer.jpg';
 
 
 
@@ -33,7 +39,7 @@ export default [
   },
   {
     teamate: "Matvey Procenko",
-    photo: photo,
+    photo: photoMatvey,
     role: "Developer",
     git: "https://github.com/rasengun",
     ln: "https://www.linkedin.com/in/rasengun/",
@@ -47,14 +53,14 @@ export default [
   },
   {
     teamate: "Olena Voina",
-    photo: photo,
+    photo: photoOlenaVoina,
     role: "Developer",
     git: "https://github.com/olli20",
     ln: "https://www.linkedin.com//",
   },
   {
     teamate: "Yana Vozniuk",
-    photo: photo,
+    photo: photoYanaVozniuk,
     role: "Developer",
     git: "https://github.com/Yana16",
     ln:
@@ -62,14 +68,14 @@ export default [
   },
   {
     teamate: "Daria Rosliakova",
-    photo: photo,
+    photo: photoDariaRosliakova,
     role: "Developer",
     git: "https://github.com/",
     ln: "https://www.linkedin.com/",
     },
   {
     teamate: "Denys Kinzerskyi",
-    photo: photo,
+    photo: photoDenys,
     role: "Developer",
     git: "https://github.com/",
     ln: "https://www.linkedin.com/",
