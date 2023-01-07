@@ -1,7 +1,7 @@
 import Notiflix from 'notiflix';
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { getDatabase, set, ref, update, push } from "firebase/database";
+import { getDatabase, set, ref, update, push, onValue, DataSnapshot } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyANvf5DboogtJf9gd318qK6ilPZ01xrlU8",
@@ -17,7 +17,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
-let user = "anonymous";
+
 
 const logInForm = document.querySelector(".log-in__form");
 const registrationForm = document.querySelector('.registration__form');
@@ -29,6 +29,12 @@ const authCloseBtn = document.querySelector(".authorisation__closeBtn");
 const watchedBtn = document.querySelector(".movie__watched");
 const queueBtn = document.querySelector(".movie__queue");
 
+let userUid = localStorage.getItem("uid");
+if (userUid != null  && signOutBtn.classList.contains("is-hidden")) {
+    signOutBtn.classList.remove("is-hidden");
+    logInBtn.classList.add("is-hidden");
+}
+
 registrationForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const {
@@ -39,9 +45,20 @@ registrationForm.addEventListener('submit', async (e) => {
         .then((userCredential) => {
         // Signed in 
             user = userCredential.user;
+            userUid = user.uid;
+            localStorage.setItem("uid", userUid);
             set(ref(database, 'users/' + user.uid), {
             email: email.value,
             password: password.value
+            })
+            signOutBtn.classList.remove("is-hidden");
+            logInBtn.classList.add("is-hidden");
+            logInForm.classList.remove("is-hidden");
+            registrationForm.classList.add("is-hidden");
+            authModal.classList.add("is-hidden");
+            let lgDate = new Date();
+            update(ref(database, 'users/' + user.uid), {
+                last_login: lgDate
             })
                 .then(() => {
                     Notiflix.Notify.info('User successfully created');
@@ -61,33 +78,6 @@ registrationForm.addEventListener('submit', async (e) => {
             
         // ..
         });
-    signInWithEmailAndPassword(auth, email.value, password.value)
-        .then((userCredential) => {
-            // Signed in 
-            signOutBtn.classList.remove("is-hidden");
-            logInBtn.classList.add("is-hidden");
-            logInForm.classList.remove("is-hidden");
-            registrationForm.classList.add("is-hidden");
-            authModal.classList.add("is-hidden");
-            user = userCredential.user;
-            let lgDate = new Date();
-            update(ref(database, 'users/' + user.uid), {
-                last_login: lgDate
-            })
-                .then(() => {
-                    Notiflix.Notify.info('User successfully logged in');
-                // Data saved successfully!
-                })
-                .catch((error) => {
-                // The write failed...
-                    Notiflix.Notify.warning(error);
-                });
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            Notiflix.Notify.warning(errorMessage);
-        });
 });
 
 logInForm.addEventListener("submit", (e) => {
@@ -103,6 +93,8 @@ logInForm.addEventListener("submit", (e) => {
             logInBtn.classList.add("is-hidden");
             authModal.classList.add("is-hidden");
             user = userCredential.user;
+            userUid = user.uid;
+            localStorage.setItem("uid", userUid);
             let lgDate = new Date();
             update(ref(database, 'users/' + user.uid), {
                 last_login: lgDate
@@ -129,6 +121,7 @@ signOutBtn.addEventListener("click", (e) => {
         Notiflix.Notify.info('User successfully signed out');
         signOutBtn.classList.add("is-hidden");
         logInBtn.classList.remove("is-hidden");
+        localStorage.removeItem("uid", userUid);
     // Sign-out successful.
     }).catch((error) => {
         const errorMessage = error.message;
@@ -159,32 +152,38 @@ authCloseBtn.addEventListener("click", (e) => {
     }
 });
 
-// queueBtn.addEventListener("click", (e) => {
-//     e.preventDefault();
+export function setQueuedFilm(filmId){
+    const queuedFilmsListRef = ref(database, 'users/' + user.uid + '/queuedFilms');
+    const newQueuedFilmRef = push(queuedFilmsListRef);
+    set(newQueuedFilmRef, {
+        filmId
+    }).then(() => {
+        alert("success");
+    }).catch((error) => {
+        alert(error);
+    })
+}
 
-//     let filmId = 1212;
-//     const queuedFilmsListRef = ref(database, 'users/' + user.uid + '/queuedFilms');
-//     const newQueuedFilmRef = push(queuedFilmsListRef);
-//     set(newQueuedFilmRef, {
-//         filmId
-//     }).then(() => {
-//         console.log("success");
-//     }).catch((error) => {
-//         alert(error);
-//     })
-// })
+export function getQueuedFilms(){
+    const queuedFilmsListRef = ref(database, 'users/' + user.uid + '/queuedFilms');
+    onValue(queuedFilmsListRef, (DataSnapshot) => {
+        const data = DataSnapshot.val();
+        return data;
+    }).then(() => {
+        alert("success");
+    }).catch((error) => {
+        alert(error);
+    })
+}
 
-// watchedBtn.addEventListener("click", (e) => {
-//     e.preventDefault();
-
-//     let filmId = 3212;
-//     const watchedFilmsListRef = ref(database, 'users/' + user.uid + '/watchedFilms');
-//     const newWatchedFilmRef = push(watchedFilmsListRef);
-//     set(newWatchedFilmRef, {
-//         filmId
-//     }).then(() => {
-//         console.log("success");
-//     }).catch((error) => {
-//         alert(error);
-//     })
-// })
+export function setWatchededFilm(filmId){
+    const watchedFilmsListRef = ref(database, 'users/' + user.uid + '/watchedFilms');
+    const newWatchedFilmRef = push(watchedFilmsListRef);
+    set(newWatchedFilmRef, {
+        filmId
+    }).then(() => {
+        alert("success");
+    }).catch((error) => {
+        alert(error);
+    })
+}
