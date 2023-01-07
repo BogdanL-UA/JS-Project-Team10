@@ -17,13 +17,21 @@ function pagination() {
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',
   };
+   if (window.innerWidth <= 480) {
+    options.visiblePages = 3;
+  } else {
+    options.visiblePages = 5;
+  }
 
   const pagination = new Pagination(refs.pagination, options);
   pagination.reset();
   pagination.on('beforeMove', function (eventData) {
+    refs.gallery.innerHTML = '';
+  });
+  pagination.on('afterMove', function (eventData) {
     filmsApiService.page = eventData.page;
     filmsApiService.fetchTrendFilms().then(films => {
-      refs.gallery.innerHTML = '';
+      
       createMovieCard(films);
     });
   });
@@ -40,17 +48,19 @@ function paginationOnQuery() {
   };
 
   const pagination = new Pagination(refs.pagination, options);
-  // pagination.reset();
+  pagination.reset();
   pagination.on('beforeMove', function (eventData) {
     filmsApiService.page = eventData.page;
     filmsApiService.getFilmsByQuery().then(films => {
-      // filmsApiService.page = 1;
+      filmsApiService.page = 1;
       refs.gallery.innerHTML = '';
       // const markup = createGallery(films.results);
       createGallery(films.results);
       // refs.gallery.innerHTML = createGallery(films.results);
     });
   });
-}
+
+    }
+
 
 export { pagination, paginationOnQuery };

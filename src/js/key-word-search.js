@@ -65,12 +65,15 @@ async function paginationOnQuery() {
   };
 
   const pagination = new Pagination(refs.pagination, options);
-  // pagination.reset();
+  pagination.reset();
   await pagination.on('beforeMove', function (eventData) {
+    refs.gallery.innerHTML = '';
+  });
+  
+  await pagination.on('afterMove', function (eventData) {
     filmsApiService.page = eventData.page;
     filmsApiService.getFilmsByQuery().then(films => {
       filmsApiService.page = 1;
-      refs.gallery.innerHTML = '';
       refs.gallery.innerHTML = createGallery(films.results);
     });
   });

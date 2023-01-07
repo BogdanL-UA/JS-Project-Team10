@@ -47,7 +47,7 @@ export class FilmsApiService {
     const response = await axios.get(
       `${BASE_URL}/movie/${movieId}/videos?api_key=${TMD_KEY}&language=en-US`
     );
-
+this.totalPages = response.data.total_results;
     return response.data;
   }
 
