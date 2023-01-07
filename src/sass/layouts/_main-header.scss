@@ -4,6 +4,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: rgb(14, 15, 18);
 
   @media screen and (min-width: 768px) {
     padding: 45px 32px 25px 32px;
@@ -180,16 +181,25 @@
   &:focus {
     outline: none;
   }
+
+  &::placeholder {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #ffffff;
+    opacity: 1;
+    padding-left: 2px;
+  }
+
+  &:focus::placeholder {
+    opacity: 0;
+    transition: opacity 0.7s $primary-cubic;
+  }
+
+
 }
 
-.search::placeholder {
-  font-family: 'Roboto';
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-
-  color: #ffffff;
-}
 
 .active::after {
   position: absolute;
