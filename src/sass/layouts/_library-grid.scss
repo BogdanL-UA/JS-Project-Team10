@@ -1,5 +1,12 @@
 .message {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__text {
+    @include font(20px, 500, 20px);
+    margin-bottom: 10px;
+  }
 }
 
 .header-library {
@@ -12,7 +19,7 @@
 }
 
 .library-bg {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .library__container {
@@ -96,7 +103,6 @@
 
 .library__poster {
   width: 100%;
-
   margin-bottom: 10px;
   border-radius: 5px;
   cursor: pointer;

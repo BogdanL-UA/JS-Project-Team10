@@ -6,7 +6,8 @@ const backdropteam = document.querySelector('.team-backdrop');
 const closeModal = document.querySelector('.close-modal-btn');
 const teamBuild = ({ teamate, photo, role, git, ln }) => {
   return `<li class="team__item">
-    <img src=${photo} alt="${teamate}" class="team__item-img" />
+
+    <img src=${photo} alt="${teamate}" class="team__item-img" loading="lazy"/>
     <div class="team__item-data">
       <p class="team__item-name">${teamate}</p>
       <p class="team__item-role">${role}</p>
