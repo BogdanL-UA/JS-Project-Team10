@@ -54,7 +54,7 @@ export default [
     photo: photoOlenaVoina,
     role: 'Developer',
     git: 'https://github.com/olli20',
-    ln: 'linkedin.com/in/olena-voina/',
+    ln: 'https://linkedin.com/in/olena-voina/',
   },
   {
     teamate: 'Denys Kinzerskyi',
