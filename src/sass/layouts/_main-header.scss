@@ -51,7 +51,6 @@
         background-image: url('/src/images/main-header/pc@2x.jpg');
       }
     }
-
 }
 
 .header__container {
@@ -74,12 +73,13 @@
     width: 24px;
     height: 24px;
   }
+  
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
 
     &__icon {
-      margin-right: 10px;
+      margin-right: 12px;
       }
     }
 }
@@ -90,9 +90,7 @@
   @media screen and (min-width: 768px) {
     display: block;
     font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 35px;
+    @include font(30px, 500, 35px);
     color: #ffffff;
   }
 }
