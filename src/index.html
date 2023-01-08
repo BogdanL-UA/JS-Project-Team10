@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka</title>
+    <link
+      rel="shortcut icon"
+      href="./images/movie-icon.png"
+      type="image/x-icon"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,10 +16,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./indexHome.js"></script>
-    <script type="module" src="./indexLibrary.js"></script>
   </head>
   <body>
+    <include src="./partials/log-in.html"></include>
     <include src="./partials/main-header.html"></include>
     <include src="./partials/main-grid.html"></include>
     <include src="./partials/modal-movie.html"></include>
@@ -26,5 +30,6 @@
 
     <!-- <include src="./partials/pagination.html"></include> -->
     <include src="./partials/footer.html"></include>
+    <script type="module" src="./index-home.js"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 import { refs } from './refs';
-import trendMovieCardTmpl from './cardTmpl';
-import openMovieModal from './openMovieModal';
+import trendMovieCardTmpl from './card-tmpl';
+import openMovieModal from './open-movie-modal';
 import onFormSubmit from './key-word-search';
 
 function createMovieCard(films) {
@@ -9,7 +9,7 @@ function createMovieCard(films) {
 
   return films.results.map(
     ({ title, release_date, poster_path, id, genre_ids }) => {
-      refs.filmsGallery.insertAdjacentHTML(
+      refs.gallery.insertAdjacentHTML(
         'afterbegin',
         trendMovieCardTmpl({ title, release_date, poster_path, id, genre_ids })
       );

@@ -38,12 +38,29 @@
         @include for-desktop{width: 50%;}
       }
 
-  &__img-wrapper {
-        @include for-tablet{
+    &__img-content{
+      @include for-tablet{
             margin-right: 68px;}
-    
-            @include for-desktop{width: 50%;}
-          }
+
+    @include for-desktop{width: 50%;}
+    }
+
+  &__thumb {
+    width: 240px;
+    height: 357px;
+    margin-bottom: 5px;
+
+    @include for-tablet{
+      width: 264px;
+      height: 374px;
+    }
+
+    @include for-desktop{
+      width: 375px;
+      height: 478px;
+      
+    }
+}
 
   &__template {
     @include for-tablet{
@@ -54,17 +71,10 @@
   }
 
   &__img {
-    width: 240px;
-    height: 357px;
-
-    @include for-tablet{
-      width: 264px;
-      height: 373px;
-    }
-    @include for-desktop{
-      width: 375px;
-      height: 478px;
-    }
+    display: block;
+  height: 100%;
+  width: 100%;
+    object-fit: cover;
   }
 
   &__header {
@@ -153,16 +163,14 @@
   transform: translate(0,0);
   width: auto; left: 0; right: 0;
   height: auto; top: 0; bottom: 0;
-  z-index: 110; /* display above everything else */
-  padding: 20px; /* create padding for inner window - page under modal window will be still visible */
+  z-index: 110; 
+  padding: 20px; 
   background-color: $header-white-color;
   width: 280px;
 
   padding: 48px 20px 40px 20px;
   margin-right: auto;
   margin-left: auto;}
-  
-
 }
 
 .modal-outer {
@@ -171,16 +179,13 @@
   height: 100%;
   position: relative;
   z-index: 120;}
-  
 }
 
 .modal-inner {
   @include for-phone{box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;
   width: 100%;
-  height: auto;       /* allow to fit content (if smaller)... */
-  max-height: 100%;   /* ... but make sure it does not overflow browser window */
+  max-height: 100%; 
 
-  /* allow vertical scrolling if required */
   overflow-x: hidden;
-  overflow-y: auto;}}
-  
+  overflow-y: auto;}
+}  

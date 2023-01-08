@@ -13,19 +13,16 @@
   width: 100%;
 
   @media screen and (min-width: 440px) and (max-width: 767px) {
-      width: 440px;
-    }
+    width: 440px;
+  }
 
-
-  @include for-tablet {
+  @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
     width: 768px;
   }
 
   @include for-desktop {
-    padding-left: 32px;
-    padding-right: 32px;
     width: 1280px;
   }
 }
@@ -40,10 +37,9 @@
   list-style: none;
   margin-bottom: 40px;
   
-    @media screen and (min-width: 768px) {
-      margin-bottom: 60px;
-    }
-
+  @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
+  }
 
   @include for-tablet {
     flex-direction: row;
@@ -53,21 +49,14 @@
 
   @include for-desktop {
     flex-flow: wrap;
-    gap: 32px 16px;
+    gap: 20px;
+    row-gap: 32px;
   }
 }
 
 .movies__item {
   width: 100%;
-
   border-radius: 5px;
-
-  &:hover,
-  &:focus {
-    box-shadow: 0 1px 7px 2px rgb(110 98 140 / 76%);
-    transform: scale(1.03);
-  }
-
 
   @media screen and (min-width: 440px) and (max-width: 767px) {
     width: 400px;
@@ -78,23 +67,13 @@
   }
 
   @include for-desktop {
-    width: calc((100% - 32px) / 3);
+    width: calc((100% - 40px) / 3);
   }
-
-
-  transition: transform 0.3s;
-  transform: scale(1);
-}
-
-.movies__poster {
-  width: 100%;
-  margin-bottom: 10px;
-  cursor: pointer;
 
   &:hover,
   &:focus {
     // box-shadow: 0 1px 7px 2px rgb(110 98 140 / 76%);
-    transform: scale(1.02);
+    transform: scale(1.03);
   }
 
   &:hover .movies__poster,
@@ -103,7 +82,14 @@
   }
 
   transition: transform 0.3s $primary-cubic;
-  transform: scale(1);
+}
+
+.movies__poster {
+  width: 100%;
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  transition: box-shadow 0.3s $primary-cubic;
 }
 
 
@@ -155,7 +141,6 @@
     line-height: 14px;
     text-transform: uppercase;
 
-
   @include for-desktop {
     font-size: 20px;
     line-height: 24px;
@@ -187,11 +172,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-
-  color: #ff6b08;
-
   color: $card-text-accent;
-
 
   @include for-desktop {
     font-size: 20px;
