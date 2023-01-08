@@ -18,7 +18,7 @@ export default function trendMovieCardTmpl({
 
   return `<li class="movies__item" data-id="${id}">
     <div class="movies__poster">
-    <img src="${posterUrl}" alt="${title}" class="movies__image" data-id="${id}" data-target="card"/>
+    <img src="${posterUrl}" alt="${title}" class="movies__image" data-id="${id}" data-target="card" loading="lazy"/>
     </div>
         <div class="movies__meta">
             <p class="movies__title" data-target="card">${title}</p>
