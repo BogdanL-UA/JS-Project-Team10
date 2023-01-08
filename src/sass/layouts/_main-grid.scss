@@ -160,7 +160,9 @@
 .movies__info {
   margin-bottom: 0px;
   font-family: 'Roboto';
-  @include font(12px, 500, 16px);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
   color: $card-text-accent;
 
   @include for-desktop {

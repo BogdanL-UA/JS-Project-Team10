@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { getDatabase, set, ref, update, push, onValue, } from "firebase/database";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyANvf5DboogtJf9gd318qK6ilPZ01xrlU8",
   authDomain: "js-project-team10.firebaseapp.com",
@@ -30,6 +31,7 @@ const firstBtn = document.querySelector(".test-btn1");
 const secondBtn = document.querySelector(".test-btn2");
 const thirdBtn = document.querySelector(".test-btn3");
 
+
 let userUid = localStorage.getItem("uid");
 if (userUid != null  && signOutBtn.classList.contains("is-hidden")) {
     signOutBtn.classList.remove("is-hidden");
@@ -46,12 +48,14 @@ registrationForm.addEventListener('submit', async (e) => {
         .then((userCredential) => {
         // Signed in 
             let user = userCredential.user;
+
             userUid = user.uid;
             localStorage.setItem("uid", userUid);
             set(ref(database, 'users/' + user.uid), {
             email: email.value,
             password: password.value,
             queuedFilms: "[]"
+
             })
             signOutBtn.classList.remove("is-hidden");
             logInBtn.classList.add("is-hidden");
@@ -94,7 +98,9 @@ logInForm.addEventListener("submit", (e) => {
             signOutBtn.classList.remove("is-hidden");
             logInBtn.classList.add("is-hidden");
             authModal.classList.add("is-hidden");
+
             let user = userCredential.user;
+
             userUid = user.uid;
             localStorage.setItem("uid", userUid);
             let lgDate = new Date();

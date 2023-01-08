@@ -8,6 +8,7 @@ import {
 } from './library-buttons-functions';
 import { clearLibraryContainer } from './clear-container';
 import { checkWatched, checkQueue } from './get-from-local-storage';
+
 // let watchedMovies = getFromLocalStorage('watched');
 // let queueMovies = getFromLocalStorage('queue');
 
@@ -66,6 +67,7 @@ const onQueueClick = event => {
 
   if (queueMovies == null || queueMovies.length === 0) {
     refs.message.innerHTML =
+
       '<p class="message__text">Queue is empty</p><image width="300" src="https://thumbs.gfycat.com/AccurateUnfinishedBergerpicard-size_restricted.gif"/>';
     refs.library.innerHTML = '';
     refs.pagination.style.display = 'none';
