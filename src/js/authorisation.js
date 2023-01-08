@@ -27,9 +27,9 @@ const logInBtn = document.querySelector(".log-in-button");
 const signUpBtn = document.querySelector(".sign-up-btn");
 const authModal = document.querySelector("#auth");
 const authCloseBtn = document.querySelector(".authorisation__closeBtn");
-const firstBtn = document.querySelector(".test-btn1");
-const secondBtn = document.querySelector(".test-btn2");
-const thirdBtn = document.querySelector(".test-btn3");
+// const firstBtn = document.querySelector(".test-btn1");
+// const secondBtn = document.querySelector(".test-btn2");
+// const thirdBtn = document.querySelector(".test-btn3");
 
 let userUid = localStorage.getItem("uid");
 if (userUid != null  && signOutBtn.classList.contains("is-hidden")) {
@@ -202,24 +202,24 @@ function removeQueuedFilm(filmId) {
     })
 }
 
-firstBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    setQueuedFilm(122313);
-    setQueuedFilm(442313);
-    setQueuedFilm(333);
-    console.log(filmsInQueue);
-})
+// firstBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     setQueuedFilm(122313);
+//     setQueuedFilm(442313);
+//     setQueuedFilm(333);
+//     console.log(filmsInQueue);
+// })
 
-secondBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    removeQueuedFilm(122313);
-})
+// secondBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     removeQueuedFilm(122313);
+// })
 
-thirdBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    getQueuedFilms();
-    console.log(filmsInQueue);
-})
+// thirdBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     getQueuedFilms();
+//     console.log(filmsInQueue);
+// })
 
 function setWatchedFilm(filmId) {
     getWatchedFilms();
