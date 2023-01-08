@@ -24,13 +24,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -5px;
-  margin-bottom: -2px;
-
-  @media screen and (min-width: 768px) {
-    margin-top: -8px;
-    margin-bottom: -9px;
-  }
+  margin-bottom: 14px;
 }
 
 .library-header__btn {
@@ -69,7 +63,6 @@
 
 @media screen and (min-width: 768px) {
   .header--library {
-    padding-bottom: 81px;
     background-image: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.56),
@@ -115,7 +108,6 @@
 @media screen and (min-width: 1200px) {
 
   .header--library {
-    padding-bottom: 80px;
     background-image: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.56),
@@ -134,15 +126,9 @@
     }
   }
 
-
   .library-header__btn:not(:last-child) {
     margin-right: 16px;
   }
 }
 
-.header__toggle--library {
-  @media screen and (min-width: 768px) {
-    margin-top: -5px;
-  }
-}
 
