@@ -7,8 +7,9 @@
   background-color: rgb(14, 15, 18);
 
   @media screen and (min-width: 768px) {
-    padding: 40px 32px 25px 32px;
+    padding: 37px 32px 25px 32px;
   }
+
 }
 
 .header--main {
@@ -50,9 +51,8 @@
   margin-bottom: 50px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 49px;
+    margin-bottom: 52px;
   }
-
 }
 
 .logo {
@@ -194,10 +194,7 @@
     opacity: 0;
     transition: opacity 0.7s $primary-cubic;
   }
-
-
 }
-
 
 .active::after {
   position: absolute;

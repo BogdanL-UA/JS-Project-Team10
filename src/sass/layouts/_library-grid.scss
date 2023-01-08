@@ -198,7 +198,10 @@
 
 .message__image {
   width: 300px;
-  @media screen and (min-width: 768px) {    
+  @include for-tablet {    
     width: 350px;
+  }
+  @include for-desktop {
+    width: 400px;
   }
 }
