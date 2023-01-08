@@ -11,7 +11,7 @@
   align-items: center;
   visibility: visible;
   opacity: 1;
-  transform: visibility $primary-cubic 250ms, opacity $primary-cubic 250ms;
+  transition: visibility $primary-cubic 250ms, opacity $primary-cubic 250ms;
   .visually-hidden {
     opacity: 0;
     visibility: hidden;
