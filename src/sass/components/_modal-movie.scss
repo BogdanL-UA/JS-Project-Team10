@@ -9,71 +9,89 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility $primary-cubic 250ms, opacity $primary-cubic 250ms;
+  .visually-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 .movie {
   position: relative;
   z-index: 200;
-
-
+  animation-name: changeOpacity;
+  animation-duration: 350ms;
+  &.reverse-opacity {
+    animation-name: changeOpacityReverse;
+    animation-duration: 350ms;
+  }
   @include for-tablet {
-      display: flex;
-      width: 704px;
-      padding: 40px 36px;
-      gap: 68px;
-      background-color: $header-white-color;
+    display: flex;
+    width: 704px;
+    padding: 40px 36px;
+    gap: 68px;
+    background-color: $header-white-color;
   }
 
   @include for-desktop {
-      width: 806px;
-      gap: 16px;
-      padding: 40px 12px;   
-      background-color: $header-white-color;
+    width: 806px;
+    gap: 16px;
+    padding: 40px 12px;
+    background-color: $header-white-color;
   }
 
   &__wrapper {
-    @include for-tablet{
-        width: 264px;}
-
-        @include for-desktop{width: 50%;}
-      }
-
-    &__img-content{
-      @include for-tablet{
-            margin-right: 68px;}
-
-    @include for-desktop{width: 50%;}
+    @include for-tablet {
+      width: 264px;
     }
+
+    @include for-desktop {
+      width: 50%;
+    }
+  }
+
+  &__img-content {
+    @include for-tablet {
+      margin-right: 68px;
+    }
+
+    @include for-desktop {
+      width: 50%;
+    }
+  }
 
   &__thumb {
     width: 240px;
     height: 357px;
     margin-bottom: 5px;
 
-    @include for-tablet{
+    @include for-tablet {
       width: 264px;
       height: 374px;
     }
 
-    @include for-desktop{
+    @include for-desktop {
       width: 375px;
       height: 478px;
-      
     }
-}
+  }
 
   &__template {
-    @include for-tablet{
-    display: flex;}
+    @include for-tablet {
+      display: flex;
+    }
 
     @include for-desktop {
-      display: flex;}
+      display: flex;
+    }
   }
 
   &__img {
     display: block;
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
   }
 
@@ -81,7 +99,7 @@
     @include font(20px, 500 23px);
     margin-bottom: 20px;
 
-    @include for-desktop{
+    @include for-desktop {
       @include font(30px, 500, 35px);
     }
   }
@@ -115,7 +133,6 @@
     width: 36px;
     height: 16px;
   }
-  
 
   &__header-about {
     @include font(12px, 500, 16px);
@@ -130,7 +147,7 @@
     display: flex;
     justify-content: space-between;
 
-    @include for-desktop{
+    @include for-desktop {
       justify-content: start;
       padding-left: 8px;
       gap: 15px;
@@ -154,38 +171,53 @@
   &:hover,
   &:focus {
     background-color: $card-text-accent;
-
   }
 }
 
 .modal {
-  @include for-phone{position: fixed;
-  transform: translate(0,0);
-  width: auto; left: 0; right: 0;
-  height: auto; top: 0; bottom: 0;
-  z-index: 110; 
-  padding: 20px; 
-  background-color: $header-white-color;
-  width: 280px;
+  @include for-phone {
+    position: fixed;
+    transform: translate(0, 0);
+    width: auto;
+    left: 0;
+    right: 0;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    z-index: 110;
+    padding: 20px;
+    background-color: $header-white-color;
+    width: 280px;
 
-  padding: 48px 20px 40px 20px;
-  margin-right: auto;
-  margin-left: auto;}
+    padding: 48px 20px 40px 20px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 .modal-outer {
-  @include for-phone{box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 120;}
+  @include for-phone {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 120;
+  }
 }
 
 .modal-inner {
-  @include for-phone{box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box;
-  width: 100%;
-  max-height: 100%; 
+  @include for-phone {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    width: 100%;
+    max-height: 100%;
 
-  overflow-x: hidden;
-  overflow-y: auto;}
-}  
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}

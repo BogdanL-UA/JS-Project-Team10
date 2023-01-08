@@ -1,11 +1,15 @@
 import { renderLibrary } from './render-library';
 import { refs } from '../refs';
-import { activateWatchedBtn, activateQueueBtn, deactivateWatchedBtn, deactivateQueueBtn } from './library-buttons-functions';
+import {
+  activateWatchedBtn,
+  activateQueueBtn,
+  deactivateWatchedBtn,
+  deactivateQueueBtn,
+} from './library-buttons-functions';
 import { clearLibraryContainer } from './clear-container';
 import { checkWatched, checkQueue } from './get-from-local-storage';
 
-// let watchedMovies = getFromLocalStorage('watched');
-// let queueMovies = getFromLocalStorage('queue');
+const IMG_EMPTY_LIB = '<image class="message__image" src="https://thumbs.gfycat.com/AccurateUnfinishedBergerpicard-size_restricted.gif"/>';
 
 let watchedMovies = checkWatched();
 let queueMovies = checkQueue();
@@ -15,22 +19,23 @@ if (
   (watchedMovies == null || watchedMovies.length === 0) &&
   (queueMovies == null || queueMovies.length === 0)
 ) {
-    //в localstorage нічого немає
-    refs.message.innerHTML = '<p>Library is empty</p>';
-    refs.library.innerHTML = '';
+  //в localstorage нічого немає
+  refs.message.innerHTML =
+    `<p class="message__text">Your library is empty</p>${IMG_EMPTY_LIB}`;
+  refs.library.innerHTML = '';
+  refs.pagination.style.display = 'none';
 } else if (watchedMovies.length > 0) {
-    //в localstorage є переглянуті фільми (пріоритет)
-    activateWatchedBtn();
-    renderLibrary(watchedMovies);
+  //в localstorage є переглянуті фільми (пріоритет)
+  activateWatchedBtn();
+  renderLibrary(watchedMovies);
 } else if (queueMovies.length > 0) {
-    //в localstorage є фільми в черзі
-    activateQueueBtn();
-    renderLibrary(queueMovies);
+  //в localstorage є фільми в черзі
+  activateQueueBtn();
+  renderLibrary(queueMovies);
 }
 
 // колбеки
-const onWatchedClick = (event) => {
-
+const onWatchedClick = event => {
   deactivateQueueBtn();
   activateWatchedBtn();
   clearLibraryContainer();
@@ -39,8 +44,7 @@ const onWatchedClick = (event) => {
   watchedMovies = checkWatched();
 
   if (watchedMovies == null || watchedMovies.length === 0) {
-    refs.message.innerHTML =
-      '<p>List of watches films is empty</p>';
+    refs.message.innerHTML = `<p class="message__text">Your list of watched films is empty</p>${IMG_EMPTY_LIB}`;
     refs.library.innerHTML = '';
     refs.pagination.style.display = 'none';
   } else if (watchedMovies.length > 0) {
@@ -50,8 +54,7 @@ const onWatchedClick = (event) => {
   }
 };
 
-const onQueueClick = (event) => {
-
+const onQueueClick = event => {
   activateQueueBtn();
   deactivateWatchedBtn();
   clearLibraryContainer();
@@ -61,16 +64,15 @@ const onQueueClick = (event) => {
 
   if (queueMovies == null || queueMovies.length === 0) {
     refs.message.innerHTML =
-      '<p>Queue is empty</p>';
+      `<p class="message__text">Your queue is empty</p>${IMG_EMPTY_LIB}`;
     refs.library.innerHTML = '';
     refs.pagination.style.display = 'none';
   } else if (queueMovies.length > 0) {
     refs.message.innerHTML = '';
-     refs.pagination.style.display = 'flex';
+    refs.pagination.style.display = 'flex';
     renderLibrary(queueMovies);
   }
-}
-
+};
 
 // додаємо прослуховувачі подій на кнопки
 refs.headerWatchedBtn.addEventListener('click', onWatchedClick);

@@ -33,7 +33,7 @@ const createLibraryMovieItem = ({
   return `
     <li class="library__item" data-id="${id}">
             <div class="library__poster">
-                <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title}" class="library__image" data-target="card"/>
+                <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title}" class="library__image" loading="lazy" data-target="card"/>
             </div>
             <div class="library__meta">
                 <p class="library__title" data-target="card">${title}</p>
@@ -63,7 +63,6 @@ function renderLibrary(movies) {
       );
       paginationOnLibrary();
     });
-        
 }
 
 async function paginationOnLibrary() {
