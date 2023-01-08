@@ -11,10 +11,6 @@
   }
 }
 
-.library-bg {
-    margin-right: 0;
-}
-
 .library__container {
   padding-left: 20px;
   padding-right: 20px;
@@ -25,16 +21,18 @@
     width: 440px;
   }
 
-  @include for-tablet {
+  @media screen and (min-width: 768px) {
     padding-left: 32px;
     padding-right: 32px;
     width: 768px;
   }
 
   @include for-desktop {
-    padding-left: 32px;
-    padding-right: 32px;
     width: 1280px;
+  }
+
+  @media screen and (min-width: 1600px) {
+    width: 1600px;
   }
 }
 
@@ -77,9 +75,12 @@
     width: calc((100% - 40px) / 3);
   }
 
+  @media screen and (min-width: 1600px) {
+    width: calc((100% - 60px) / 4);
+  }
+
   &:hover,
   &:focus {
-    // box-shadow: 0 1px 7px 2px rgb(110 98 140 / 76%);
     transform: scale(1.03);
   }
 
@@ -96,7 +97,6 @@
 
 .library__poster {
   width: 100%;
-
   margin-bottom: 10px;
   border-radius: 5px;
   cursor: pointer;
@@ -107,6 +107,10 @@
 
   @include for-desktop {
     height: 574px;
+  }
+
+  @media screen and (min-width: 1600px) {
+    height: 560px;
   }
 
   transition: box-shadow 0.3s $primary-cubic;
@@ -121,9 +125,7 @@
 
 .library__title {
   font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
+  @include font(12px, 500, 14px);
   text-transform: uppercase;
 
   @include for-desktop {
@@ -138,15 +140,13 @@
   align-items: center;
   margin-bottom: 0px;
   font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  color: $card-text-accent;
+  @include font(12px, 500, 16px);
 
   @include for-desktop {
-    font-size: 20px;
-    line-height: 24px;
+    @include font(20px, 500, 24px);
   }
+
+  color: $card-text-accent;
 }
 
 .library__genre {
@@ -164,18 +164,15 @@
   align-items: center;
   height: 16px;
   min-width: 36px;
-  padding: 1px 9px;
+  padding-top: 1px;
 
   @include for-desktop {
     height: 20px;
-    padding: 3px 8px;
   }
 
   background-color: $card-text-accent;
   color: white;
   font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
+  @include font(12px, 500, 14px);
   border-radius: 5px;
 }
