@@ -9,8 +9,7 @@ import {
 import { clearLibraryContainer } from './clear-container';
 import { checkWatched, checkQueue } from './get-from-local-storage';
 
-// let watchedMovies = getFromLocalStorage('watched');
-// let queueMovies = getFromLocalStorage('queue');
+const IMG_EMPTY_LIB = '<image class="message__image" src="https://thumbs.gfycat.com/AccurateUnfinishedBergerpicard-size_restricted.gif"/>';
 
 let watchedMovies = checkWatched();
 let queueMovies = checkQueue();
@@ -22,7 +21,7 @@ if (
 ) {
   //в localstorage нічого немає
   refs.message.innerHTML =
-    '<p class="message__text">Library is empty</p><image width="300" src="https://thumbs.gfycat.com/AccurateUnfinishedBergerpicard-size_restricted.gif"/>';
+    `<p class="message__text">Your library is empty</p>${IMG_EMPTY_LIB}`;
   refs.library.innerHTML = '';
   refs.pagination.style.display = 'none';
 } else if (watchedMovies.length > 0) {
@@ -45,9 +44,7 @@ const onWatchedClick = event => {
   watchedMovies = checkWatched();
 
   if (watchedMovies == null || watchedMovies.length === 0) {
-    refs.message.innerHTML = `<p class="message__text">List of watched films is empty</p><image width="300" 
-  src="https://thumbs.gfycat.com/AccurateUnfinishedBergerpicard-size_restricted.gif"
-  />`;
+    refs.message.innerHTML = `<p class="message__text">Your list of watched films is empty</p>${IMG_EMPTY_LIB}`;
     refs.library.innerHTML = '';
     refs.pagination.style.display = 'none';
   } else if (watchedMovies.length > 0) {
@@ -67,8 +64,7 @@ const onQueueClick = event => {
 
   if (queueMovies == null || queueMovies.length === 0) {
     refs.message.innerHTML =
-
-      '<p class="message__text">Queue is empty</p><image width="300" src="https://thumbs.gfycat.com/AccurateUnfinishedBergerpicard-size_restricted.gif"/>';
+      `<p class="message__text">Your queue is empty</p>${IMG_EMPTY_LIB}`;
     refs.library.innerHTML = '';
     refs.pagination.style.display = 'none';
   } else if (queueMovies.length > 0) {
