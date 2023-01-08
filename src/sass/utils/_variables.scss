@@ -26,3 +26,20 @@ $color-gray-transparent: rgba(0, 0, 0, 0.56);
 $primary-font: 'Roboto', 'Raleway', sans-serif;
 $primary-font-size: 14px;
 $primary-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+
+@keyframes changeOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes changeOpacityReverse {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

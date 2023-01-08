@@ -11,7 +11,7 @@ export default function openMovieModal(e) {
   } else {
     const movieCardEl = e.target.closest('li');
     const movieId = movieCardEl.dataset.id;
-
+    document.querySelector('.movie').classList.remove('reverse-opacity');
     document.removeEventListener('click', openMovieModal);
 
     filmsApiService
