@@ -145,9 +145,9 @@ signOutBtn.addEventListener('click', e => {
       Notiflix.Notify.info('User successfully signed out');
       signOutBtn.classList.add('is-hidden');
       logInBtn.classList.remove('is-hidden');
-      localStorage.removeItem('uid', userUid);
-      localStorage.removeItem('watchedMovies');
-      localStorage.removeItem('queueMovies');
+      localStorage.removeItem('uid');
+      localStorage.setItem('watchedMovies', '[]');
+      localStorage.setItem('queueMovies', '[]');
       // Sign-out successful.
     })
     .catch(error => {
