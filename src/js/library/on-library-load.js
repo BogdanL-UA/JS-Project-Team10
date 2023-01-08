@@ -9,10 +9,11 @@ import {
 import { clearLibraryContainer } from './clear-container';
 import { checkWatched, checkQueue } from './get-from-local-storage';
 
-const IMG_EMPTY_LIB = '<image class="message__image" src="https://thumbs.gfycat.com/AccurateUnfinishedBergerpicard-size_restricted.gif"/>';
+const IMG_EMPTY_LIB =
+  '<image class="message__image" src="https://thumbs.gfycat.com/AccurateUnfinishedBergerpicard-size_restricted.gif"/>';
 
-let watchedMovies = checkWatched();
-let queueMovies = checkQueue();
+let watchedMovies = checkWatched() || [];
+let queueMovies = checkQueue() || [];
 
 //перевірка local storage при завантаженні сторінки
 if (
@@ -20,8 +21,7 @@ if (
   (queueMovies == null || queueMovies.length === 0)
 ) {
   //в localstorage нічого немає
-  refs.message.innerHTML =
-    `<p class="message__text">Your library is empty</p>${IMG_EMPTY_LIB}`;
+  refs.message.innerHTML = `<p class="message__text">Your library is empty</p>${IMG_EMPTY_LIB}`;
   refs.library.innerHTML = '';
   refs.pagination.style.display = 'none';
 } else if (watchedMovies.length > 0) {
@@ -63,8 +63,7 @@ const onQueueClick = event => {
   queueMovies = checkQueue();
 
   if (queueMovies == null || queueMovies.length === 0) {
-    refs.message.innerHTML =
-      `<p class="message__text">Your queue is empty</p>${IMG_EMPTY_LIB}`;
+    refs.message.innerHTML = `<p class="message__text">Your queue is empty</p>${IMG_EMPTY_LIB}`;
     refs.library.innerHTML = '';
     refs.pagination.style.display = 'none';
   } else if (queueMovies.length > 0) {

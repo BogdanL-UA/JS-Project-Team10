@@ -31,6 +31,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
 let filmsInQueue;
+let filmsInWatched;
 
 const logInForm = document.querySelector('.log-in__form');
 const registrationForm = document.querySelector('.registration__form');
