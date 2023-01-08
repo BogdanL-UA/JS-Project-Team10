@@ -13,3 +13,8 @@
     @content;
   }
 }
+@mixin for-tablet-phone {
+  @media (min-width: 768px) and (max-height: 500px) {
+    @content;
+  }
+}
