@@ -1,7 +1,7 @@
 import Notiflix from 'notiflix';
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { getDatabase, set, ref, update, push, onValue, DataSnapshot } from "firebase/database";
+import { getDatabase, set, ref, update, push, onValue, } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyANvf5DboogtJf9gd318qK6ilPZ01xrlU8",
@@ -26,8 +26,9 @@ const logInBtn = document.querySelector(".log-in-button");
 const signUpBtn = document.querySelector(".sign-up-btn");
 const authModal = document.querySelector("#auth");
 const authCloseBtn = document.querySelector(".authorisation__closeBtn");
-const watchedBtn = document.querySelector(".movie__watched");
-const queueBtn = document.querySelector(".movie__queue");
+const firstBtn = document.querySelector(".test-btn1");
+const secondBtn = document.querySelector(".test-btn2");
+const thirdBtn = document.querySelector(".test-btn3");
 
 let userUid = localStorage.getItem("uid");
 if (userUid != null  && signOutBtn.classList.contains("is-hidden")) {
@@ -44,12 +45,13 @@ registrationForm.addEventListener('submit', async (e) => {
     await createUserWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
         // Signed in 
-            user = userCredential.user;
+            let user = userCredential.user;
             userUid = user.uid;
             localStorage.setItem("uid", userUid);
             set(ref(database, 'users/' + user.uid), {
             email: email.value,
-            password: password.value
+            password: password.value,
+            queuedFilms: "[]"
             })
             signOutBtn.classList.remove("is-hidden");
             logInBtn.classList.add("is-hidden");
@@ -92,7 +94,7 @@ logInForm.addEventListener("submit", (e) => {
             signOutBtn.classList.remove("is-hidden");
             logInBtn.classList.add("is-hidden");
             authModal.classList.add("is-hidden");
-            user = userCredential.user;
+            let user = userCredential.user;
             userUid = user.uid;
             localStorage.setItem("uid", userUid);
             let lgDate = new Date();
@@ -152,11 +154,16 @@ authCloseBtn.addEventListener("click", (e) => {
     }
 });
 
-export function setQueuedFilm(filmId){
-    const queuedFilmsListRef = ref(database, 'users/' + user.uid + '/queuedFilms');
-    const newQueuedFilmRef = push(queuedFilmsListRef);
-    set(newQueuedFilmRef, {
-        filmId
+function setQueuedFilm(filmId) {
+    data = getQueuedFilms();
+    let queuedFilms = JSON.parse(data);
+
+    queuedFilms.push(filmId);
+    let strQueuedFilms = JSON.stringify(queuedFilms); 
+
+    const newQueuedFilmRef = ref(database, 'users/' + userUid);
+    update(newQueuedFilmRef, {
+        queuedFilms: strQueuedFilms
     }).then(() => {
         alert("success");
     }).catch((error) => {
@@ -164,26 +171,57 @@ export function setQueuedFilm(filmId){
     })
 }
 
-export function getQueuedFilms(){
-    const queuedFilmsListRef = ref(database, 'users/' + user.uid + '/queuedFilms');
-    onValue(queuedFilmsListRef, (DataSnapshot) => {
-        const data = DataSnapshot.val();
-        return data;
-    }).then(() => {
-        alert("success");
-    }).catch((error) => {
-        alert(error);
-    })
-}
+// function getQueuedFilms(){
+//     const queuedFilmsListRef = ref(database, 'users/' + userUid);
+//     onValue(queuedFilmsListRef, (snapshot) => {
+//         const data = snapshot.val();
+//         console.log(data.queuedFilms);
+//         return data.queuedFilms;
+//     })
+// }
 
-export function setWatchededFilm(filmId){
-    const watchedFilmsListRef = ref(database, 'users/' + user.uid + '/watchedFilms');
-    const newWatchedFilmRef = push(watchedFilmsListRef);
-    set(newWatchedFilmRef, {
-        filmId
-    }).then(() => {
-        alert("success");
-    }).catch((error) => {
-        alert(error);
-    })
-}
+// function removeQueuedFilm(filmId) {
+//     let queuedFilms = JSON.parse(getQueuedFilms());
+//     let newQueuedFilms = queuedFilms.splice(queuedFilms.indexOf(filmId), 1);
+//     let strQueuedFilms = JSON.stringify(newQueuedFilms);
+
+//     const newQueuedFilmRef = ref(database, 'users/' + userUid + '/queuedFilms');
+//     set(newQueuedFilmRef, {
+//         strQueuedFilms
+//     }).then(() => {
+//         alert("success");
+//     }).catch((error) => {
+//         alert(error);
+//     })
+// }
+
+// firstBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     setQueuedFilm(122313);
+//     setQueuedFilm(442313);
+//     setQueuedFilm(333);
+//     console.log(getQueuedFilms());
+// })
+
+// secondBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     removeQueuedFilm(122313);
+// })
+
+// thirdBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     let data = getQueuedFilms();
+//     console.log(data);
+// })
+
+// function setWatchededFilm(filmId) {
+//     const watchedFilmsListRef = ref(database, 'users/' + userUid + '/watchedFilms');
+//     const newWatchedFilmRef = push(watchedFilmsListRef);
+//     set(newWatchedFilmRef, {
+//         filmId
+//     }).then(() => {
+//         alert("success");
+//     }).catch((error) => {
+//         alert(error);
+//     })
+// }
