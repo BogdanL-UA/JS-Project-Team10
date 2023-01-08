@@ -1,4 +1,6 @@
 import teamList from './team-list';
+import lnImg from '../images/ld.png';
+import gitImg from '../images/git.png';
 const body = document.body;
 const list = document.querySelector('.team__list');
 const modal = document.querySelector('.goit-students');
@@ -7,21 +9,21 @@ const closeModal = document.querySelector('.close-modal-btn');
 const teamBuild = ({ teamate, photo, role, git, ln }) => {
   return `<li class="team__item">
 
-    <img src=${photo} alt="${teamate}" class="team__item-img" loading="lazy"/>
+    <img src=${photo} alt="${teamate}" class="team__item-img" loading="lazy" width="250"/>
     <div class="team__item-data">
       <p class="team__item-name">${teamate}</p>
       <p class="team__item-role">${role}</p>
       <div class="team__item-wrap">
-        <a href=${git} target="_blank">
+        <a href=${git} target="_blank" class="team__item-link">
           <img width="15" height="15"
-            src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png"
+            src=${gitImg}
             alt=""
             class="team__item-icon"
           />
         </a>
-        <a href=${ln} target="_blank">
+        <a href=${ln} target="_blank" class="team__item-link">
           <img width="15" height="15"
-            src="https://cdn4.iconfinder.com/data/icons/social-media-free-13/32/Linkedin_social_media_logo-512.png"
+            src=${lnImg}
             alt=""
             class="team__item-icon"
           />

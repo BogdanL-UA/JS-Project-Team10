@@ -6,6 +6,9 @@
   padding: 20px;
   margin-top: 10px;
   margin-bottom: auto;
+  animation-name: changeOpacity;
+  animation-duration: 350ms;
+
   @media screen and (min-width: 768px) {
     padding: 32px;
     width: 75%;
@@ -30,9 +33,9 @@
     justify-content: center;
     visibility: visible;
     opacity: 1;
-    transition: opacity linear 950ms, visibility linear 950ms;
+    transition: opacity linear 250ms, visibility linear 250ms;
 
-    &.is-hidden {
+    &.visually-hidden {
       visibility: hidden;
       opacity: 0;
     }
@@ -71,7 +74,7 @@
   box-shadow: 0px 0px 10px 0px #00000040;
   transition: 300ms;
   @media (max-width: 767px) {
-    max-width: 250px;
+    width: 250px;
   }
 
   &:hover {
@@ -111,7 +114,16 @@
   &-icon {
     width: 20px;
   }
-
+  &-link {
+    border-radius: 50%;
+    transition: background-color $primary-cubic 250ms,
+      scale $primary-cubic 250ms;
+    &:hover,
+    &:focus {
+      background-color: $reactangle-color;
+      scale: 1.25;
+    }
+  }
   &-wrap {
     display: flex;
     justify-content: center;
