@@ -12,7 +12,7 @@
   visibility: visible;
   opacity: 1;
   transition: visibility $primary-cubic 250ms, opacity $primary-cubic 250ms;
-  .visually-hidden {
+  &.visually-hidden {
     opacity: 0;
     visibility: hidden;
   }
