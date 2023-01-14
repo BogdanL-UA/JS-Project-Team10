@@ -9,6 +9,15 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
+// import {
+//   setWatchedFilm,
+//   getWatchedFilms,
+//   removeWatchedFilm,
+//   removeQueuedFilm,
+//   getQueuedFilms,
+//   setQueuedFilm,
+
+// } from './authorisation';
 import {
   getDatabase,
   set,
@@ -166,7 +175,7 @@ export default function renderMovieModal({
   disableBodyScroll(refs.movieModal);
 
   const btnWatchedFilms = document.querySelector('.movie__watched');
-  const isWatched = filmsInWatched.includes(id);
+  const isWatched = JSON.parse(filmsInWatched).includes(id);
   if (isWatched) {
     btnWatchedFilms.innerText = 'Remove from watched';
   } else {
@@ -175,27 +184,43 @@ export default function renderMovieModal({
   btnWatchedFilms.addEventListener('click', onWatched);
 
   function onWatched(e) {
-    getWatchedFilms();
-    let watchedFilms = JSON.parse(filmsInWatched) || [];
+    let watchedFilms;
+    if (getWatchedFilms()) {
+      getWatchedFilms().then(
+        data => (watchedFilms = JSON.parse(filmsInWatched) || [])
+      );
+    } else {
+      watchedFilms = JSON.parse(filmsInWatched) || [];
+    }
     const item = document.querySelector(`.library__item[data-id="${id}"]`); //костиль
     const isWatched = watchedFilms.includes(id);
     if (!isWatched) {
-      watchedFilms.push(id);
       e.target.innerText = 'Remove from watched';
-      setWatchedFilm(id);
+      if (setWatchedFilm(id)) {
+        setWatchedFilm(id).then(data => watchedFilms.push(id));
+      } else {
+        watchedFilms.push(id);
+      }
+
       item === null ? 'continue' : item.classList.remove('disable');
     } else {
-      const movieIdIndex = watchedFilms.indexOf(id);
-      removeWatchedFilm(id);
+      const movieWatchedIdIndex = watchedFilms.indexOf(id);
+      if (removeWatchedFilm(id)) {
+        removeWatchedFilm(id).then(data =>
+          watchedFilms.splice(movieWatchedIdIndex, 1)
+        );
+      } else {
+        watchedFilms.splice(movieWatchedIdIndex, 1);
+      }
       e.target.innerText = 'Add to watched';
-
+      localStorage.removeItem('watchedMovies', id);
       item === null ? 'continue' : item.classList.add('disable');
     }
   }
 
   const btnQueueFilms = document.querySelector('.movie__queue');
-  let queueFilms = JSON.parse(filmsInQueue) || [];
-  const isQueue = queueFilms.includes(id);
+  // let queueFilms = JSON.parse(filmsInQueue) || [];
+  const isQueue = JSON.parse(filmsInQueue).includes(id);
   if (isQueue) {
     btnQueueFilms.innerText = 'Remove from queue';
   } else {
@@ -204,20 +229,37 @@ export default function renderMovieModal({
   btnQueueFilms.addEventListener('click', onQueue);
 
   function onQueue(e) {
-    let queueFilms = JSON.parse(filmsInQueue) || [];
+    let queueFilms;
+    if (getQueuedFilms()) {
+      getQueuedFilms().then(
+        data => (queueFilms = JSON.parse(filmsInQueue) || [])
+      );
+    } else {
+      queueFilms = JSON.parse(filmsInQueue) || [];
+    }
+
     const item = document.querySelector(`.library__item[data-id="${id}"]`); //костиль
     const isQueue = queueFilms.includes(id);
 
     if (!isQueue) {
-      queueFilms.push(id);
       e.target.innerText = 'Remove from queue';
-      setQueuedFilm(id);
+      if (setQueuedFilm(id)) {
+        setQueuedFilm(id).then(data => queueFilms.push(id));
+      } else {
+        queueFilms.push(id);
+      }
       item === null ? 'continue' : item.classList.remove('disable');
     } else {
-      const movieQueueIdIndex = queueFilms.indexOf(id);
-      queueFilms.splice(movieQueueIdIndex, 1);
       e.target.innerText = 'Add to queue';
-      removeQueuedFilm(id);
+      const movieQueueIdIndex = queueFilms.indexOf(id);
+      if (removeQueuedFilm(id)) {
+        removeQueuedFilm(id).then(data =>
+          queueFilms.splice(movieQueueIdIndex, 1)
+        );
+      } else {
+        queueFilms.splice(movieQueueIdIndex, 1);
+      }
+
       item === null ? 'continue' : item.classList.add('disable');
     }
   }
